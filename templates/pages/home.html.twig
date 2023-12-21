@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Strona główna{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+<div class="navigation">
+    {% block sidebar %}
+        <nav id="items">
+            <a href="/">Strona główna</a>
+            <a href="/gallery_page">Galeria</a>
+            <a href="/offer_page">Oferty</a>
+            <a href="/orders_page">Zamówienia</a>
+            <a href="/pricing_page">Wycena</a>
+            <a href="/complaints_page">Reklamacje</a>
+            <a href="/contact_page">Kontakt</a>
+            <a href="">Logowanie</a>
+        </nav>
+    {% endblock %}
+</div>
+    <div class="content">
+        {% block content %}
+            <div id="content-home-element">
+                Element strony!
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class="footer">
+        Wszelkie prawa zastrzeżone &#x000A9; 2024 Mateusz Mroczkowski
+    </div>
+{% endblock %}

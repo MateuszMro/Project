@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+luckyNumber:
+    path: /loginPage
+    controller: App\Controller\UserController::login
+

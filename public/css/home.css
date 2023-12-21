@@ -1,0 +1,39 @@
+
+
+.navigation{
+    margin-top: 5rem;
+    margin-left: 10rem;
+}
+
+
+
+.content{
+    margin-top: 5rem;
+    margin-left: 10rem;
+
+}
+#content-home-element{
+    background: green;
+}
+
+
+#contact{
+    background: red;
+}
+
+#complaints{
+    background: bisque;
+}
+
+#offer{
+    background: #3b82f6;
+}
+
+
+
+.footer{
+    margin-top: 2rem;
+    background: bisque;
+    font-size: 13px;
+    margin-left: 10rem;
+}
