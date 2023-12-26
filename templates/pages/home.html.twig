@@ -7,6 +7,11 @@
 {% block body %}
 <div class="navigation">
     {% block sidebar %}
+        <div class="logo">
+            <div class="napis">
+                <a href="/">KUCHNIE</a>
+            </div>
+        </div>
         <nav id="items">
             <a href="/">Strona główna</a>
             <a href="/gallery_page">Galeria</a>
@@ -22,13 +27,13 @@
     <div class="content">
         {% block content %}
             <div id="content-home-element">
-                Element strony!
+
             </div>
         {% endblock %}
     </div>
 {% endblock %}
 {% block footer %}
     <div class="footer">
-        Wszelkie prawa zastrzeżone &#x000A9; 2024 Mateusz Mroczkowski
+        <p> Wszelkie prawa zastrzeżone &#x000A9; 2024 Mateusz Mroczkowski</p>
     </div>
 {% endblock %}

@@ -1,39 +1,113 @@
 
 
-.navigation{
-    margin-top: 5rem;
-    margin-left: 10rem;
+.navigation {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border: 2px solid silver;
+    box-shadow: 1px 1px 1px 1px #888888;
+}
+.napis a{
+    font-family: Oswald, sans-serif;
+    font-size: 70px;
+    color: black;
+    text-transform: uppercase;
+    border: 14px solid #fff;
+    border-radius: .2em;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.logo{
+    padding-right: 75%;
+}
+#items{
+    margin-left: 40px;
+}
+#items a{
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: white;
+    border: 2px solid antiquewhite;
+    margin-left: 10px;
+}
+#items a:hover{
+    background-color: antiquewhite;
+    color: white;
 }
 
+#items a:nth-child(8){
+    margin-left: 250px;
+}
 
 
 .content{
     margin-top: 5rem;
-    margin-left: 10rem;
+    margin-left: 11rem;
+    margin-right: 11rem;
 
-}
-#content-home-element{
-    background: green;
 }
 
 
-#contact{
-    background: red;
-}
 
-#complaints{
-    background: bisque;
-}
+
 
 #offer{
-    background: #3b82f6;
+
 }
 
+#gallery p{
+    font-family: Oswald, sans-serif;
+    font-size: 17px;
+    color: black;
+    text-transform: uppercase;
+    border: 3px solid black;
+    border-radius: .2em;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+    margin-right: 55%;
+}
+.kitchen_1{
+    display: flex;
+    justify-content: start;
+}
 
-
+.offer_content p{
+    display: flex;
+    justify-content: start;
+    margin-right: 50%;
+}
 .footer{
-    margin-top: 2rem;
     background: bisque;
     font-size: 13px;
-    margin-left: 10rem;
+    padding: 100px 50px 100px 70px;
+}
+
+.contact_box{
+    padding: 150px 50px 200px 70px;
+    background: #888888;
+
+}
+
+.contact_box h1,h3{
+    color:white;
+    font-family: Arial;
+    margin-left: 5rem;
+}
+.contact_box a{
+    color: white;
+    text-decoration: none;
+    margin-left: 5rem;
+}
+
+.footer p{
+    display: flex;
+    justify-content: start;
+    align-items: end;
 }
