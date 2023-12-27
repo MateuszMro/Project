@@ -1,3 +1,6 @@
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
 
 
 .navigation {
@@ -41,23 +44,10 @@
     color: white;
 }
 
-#items a:nth-child(8){
-    margin-left: 40rem;
-}
-
-
 .content{
     margin-top: 5rem;
     margin-left: 11rem;
     margin-right: 11rem;
-
-}
-
-
-
-
-
-#offer{
 
 }
 
@@ -76,6 +66,7 @@
 .kitchen_1{
     display: flex;
     justify-content: start;
+    margin-bottom: 40px;
 }
 
 .offer_content p{
@@ -83,28 +74,20 @@
     justify-content: start;
     margin-right: 50%;
 }
+
 .footer{
     background: bisque;
     font-size: 13px;
     padding: 100px 50px 100px 70px;
 }
 
-.contact_box{
-    padding: 150px 50px 200px 70px;
-    background: #888888;
-
+.kitchen_images{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
-.contact_box h1,h3{
-    color:white;
-    font-family: Arial;
-    margin-left: 5rem;
-}
-.contact_box a{
-    color: white;
-    text-decoration: none;
-    margin-left: 5rem;
-}
+
 
 .footer p{
     display: flex;

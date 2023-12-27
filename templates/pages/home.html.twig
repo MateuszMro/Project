@@ -2,7 +2,7 @@
 
 {% block title %}Strona główna{% endblock %}
 {% block stylesheets %}
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet"/>
+    {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block body %}
 <div class="navigation">
@@ -20,15 +20,13 @@
             <a href="/pricing_page">Wycena</a>
             <a href="/complaints_page">Reklamacje</a>
             <a href="/contact_page">Kontakt</a>
-            <a href="">Logowanie</a>
+            <a class="" href="">Logowanie</a>
         </nav>
     {% endblock %}
 </div>
     <div class="content">
         {% block content %}
-            <div id="content-home-element">
 
-            </div>
         {% endblock %}
     </div>
 {% endblock %}
