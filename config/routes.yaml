@@ -4,7 +4,20 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-luckyNumber:
-    path: /loginPage
-    controller: App\Controller\UserController::login
+
+homePage:
+    path: /
+    controller: App\Controller\HomePageController::index
+galleryPage:
+    path: /gallery
+    controller: App\Controller\GalleryPageController::index
+offerPage:
+    path: /offer
+    controller: App\Controller\OfferPageController::index
+contactPage:
+    path: /contact
+    controller: App\Controller\ContactPageController::index
+loginPage:
+    path: /login
+    controller: App\Controller\LoginController::index
 

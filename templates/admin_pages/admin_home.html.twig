@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Strona główna{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+    <div class="navigation">
+        {% block sidebar %}
+            <div class="logo">
+                <div class="napis">
+                    <a href="/admin/">KUCHNIE</a>
+                </div>
+            </div>
+            <nav id="items">
+                <a href="/admin/">Strona główna</a>
+                <a href="/admin/gallery_page">Galeria</a>
+                <a href="/admin/offer_page">Oferty</a>
+                <a href="/admin/orders_page">Zamówienia</a>
+{#                <a href="/admin/pricing_page">Wycena</a>#}
+                <a href="/admin/complaints_page">Reklamacje</a>
+                <a href="/admin/contact_page">Kontakt</a>
+                <a href="">Lista klientów</a>
+                <a href="/">Wyloguj</a>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="content">
+        {% block content %}
+            Admin
+        {% endblock %}
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class="footer">
+        <p> Wszelkie prawa zastrzeżone &#x000A9; 2024 Mateusz Mroczkowski</p>
+    </div>
+{% endblock %}

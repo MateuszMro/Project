@@ -6,12 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomePageController extends AbstractController
+class RemindPassword extends AbstractController
 {
-    #[Route('/', name: 'homepage')]
+    #[Route('/remind_password', name: 'remind_password')]
     public function index(): Response
     {
-        return $this->render('pages/home.html.twig', [
+        return $this->render('login/remind_password.html.twig', [
 
         ]);
     }
