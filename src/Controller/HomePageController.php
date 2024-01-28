@@ -11,6 +11,7 @@ class HomePageController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
+        session_unset();
         return $this->render('pages/home.html.twig', [
 
         ]);

@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RemindPassword extends AbstractController
+session_unset();
+class LogoutController extends AbstractController
 {
-    #[Route('/remind_password', name: 'remind_password')]
+    #[Route('/logout', name: 'logout_page')]
     public function index(): Response
     {
-        session_unset();
-        return $this->render('login/remind_password.html.twig', [
-
+        return $this->render('pages/home.html.twig', [
+            'controller_name' => 'Oferty',
         ]);
     }
 }

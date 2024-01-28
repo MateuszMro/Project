@@ -61,7 +61,7 @@ class Users
 
     public function setPassword(string $Password): static
     {
-        $this->Password = $Password;
+        $this->Password = password_hash($Password, PASSWORD_BCRYPT);
 
         return $this;
     }

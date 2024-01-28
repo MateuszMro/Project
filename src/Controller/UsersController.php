@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,6 +19,13 @@ class UsersController extends AbstractController
         //  php bin/console dbal:run-sql "INSERT INTO Users VALUES (1,'Mateusz','Mati@wp.pl','123','login')"
         //  php bin/console dbal:run-sql "UPDATE Users SET role='user' WHERE login='login'"
 
+        if(isset($_SESSION['Login_ROLE_ADMIN'])){
+            return new RedirectResponse($this->generateUrl('admin_homepage'));
+        }
+        elseif (isset($_SESSION['Login_ROLE_USER'])){
+            return new RedirectResponse($this->generateUrl('user_homepage'));
+
+        }
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $login=trim($_POST['login']);
             $email=trim($_POST['email']);
@@ -28,7 +36,7 @@ class UsersController extends AbstractController
                 $users->setEmail($email);
                 $users->setLogin($login);
                 $users->setPassword($password);
-                $users->setRole('guest');
+                $users->setRole('ROLE_USER');
                 $entityManager->persist($users);
                 $entityManager->flush();
             }

@@ -11,6 +11,7 @@ class ContactPageController extends AbstractController
     #[Route('/contact_page', name: 'contact_page')]
     public function index(): Response
     {
+        session_unset();
         return $this->render('pages/contact.html.twig', [
 
         ]);
