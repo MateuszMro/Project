@@ -11,6 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UsersController extends AbstractController
 {
+    private $entityManager;
+    public function __construct(EntityManagerInterface $entityManagers){
+        $this->entityManager=$entityManagers;
+    }
     #[Route('/register', name: 'register')]
     public function index(EntityManagerInterface $entityManager): Response
     {
@@ -18,7 +22,9 @@ class UsersController extends AbstractController
         //  php bin/console dbal:run-sql "DELETE FROM Users WHERE password='mati1'"
         //  php bin/console dbal:run-sql "INSERT INTO Users VALUES (1,'Mateusz','Mati@wp.pl','123','login')"
         //  php bin/console dbal:run-sql "UPDATE Users SET role='user' WHERE login='login'"
-
+        $errorLogin=false;
+        $errorPassword=false;
+        $succesfull=false;
         if(isset($_SESSION['Login_ROLE_ADMIN'])){
             return new RedirectResponse($this->generateUrl('admin_homepage'));
         }
@@ -32,13 +38,25 @@ class UsersController extends AbstractController
             $password =trim($_POST['password']);
             $password_rep =trim($_POST['password_rep']);
             $users = new Users();
-            if($password == $password_rep){
-                $users->setEmail($email);
-                $users->setLogin($login);
-                $users->setPassword($password);
-                $users->setRole('ROLE_USER');
-                $entityManager->persist($users);
-                $entityManager->flush();
+            // Sprawdza czy użytkownik istnieje w bazie danych
+            $userRepository = $this->entityManager->getRepository(Users::class);
+            $user = $userRepository->findOneBy(['Login'=>$login]);
+            if(!$user){
+                if($password === $password_rep){
+                    $users->setLogin($login);
+                    $users->setPassword($password);
+                    $users->setEmail($email);
+                    $users->setRole('ROLE_USER');
+                    $this->entityManager->persist($users);
+                    $this->entityManager->flush();
+                    $succesfull=true;
+                }
+                else{
+                    $errorPassword=true;
+                }
+            }
+            else{
+                $errorLogin =true;
             }
         }
 
@@ -56,7 +74,9 @@ class UsersController extends AbstractController
         //return new Response('Saved' .$login->getId());
 
         return $this->render('login/register.html.twig', [
-            'controller_name' => 'UsersController',
+            'errorLogin' => $errorLogin,
+            'errorPassword'=>$errorPassword,
+            'succesfull' => $succesfull,
 
         ]);
 
