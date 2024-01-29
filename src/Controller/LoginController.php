@@ -39,16 +39,19 @@ class LoginController extends AbstractController
             if($user && password_verify($password,$user->getPassword())){
                 //Poprawne logowanie
                 $roles = $user->getRole();
+                $email = $user->getEmail();
+                $_SESSION['user']=$login;
+                $_SESSION['email']=$email;
+                $_SESSION['role']=$roles;
 
                 if($roles === 'ROLE_ADMIN'){
                     $_SESSION['Login_ROLE_ADMIN']=true;
-                    $_SESSION['user']=$login;
 
                     return new RedirectResponse($this->generateUrl('admin_homepage'));
                 }
                 elseif ($roles==='ROLE_USER'){
                     $_SESSION['Login_ROLE_USER']=true;
-                    $_SESSION['user']=$login;
+
 
                     return $this->redirectToRoute('user_homepage');
                 }

@@ -11,11 +11,8 @@
                 <div class="napis">
                     <a href="/user/">KUCHNIE</a>
                 </div>
-                <div>
-                    <h1>Witaj {{ username }}</h1>
-                </div>
             </div>
-            <nav class="flex justify-center" id="items">
+            <nav class="" id="items">
                 <a href="/user/">Strona główna</a>
                 <a href="/user/gallery_page">Galeria</a>
                 <a href="/user/offer_page">Oferty</a>
@@ -24,6 +21,7 @@
                 <a href="/user/contact_page">Kontakt</a>
                 <a href="/user/settings">Ustawienia konta</a>
                 <a href="/logout">Wyloguj</a>
+                <h1 class="float-right mr-24 text-3xl"><strong>Witaj</strong> {{ username }}</h1>
             </nav>
         {% endblock %}
     </div>
