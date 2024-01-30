@@ -18,9 +18,13 @@ class UserHomeController extends AbstractController
         }
 
         $username = $_SESSION['user'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
 
         return $this->render('user_pages/user_home.html.twig', [
             'username'=>$username,
+            'email'=>$email,
+            'role'=>$role,
         ]);
     }
 }

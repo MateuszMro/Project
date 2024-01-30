@@ -12,18 +12,24 @@
                     <a href="/admin/">KUCHNIE</a>
                 </div>
             </div>
-
-            <nav class="" id="items">
-                <a href="/admin/">Strona główna</a>
-                <a href="/admin/gallery_page">Galeria</a>
-                <a href="/admin/offer_page">Oferty</a>
-                <a href="/admin/orders_page">Zamówienia</a>
-                <a href="/admin/complaints_page">Reklamacje</a>
-                <a href="/admin/contact_page">Kontakt</a>
-                <a href="/admin/account_list">Lista klientów</a>
-                <a href="/admin/settings">Ustawienia konta</a>
-                <a href="/logout">Wyloguj</a>
-                <h1 class="float-right mr-24 text-3xl"><strong>Witaj</strong> {{ username }}</h1>
+            <nav>
+                <ul class="list-none m-0 p-0 overflow-hidden bg-gray-800">
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/">Strona główna</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/gallery_page">Galeria</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/offer_page">Oferty</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/orders_page">Zamówienia</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/complaints_page">Reklamacje</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/contact_page">Kontakt</a></li>
+                    <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/admin/account_list">Lista klientów</a></li>
+                    <li id="dropdown" class="float-right mr-12"><a class="inline-block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="">Witaj <strong>{{ username }}</strong></a>
+                        <div id="dropdown-content" class="hidden absolute bg-gray-100 z-10 min-w-full shadow-md mr-20">
+                            <p class="hover:bg-gray-400 block text-black no-underline py-4 px-4 border-b-2 border-neutral-100 p-1 dark:border-neutral-300"><b>Email</b><br>{{email}}</p>
+                            <p class="hover:bg-gray-400 block text-black no-underline py-4 px-4 border-b-2 border-neutral-100 p-1 dark:border-neutral-300"><b>Rola</b><br>Administrator</p>
+                            <a href="/admin/settings" class="hover:bg-gray-400 block text-black no-underline py-4 px-4 border-b-2 border-neutral-100 p-1 dark:border-neutral-300">Ustawienia konta</a>
+                            <a href="/logout" class="hover:bg-gray-400 block text-black no-underline py-4 px-4 border-b-2 border-neutral-100 p-1 dark:border-neutral-300">Wyloguj</a>
+                        </div>
+                    </li>
+                </ul>
             </nav>
         {% endblock %}
     </div>

@@ -16,8 +16,12 @@ class AdminGalleryPageController extends AbstractController
             return new RedirectResponse($this->generateUrl('login'));
         }
         $username = $_SESSION['user'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
         return $this->render('admin_pages/admin_gallery.html.twig', [
             'username'=>$username,
+            'email'=>$email,
+            'role'=>$role,
         ]);
     }
 }

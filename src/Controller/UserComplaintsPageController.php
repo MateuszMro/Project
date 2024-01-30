@@ -16,8 +16,12 @@ class UserComplaintsPageController extends AbstractController
             return new RedirectResponse($this->generateUrl('login'));
         }
         $username = $_SESSION['user'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
         return $this->render('user_pages/user_complaints.html.twig', [
             'username'=>$username,
+            'email'=>$email,
+            'role'=>$role,
         ]);
     }
 }
