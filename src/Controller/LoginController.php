@@ -25,6 +25,7 @@ class LoginController extends AbstractController
         $errors=$authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
         $warning=false;
+        $unconfirmedAccount=false;
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $login = $_POST['_username'];
             $password =$_POST['password'];
@@ -40,20 +41,21 @@ class LoginController extends AbstractController
                 //Poprawne logowanie
                 $roles = $user->getRole();
                 $email = $user->getEmail();
+                $confirmAccount = $user->getConfirmAccount();
                 $_SESSION['user']=$login;
                 $_SESSION['email']=$email;
                 $_SESSION['role']=$roles;
 
-                if($roles === 'ROLE_ADMIN'){
+                if($roles === 'ROLE_ADMIN' && $confirmAccount === 'Aktywne'){
                     $_SESSION['Login_ROLE_ADMIN']=true;
-
                     return new RedirectResponse($this->generateUrl('admin_homepage'));
                 }
-                elseif ($roles==='ROLE_USER'){
+                elseif ($roles==='ROLE_USER' && $confirmAccount==='Aktywne'){
                     $_SESSION['Login_ROLE_USER']=true;
-
-
                     return $this->redirectToRoute('user_homepage');
+                }
+                else{
+                    $unconfirmedAccount=true;
                 }
             }
             else{
@@ -68,6 +70,7 @@ class LoginController extends AbstractController
             'last_username' => $lastUsername,
             'errors'         => $errors,
             'warning'=> $warning,
+            'unconfirmedAccount' => $unconfirmedAccount,
         ]);
     }
 }

@@ -25,6 +25,12 @@ class Users
     #[ORM\Column(length: 255)]
     private ?string $Role = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ConfirmCode = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ConfirmAccount = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +80,30 @@ class Users
     public function setRole(string $Role): static
     {
         $this->Role = $Role;
+
+        return $this;
+    }
+
+    public function getConfirmCode(): ?string
+    {
+        return $this->ConfirmCode;
+    }
+
+    public function setConfirmCode(?string $ConfirmCode): static
+    {
+        $this->ConfirmCode = $ConfirmCode;
+
+        return $this;
+    }
+
+    public function getConfirmAccount(): ?string
+    {
+        return $this->ConfirmAccount;
+    }
+
+    public function setConfirmAccount(string $ConfirmAccount): static
+    {
+        $this->ConfirmAccount = $ConfirmAccount;
 
         return $this;
     }

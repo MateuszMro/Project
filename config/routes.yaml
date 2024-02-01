@@ -20,4 +20,7 @@ contactPage:
 loginPage:
     path: /login
     controller: App\Controller\LoginController::index
+confirm_register:
+    path: '/confirm/{code}'
+    controller: App\Controller\ConfirmController::index
 
