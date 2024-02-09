@@ -3,38 +3,199 @@
 {% block title %}Strona główna{% endblock %}
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Pobierz elementy dropdownu użytkownika
+            var userDropdownBtn = document.getElementById("user-dropdown-btn");
+            var userDropdownMenu = document.getElementById("user-dropdown-menu");
+
+            // Pokaż lub ukryj dropdown po kliknięciu na przycisk
+            userDropdownBtn.addEventListener("click", function() {
+                userDropdownMenu.classList.toggle("hidden");
+            });
+
+            // Ukryj dropdown po kliknięciu poza dropdownem
+            document.addEventListener("click", function(event) {
+                if (!userDropdownMenu.contains(event.target) && !userDropdownBtn.contains(event.target)) {
+                    userDropdownMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
 {% endblock %}
 {% block body %}
-<div class="navigation">
-    {% block sidebar %}
-        <div class="logo">
-            <div class="napis">
-                <a href="/">KUCHNIE</a>
-            </div>
-        </div>
-        <nav>
-            <ul class="list-none m-0 p-0 overflow-hidden bg-gray-800">
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/">Strona główna</a></li>
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/gallery">Galeria</a></li>
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/offer">Oferty</a></li>
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/contact">Kontakt</a></li>
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/register">Rejestracja</a></li>
-                <li class="float-left"><a class="block text-white text-center py-6 px-6 no-underline hover:bg-gray-700" href="/login">Logowanie</a></li>
-            </ul>
-        </nav>
-    {% endblock %}
-</div>
-    <div class="content">
+<body class="flex flex-col min-h-screen z-5">
+
+        {% block sidebar %}
+            <nav id="navbar" class="bg-gray-800 py-4 fixed top-0 left-0 w-full z-10 backdrop-blur bg-opacity-90">
+                <div class="container mx-auto flex justify-between items-center">
+                    <!-- Logo -->
+                    <a href="#" class="text-white text-lg font-bold">Logo</a>
+
+                    <!-- Links -->
+                    <div class="items-center hidden space-x-8 lg:flex">
+                        <a href="/" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                            <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Strona główna
+                            </span>
+                        </a>
+                        <a href="/gallery" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                            <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Galeria
+                            </span>
+                        </a>
+                        <a href="/offer" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                            <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Oferty
+                            </span>
+                        </a>
+                        <a href="/contact" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                            <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Kontakt
+                            </span>
+                        </a>
+                    </div>
+
+                    {% if app.user %}
+                    <!-- Dropdown -->
+                        <div class="relative">
+                            <button id="user-dropdown-btn" class="text-white focus:outline-none px-5">
+                                <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
+                                    <span class="flex gap-2">
+                                        <img class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/a/AGNmyxbSlMgTRzE3_SMIxpDAhpNad-_CN5_tmph1NQ1KhA=s96-c" alt="">
+                                        <span class="flex items-center">
+                                            {{ app.user.login }}
+                                        </span>
+                                    </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                            </button>
+
+                            <div id="user-dropdown-menu" class="absolute top-full left-0 right-0 bg-white shadow-md rounded-lg mt-2 hidden px-2 pb-4 min-w-full">
+                                <ul class="flex flex-col gap-4 pl-2 mt-4 ">
+                                    <li class="flex gap-2 ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z">
+                                            </path>
+                                        </svg>
+                                        <a href="" class="">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <hr>
+
+                                    <li class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z">
+                                            </path>
+                                        </svg>
+                                        <a href="">
+                                            Study Lists
+                                        </a>
+                                    </li>
+                                    <hr>
+
+                                    <li class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12l-3-3m0 0l-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z">
+                                            </path>
+                                        </svg>
+                                        <a href="">
+                                            Your contribution
+                                        </a>
+                                    </li>
+                                    <hr>
+
+                                    <li class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+                                            </path>
+                                        </svg>
+                                        <a href="">
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <hr>
+
+                                    <li class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z" />
+                                        </svg>
+                                        <a href="/logout" class="">Wyloguj</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="/register" class="flex hover:text-blue-300
+                                cursor-pointer transition-colors duration-300
+                                font-semibold text-white float-left mr-12">
+
+                                <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                     viewBox="0 0 24 24">
+                                    <path d="M12 0L11.34 .03L15.15 3.84L16.5 2.5C19.75 4.07 22.09 7.24 22.45 11H23.95C23.44 4.84 18.29 0 12 0M12 4C10.07 4 8.5 5.57 8.5 7.5C8.5 9.43 10.07 11 12 11C13.93 11 15.5 9.43 15.5 7.5C15.5 5.57 13.93 4 12 4M12 6C12.83 6 13.5 6.67 13.5 7.5C13.5 8.33 12.83 9 12 9C11.17 9 10.5 8.33 10.5 7.5C10.5 6.67 11.17 6 12 6M.05 13C.56 19.16 5.71 24 12 24L12.66 23.97L8.85 20.16L7.5 21.5C4.25 19.94 1.91 16.76 1.55 13H.05M12 13C8.13 13 5 14.57 5 16.5V18H19V16.5C19 14.57 15.87 13 12 13M12 15C14.11 15 15.61 15.53 16.39 16H7.61C8.39 15.53 9.89 15 12 15Z" />
+                                </svg>
+                                <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                    before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                    before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Rejestracja
+                                </span>
+                            </a>
+                            <a href="/login" class="flex hover:text-blue-300
+                                cursor-pointer transition-colors duration-300
+                                font-semibold text-white">
+
+                                <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                     viewBox="0 0 24 24">
+                                    <path d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
+                                </svg>
+                                <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                    before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                    before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                Logowanie
+                                 </span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </nav>
+        {% endblock %}
+
+    <div id="content" class="flex-1 container my-24 mx-auto md:px-6">
         {% block content %}
+            <div>
 
-
+            </div>
         {% endblock %}
     </div>
+</body>
 {% endblock %}
 {% block footer %}
     <!-- Footer container -->
-    <footer
-            class="bg-gray-800 text-center text-neutral-600 lg:text-left">
+    <footer class="bg-gray-800 text-center text-neutral-600 lg:text-left py-4 bottom-0 w-full">
         <div
                 class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
             <div class="mr-12 hidden lg:block">
@@ -130,8 +291,7 @@
                 </div>
                 <!-- Products section -->
                 <div class="text-neutral-600 dark:text-neutral-200">
-                    <h6
-                            class="mb-4 flex justify-center font-semibold uppercase md:justify-start ">
+                    <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start ">
                         Products
                     </h6>
                     <p class="mb-4">
@@ -148,8 +308,7 @@
                 </div>
                 <!-- Useful links section -->
                 <div class="text-neutral-600 dark:text-neutral-200">
-                    <h6
-                            class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+                    <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                         Useful links
                     </h6>
                     <p class="mb-4">
@@ -157,19 +316,20 @@
                         >Kontakt</a
                         >
                     </p>
+
                     <p class="mb-4">
-                        <a href="/login" class="text-neutral-600 dark:text-neutral-200"
-                        >Logowanie</a
+                        <a href="/{{ app.user ? '' : 'login' }}" class="text-neutral-600 dark:text-neutral-200"
+                        >{{ app.user ? '' : 'Zaloguj'  }}</a
                         >
                     </p>
                     <p class="mb-4">
-                        <a href="/register" class="text-neutral-600 dark:text-neutral-200"
-                        >Rejestracja</a
+                        <a href="/{{ app.user ? '' : 'register' }}" class="text-neutral-600 dark:text-neutral-200"
+                        >{{ app.user ? '' : 'Rejestracja' }}</a
                         >
                     </p>
                     <p class="mb-4">
-                        <a href="/remind_password" class="text-neutral-600 dark:text-neutral-200"
-                        >Przypomnij hasło</a
+                        <a href="/{{ app.user ? '' : 'reset_password' }}" class="text-neutral-600 dark:text-neutral-200"
+                        >{{ app.user ? '' : 'Resetuj hasło'}}</a
                         >
                     </p>
                 </div>
@@ -190,7 +350,7 @@
                             <path
                                     d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                         </svg>
-                        Warszawa, ul. Przykładowa 10c
+                        Słupsk, ul. Przykładowa 10c
                     </p>
                     <p class="mb-4 flex items-center justify-center md:justify-start">
                         <svg

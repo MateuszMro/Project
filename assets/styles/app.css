@@ -1,38 +1,21 @@
 @import "tailwindcss/base.css";
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* Show the dropdown menu on hover */
-#dropdown:hover #dropdown-content {display: block;}
-
-
-
-.navigation {
-    margin-top: 20px;
-    padding-bottom: 10px;
-
-}
-.napis a{
-    font-family: Oswald, sans-serif;
-    font-size: 70px;
-    color: black;
+#navbar{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
     text-transform: uppercase;
-    border: 14px solid #fff;
-    border-radius: .2em;
-    margin-bottom: 10px;
-    display: block;
-    text-decoration: none;
-    margin-left: 40px;
-}
-.logo{
-    padding-right: 75%;
 }
 
-.content{
-    margin-top: 5rem;
-    margin-left: 11rem;
-    margin-right: 11rem;
 
+
+
+
+html, body{
+    height: 100%;
 }
 
 #gallery p{
@@ -47,6 +30,7 @@
     display: block;
     margin-right: 55%;
 }
+
 .kitchen_1{
     display: flex;
     justify-content: start;
@@ -59,11 +43,7 @@
     margin-right: 50%;
 }
 
-.footer{
-    background: bisque;
-    font-size: 13px;
-    padding: 100px 50px 100px 70px;
-}
+
 
 .kitchen_images{
     display: flex;
