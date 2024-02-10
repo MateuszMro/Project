@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientsRepository;
+use DateTime;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -38,9 +40,18 @@ class Clients implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $confirmAccount = null;
 
+    #[ORM\Column( nullable: true)]
+    private ?string $createdDate = null;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id):static
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -146,5 +157,22 @@ class Clients implements UserInterface, PasswordAuthenticatedUserInterface
         $this->confirmAccount = $confirmAccount;
 
         return $this;
+    }
+
+    public function getCreatedDate(): ?string
+    {
+        return $this->createdDate;
+    }
+
+    public function setCreatedDate(string $createdDate): static
+    {
+        $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    public function setCreatedAtValue(): void
+    {
+        $this->createdDate = (new DateTime())->format('d-m-Y H:i:s');
     }
 }

@@ -62,6 +62,14 @@ class RegistrationController extends AbstractController
                     )
                 );
 
+                //Pobranie aktualnej daty
+                $currentDateTime = new \DateTime();
+
+                //Formatowanie daty i godziny na stringa
+                $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');
+
+                $user->setCreatedDate($currentFormatDateTime);
+
                 $entityManager->persist($user);
                 $entityManager->flush();
 

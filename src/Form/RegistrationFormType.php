@@ -48,7 +48,8 @@ class RegistrationFormType extends AbstractType
                         'min' => 6,
                         'minMessage' => 'Twój login musi mieć minimum {{ limit }} znaków.',
                         // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                        'max' => 20,
+                        'maxMessage' => 'Twój login nie może mieć więcej niż {{ limit }} znaków'
                     ]),
                 ],
             ])
