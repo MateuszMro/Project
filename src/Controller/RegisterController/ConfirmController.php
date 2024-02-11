@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\RegisterController;
 
 use App\Entity\Clients;
 use Doctrine\ORM\EntityManagerInterface;

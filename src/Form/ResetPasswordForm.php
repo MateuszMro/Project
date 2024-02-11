@@ -43,8 +43,7 @@ class ResetPasswordForm extends AbstractType
                         'message' => 'Wprowadź login.',
                     ]),
                     new Assert\Length([
-                        'min' => 6,
-                        'minMessage' => 'Twój login musi mieć minimum {{ limit }} znaków.',
+                        'min' => 5,
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

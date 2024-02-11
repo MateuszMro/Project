@@ -48,14 +48,6 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
 
-//        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-//            return new RedirectResponse($targetPath);
-//        }
-//
-//        // For example:
-//        return new RedirectResponse($this->urlGenerator->generate('homepage'));
-
-
         $user = $token->getUser();
         if ($user instanceof Clients && $user->getConfirmAccount() === 'Aktywne') {
             if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
@@ -63,9 +55,8 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             }
             return new RedirectResponse($this->urlGenerator->generate('homepage'));
         } else {
-            // Usunięcie tokena uwierzytelniającego z sesji
 
-            // Użytkownik ma status Nieaktywny, przekieruj na stronę błędu
+            // Użytkownik ma status Nieaktywny, przekieruj na stronę główną
             return new RedirectResponse($this->urlGenerator->generate('app_logout'));
         }
     }

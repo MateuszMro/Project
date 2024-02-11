@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\HomeController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class OrdersPageController extends AbstractController
+class HomePageController extends AbstractController
 {
-    #[Route('/orders_page', name: 'orders_page')]
+    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        return $this->render('pages/orders.html.twig', [
+
+        return $this->render('pages/home.html.twig', [
 
         ]);
     }

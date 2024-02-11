@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\HomeController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class OfferPageController extends AbstractController
+class PricingPageController extends AbstractController
 {
-    #[Route('/offer_page', name: 'offer_page')]
+    #[Route('/pricing', name: 'app_pricing')]
     public function index(): Response
     {
-        return $this->render('pages/offer.html.twig', [
-            'controller_name' => 'Oferty',
+        return $this->render('pages/pricing.html.twig', [
+
         ]);
     }
 }

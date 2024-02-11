@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\HomeController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PricingPageController extends AbstractController
+class ComplaintsPageController extends AbstractController
 {
-    #[Route('/pricing_page', name: 'pricing_page')]
+    #[Route('/complaints', name: 'app_complaints')]
     public function index(): Response
     {
-        return $this->render('pages/pricing.html.twig', [
+        return $this->render('pages/complaints.html.twig', [
 
         ]);
     }

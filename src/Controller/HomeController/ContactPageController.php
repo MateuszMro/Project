@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\HomeController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ComplaintsPageController extends AbstractController
+class ContactPageController extends AbstractController
 {
-    #[Route('/complaints_page', name: 'complaints_page')]
+    #[Route('/contact', name: 'app_contact')]
     public function index(): Response
     {
-        return $this->render('pages/complaints.html.twig', [
+        
+        return $this->render('pages/contact.html.twig', [
 
         ]);
     }

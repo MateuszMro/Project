@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\HomeController;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomePageController extends AbstractController
+class GalleryPageController extends AbstractController
 {
-    #[Route('/', name: 'homepage')]
+    #[Route('/gallery', name: 'app_gallery')]
     public function index(): Response
     {
-        session_unset();
-        return $this->render('pages/home.html.twig', [
-
+        
+        return $this->render('pages/gallery.html.twig', [
+            
         ]);
     }
 }
