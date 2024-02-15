@@ -298,3 +298,16 @@ def0bc,::1,GET,https://localhost:8000/,1707967028,,200
 b98253,::1,GET,https://localhost:8000/change_password,1707967030,,200
 366f28,::1,GET,https://localhost:8000/logout,1707967032,,302
 a9f5cf,::1,GET,https://localhost:8000/,1707967033,,200
+97b32f,::1,GET,https://localhost:8000/,1707967937,,200
+990cfb,::1,GET,https://localhost:8000/,1707967970,,200
+92c0c1,::1,GET,https://localhost:8000/,1707968102,,200
+da77dd,::1,GET,https://localhost:8000/login,1707968105,,200
+254131,::1,POST,https://localhost:8000/login,1707968117,,302
+353d7b,::1,GET,https://localhost:8000/login,1707968118,,200
+0bc0bd,::1,POST,https://localhost:8000/login,1707968122,,302
+36eecf,::1,GET,https://localhost:8000/,1707968123,,200
+d841ac,::1,GET,https://localhost:8000/admin_database,1707968125,,302
+04ace3,::1,GET,https://localhost:8000/admin_database?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CClientsCrudController,1707968126,,200
+61d186,::1,GET,https://localhost:8000/,1707968132,,200
+723b99,::1,GET,https://localhost:8000/,1707968890,,200
+64c978,::1,GET,https://localhost:8000/,1707968892,,200
