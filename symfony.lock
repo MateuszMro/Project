@@ -236,7 +236,7 @@
             "ref": "d294ad4add3e15d7eb1bae0221588ca89b38e558"
         },
         "files": [
-            "./config/packages/uid.yaml"
+            "config/packages/uid.yaml"
         ]
     },
     "symfony/validator": {
