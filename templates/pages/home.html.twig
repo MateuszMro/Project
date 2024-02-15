@@ -3,30 +3,13 @@
 {% block title %}Strona główna{% endblock %}
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Pobierz elementy dropdownu użytkownika
-            var userDropdownBtn = document.getElementById("user-dropdown-btn");
-            var userDropdownMenu = document.getElementById("user-dropdown-menu");
-
-            // Pokaż lub ukryj dropdown po kliknięciu na przycisk
-            userDropdownBtn.addEventListener("click", function() {
-                userDropdownMenu.classList.toggle("hidden");
-            });
-
-            // Ukryj dropdown po kliknięciu poza dropdownem
-            document.addEventListener("click", function(event) {
-                if (!userDropdownMenu.contains(event.target) && !userDropdownBtn.contains(event.target)) {
-                    userDropdownMenu.classList.add("hidden");
-                }
-            });
-        });
-    </script>
+    <script type="module" src="{{ asset('js/home_page.js') }}"></script>
 {% endblock %}
 {% block body %}
 <body class="flex flex-col min-h-screen z-5">
 
         {% block sidebar %}
+            <!-- Navbar -->
             <nav id="navbar" class="bg-gray-800 py-4 fixed top-0 left-0 w-full z-10 backdrop-blur bg-opacity-90">
                 <div class="container mx-auto flex justify-between items-center">
                     <!-- Logo -->
@@ -34,7 +17,7 @@
 
                     <!-- Links -->
                     <div class="items-center hidden space-x-8 lg:flex">
-                        <a href="/" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                        <a href="/" class="flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110">
                             <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                          before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                          before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
@@ -42,7 +25,7 @@
                                 Strona główna
                             </span>
                         </a>
-                        <a href="/gallery" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                        <a href="/gallery" class="flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110">
                             <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                          before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                          before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
@@ -50,7 +33,7 @@
                                 Galeria
                             </span>
                         </a>
-                        <a href="/offer" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                        <a href="/offer" class="flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110">
                             <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                          before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                          before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
@@ -58,7 +41,7 @@
                                 Oferty
                             </span>
                         </a>
-                        <a href="/contact" class="flex cursor-pointer transition-colors duration-300 font-semibold">
+                        <a href="/contact" class="flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110">
                             <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                          before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                          before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
@@ -93,7 +76,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z">
                                             </path>
                                         </svg>
-                                        <a href="" class="">
+                                        <a href="" class="ease-in-out hover:scale-110">
                                             Dashboard
                                         </a>
                                     </li>
@@ -104,7 +87,7 @@
                                             <li class="flex gap-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <path d="M12.967 21.893c-.703.07-1.377.107-1.959.107-3.412 0-8.008-1.002-8.008-2.614v-2.04c2.117 1.342 5.17 1.78 8.008 1.78.339 0 .681-.007 1.022-.021-.06-.644-.036-1.28.129-2.019-.408.026-.797.04-1.151.04-3.412 0-8.008-1.001-8.008-2.613v-2.364c2.116 1.341 5.17 1.78 8.008 1.78 1.021 0 2.068-.06 3.089-.196 1.91-1.766 4.603-2.193 6.903-1.231v-8.14c0-3.362-5.965-4.362-9.992-4.362-4.225 0-10.008 1.001-10.008 4.361v15.277c0 3.362 6.209 4.362 10.008 4.362 1.081 0 2.359-.086 3.635-.281-.669-.495-1.239-1.115-1.676-1.826zm-1.959-19.893c3.638 0 7.992.909 7.992 2.361 0 1.581-5.104 2.361-7.992 2.361-3.412.001-8.008-.905-8.008-2.361 0-1.584 4.812-2.361 8.008-2.361zm-8.008 4.943c2.117 1.342 5.17 1.78 8.008 1.78 2.829 0 5.876-.438 7.992-1.78v2.372c0 1.753-5.131 2.614-7.992 2.614-3.426-.001-8.008-1.007-8.008-2.615v-2.371zm15.5 7.057c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"/></svg>
-                                                <a href="/admin_database">
+                                                <a href="/admin_database" class="ease-in-out hover:scale-110">
                                                     Baza danych
                                                 </a>
                                             </li>
@@ -118,7 +101,7 @@
                                             <path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.355469 20 6 21.355469 6 23 L 6 47 C 6 48.644531 7.355469 50 9 50 L 41 50 C 42.644531 50 44 48.644531 44 47 L 44 23 C 44 21.355469 42.644531 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 9 22 L 41 22 C 41.554688 22 42 22.445313 42 23 L 42 47 C 42 47.554688 41.554688 48 41 48 L 9 48 C 8.445313 48 8 47.554688 8 47 L 8 23 C 8 22.445313 8.445313 22 9 22 Z M 25 30 C 23.300781 30 22 31.300781 22 33 C 22 33.898438 22.398438 34.6875 23 35.1875 L 23 38 C 23 39.101563 23.898438 40 25 40 C 26.101563 40 27 39.101563 27 38 L 27 35.1875 C 27.601563 34.6875 28 33.898438 28 33 C 28 31.300781 26.699219 30 25 30 Z"></path>
                                         </svg>
 
-                                        <a href="/change_password">
+                                        <a href="/change_password" class="ease-in-out hover:scale-110">
                                             Zmień hasło
                                         </a>
                                     </li>
@@ -131,7 +114,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
                                             </path>
                                         </svg>
-                                        <a href="">
+                                        <a href="" class="ease-in-out hover:scale-110">
                                             Settings
                                         </a>
                                     </li>
@@ -141,7 +124,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z" />
                                         </svg>
-                                        <a href="/logout" class="">Wyloguj</a>
+                                        <a href="/logout" class="ease-in-out hover:scale-110">Wyloguj</a>
                                     </li>
                                 </ul>
                             </div>
@@ -160,7 +143,7 @@
                                 <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                     before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                     before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
-                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%] ease-in-out hover:scale-110">
                                 Rejestracja
                                 </span>
                             </a>
@@ -176,7 +159,7 @@
                                 <span class="relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                     before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                     before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
-                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]">
+                                    after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%] ease-in-out hover:scale-110">
                                 Logowanie
                                  </span>
                             </a>
@@ -186,11 +169,210 @@
             </nav>
         {% endblock %}
 
-    <div id="content" class="flex-1 container my-24 mx-auto md:px-6">
+    <div id="content" class="flex-1 container my-24 mx-auto md:px-6 sticky">
         {% block content %}
-            <div>
-                Znowu
+            <!-- Container - slider -->
+            <div class="container my-24 mx-auto md:px-6 w-full">
+                <div id="default-carousel" class="relative overflow-hidden" data-carousel="static">
+                    <!-- Carousel wrapper -->
+                    <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+                        <!-- Item 1 -->
+                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
+                            <img src="https://source.unsplash.com/1600x900/?beach"
+                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-1"/>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
+                            <img src="https://source.unsplash.com/1600x900/?cat"
+                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-2">
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
+                            <img src="https://source.unsplash.com/1600x900/?dog"
+                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-3">
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
+                            <img src="https://source.unsplash.com/1600x900/?lego"
+                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-4">
+                        </div>
+                    </div>
+                    <!-- Slider indicators -->
+                    <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
+                                data-carousel-slide-to="0">
+                        </button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                                data-carousel-slide-to="1">
+                        </button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                                data-carousel-slide-to="2">
+                        </button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                                data-carousel-slide-to="3">
+                        </button>
+                    </div>
+                    <!-- Slider controls -->
+                    <button type="button"
+                            class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                            data-carousel-prev>
+                            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30
+                                group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70
+                                group-focus:outline-none">
+                                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                <span class="hidden">Previous</span>
+                            </span>
+                    </button>
+                    <button type="button"
+                            class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                            data-carousel-next>
+                            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full
+                                sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60
+                                group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            <span class="hidden">Next</span>
+                            </span>
+                    </button>
+                </div>
             </div>
+            <!-- Container for last projects -->
+            <div class="container my-24 mx-auto md:px-6">
+                <!-- Section: Design Block -->
+                <section class="mb-32 text-center">
+                    <h2 id="lastProjects" class="mb-12 pb-4 text-center text-3xl font-bold">
+                        Ostatnie projekty
+                    </h2>
+
+                    <div class="grid gap-6 lg:grid-cols-3 xl:gap-x-12">
+                        <div class="mb-6 lg:mb-0">
+                            <div class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                                <div class="flex">
+                                    <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/024.webp" class="w-full" />
+                                        <a href="#!">
+                                            <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <p class="mb-4 text-neutral-500 dark:text-neutral-300">
+                                        <small>Projekt by Imię Nazwisko</small>
+                                    </p>
+                                    <p id="description1" class="mb-4 pb-2 h-20 overflow-hidden">
+                                        Ut pretium ultricies dignissim. Sed sit amet mi eget urna
+                                        placerat vulputate. Ut vulputate est non quam dignissim
+                                        elementum. Donec a ullamcorper diam.Ut pretium ultricies dignissim. Sed sit amet mi eget urna
+                                        placerat vulputate. Ut vulputate est non quam dignissim
+                                        elementum. Donec a ullamcorper diam.
+                                        Ut pretium ultricies dignissim. Sed sit amet mi eget urna
+                                        placerat vulputate. Ut vulputate est non quam dignissim
+                                        elementum. Donec a ullamcorper diam.Ut pretium ultricies dignissim. Sed sit amet mi eget urna
+                                        placerat vulputate. Ut vulputate est non quam dignissim
+                                        elementum. Donec a ullamcorper diam.
+                                    </p>
+                                    <button id="showMoreBtn1" onclick="showMore(1)" data-te-ripple-init data-te-ripple-color="light"
+                                       class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
+                                       shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600
+                                       hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600
+                                       focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none
+                                       focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                                       dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
+                                       dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                        Pokaż wiecęj
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 lg:mb-0">
+                            <div class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                                <div class="flex">
+                                    <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp" class="w-full" />
+                                        <a href="#!">
+                                            <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <p class="mb-4 text-neutral-500 dark:text-neutral-300">
+                                        <small>Projekt by Imię Nazwisko</small>
+                                    </p>
+                                    <p id="description2" class="mb-4 pb-2 h-20 overflow-hidden">
+                                        Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
+                                        diam orci, nec ornare metus semper sed. Integer volutpat
+                                        ornare erat sit amet rutrum.Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
+                                        diam orci, nec ornare metus semper sed. Integer volutpat
+                                        ornare erat sit amet rutrum.
+                                    </p>
+                                    <button id="showMoreBtn2" onclick="showMore(2)" data-te-ripple-init data-te-ripple-color="light"
+                                            class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
+                                       shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600
+                                       hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600
+                                       focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none
+                                       focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                                       dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
+                                       dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                        Pokaż wiecęj
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-0">
+                            <div class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                                <div class="flex">
+                                    <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/081.webp" class="w-full" />
+                                        <a href="#!">
+                                            <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <p class="mb-4 text-neutral-500 dark:text-neutral-300">
+                                        <small>Projekt by Imię Nazwisko</small>
+                                    </p>
+                                    <p id="description3" class="mb-4 pb-2 h-20 overflow-hidden">
+                                        Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
+                                        diam orci, nec ornare metus semper sed. Integer volutpat
+                                        ornare erat sit amet rutrum.Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
+                                        diam orci, nec ornare metus semper sed. Integer volutpat
+                                        ornare erat sit amet rutrum.
+                                    </p>
+                                    <button id="showMoreBtn3" onclick="showMore(3)" data-te-ripple-init data-te-ripple-color="light"
+                                            class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
+                                       shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600
+                                       hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600
+                                       focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none
+                                       focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                                       dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
+                                       dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                        Pokaż wiecęj
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Section: Design Block -->
+            </div>
+
         {% endblock %}
     </div>
 </body>
