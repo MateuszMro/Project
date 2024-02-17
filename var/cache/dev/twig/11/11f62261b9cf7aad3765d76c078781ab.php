@@ -85,16 +85,14 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 6
-        echo "    <section class=\"h-screen bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
+        echo "    <section class=\"bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
         <div class=\"container h-full px-6 py-24\">
-            <div
-                    class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
+            <div class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
                 <!-- Left column container with background-->
                 <div class=\"mb-12 md:mb-0 md:w-8/12 lg:w-6/12\">
-                    <img
-                            src=\"https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg\"
-                            class=\"w-full\"
-                            alt=\"Phone image\" />
+                    <img src=\"https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg\"
+                         class=\"w-full\"
+                         alt=\"Phone image\" />
                 </div>
 
                 <!-- Right column container with form -->
@@ -109,8 +107,8 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
                             <input
                                     type=\"email\"
                                     value=\"";
-        // line 29
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 29, $this->source); })()), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 27, $this->source); })()), "html", null, true);
         echo "\"
                                     name=\"email\"
                                     id=\"email\"
@@ -141,23 +139,23 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
                         </div>
 
                         ";
-        // line 58
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 58, $this->source); })())) {
-            // line 59
+        // line 56
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 56, $this->source); })())) {
+            // line 57
             echo "                            <div id=\"alert alert-danger\" class=\"py-4 text-red-500 text-xs font-bold\">
                                 ";
-            // line 60
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 60, $this->source); })()), "messageKey", [], "any", false, false, false, 60), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 60, $this->source); })()), "messageData", [], "any", false, false, false, 60), "security"), "html", null, true);
+            // line 58
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 58, $this->source); })()), "messageKey", [], "any", false, false, false, 58), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 58, $this->source); })()), "messageData", [], "any", false, false, false, 58), "security"), "html", null, true);
             echo "
                             </div>
                         ";
         }
-        // line 63
+        // line 61
         echo "                        <input
                                 type=\"hidden\"
                                 name=\"_csrf_token\"
                                 value=\"";
-        // line 66
+        // line 64
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\"
                         >
@@ -168,18 +166,18 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
                                  dark:hover:bg-primary-700 dark:focus:ring-primary-800\">
                             Zaloguj
                         </button>
-                        <div class=\"mt-5 text-blue-300 flex justify-center\">
-                            <a href=\"/reset_password\" class=\"ease-in-out hover:scale-110\">Nie pamiętasz hasła?</a>
+                        <div class=\"mt-5 text-blue-300 flex justify-between\">
+                            <div>
+                                <a href=\"/reset_password\" class=\"ease-in-out hover:scale-110\">Nie pamiętasz hasła?</a>
+                            </div>
+                            <div>
+                                <a href=\"/register\" class=\"ease-in-out hover:scale-110\">Załóż nowe konto</a>
+                            </div>
                         </div>
 
                         <!-- Divider -->
-                        <div
-                                class=\"my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300\">
-
+                        <div class=\"my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300\">
                         </div>
-
-                        <!-- Social login buttons -->
-
                     </form>
                 </div>
             </div>
@@ -215,7 +213,7 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  161 => 66,  156 => 63,  150 => 60,  147 => 59,  145 => 58,  113 => 29,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  159 => 64,  154 => 61,  148 => 58,  145 => 57,  143 => 56,  111 => 27,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -225,16 +223,14 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
 {% block title %}Logowanie{% endblock %}
 
 {% block content %}
-    <section class=\"h-screen bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
+    <section class=\"bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
         <div class=\"container h-full px-6 py-24\">
-            <div
-                    class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
+            <div class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
                 <!-- Left column container with background-->
                 <div class=\"mb-12 md:mb-0 md:w-8/12 lg:w-6/12\">
-                    <img
-                            src=\"https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg\"
-                            class=\"w-full\"
-                            alt=\"Phone image\" />
+                    <img src=\"https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg\"
+                         class=\"w-full\"
+                         alt=\"Phone image\" />
                 </div>
 
                 <!-- Right column container with form -->
@@ -294,18 +290,18 @@ class __TwigTemplate_3ba55ba4fd7763dd75a771b4438ece57 extends Template
                                  dark:hover:bg-primary-700 dark:focus:ring-primary-800\">
                             Zaloguj
                         </button>
-                        <div class=\"mt-5 text-blue-300 flex justify-center\">
-                            <a href=\"/reset_password\" class=\"ease-in-out hover:scale-110\">Nie pamiętasz hasła?</a>
+                        <div class=\"mt-5 text-blue-300 flex justify-between\">
+                            <div>
+                                <a href=\"/reset_password\" class=\"ease-in-out hover:scale-110\">Nie pamiętasz hasła?</a>
+                            </div>
+                            <div>
+                                <a href=\"/register\" class=\"ease-in-out hover:scale-110\">Załóż nowe konto</a>
+                            </div>
                         </div>
 
                         <!-- Divider -->
-                        <div
-                                class=\"my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300\">
-
+                        <div class=\"my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300\">
                         </div>
-
-                        <!-- Social login buttons -->
-
                     </form>
                 </div>
             </div>

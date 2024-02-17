@@ -85,8 +85,8 @@ class __TwigTemplate_09f302e2d47f76c413772211aea15d67 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 6
-        echo "    <section class=\"h-screen bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
-        <div class=\"container h-full px-6 scroll-py-28\">
+        echo "    <section class=\"bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
+        <div class=\"container h-full px-6 py-24\">
             <div class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
                 <!-- Left column container with background-->
                 <div class=\"mb-12 md:mb-0 md:w-8/12 lg:w-6/12\">
@@ -217,8 +217,8 @@ class __TwigTemplate_09f302e2d47f76c413772211aea15d67 extends Template
 {% block title %}Zmiana hasła{% endblock %}
 
 {% block content %}
-    <section class=\"h-screen bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
-        <div class=\"container h-full px-6 scroll-py-28\">
+    <section class=\"bg-gray-900 rounded-lg container my-24 mx-auto md:px-6\">
+        <div class=\"container h-full px-6 py-24\">
             <div class=\"g-6 flex h-full flex-wrap items-center justify-center lg:justify-between\">
                 <!-- Left column container with background-->
                 <div class=\"mb-12 md:mb-0 md:w-8/12 lg:w-6/12\">

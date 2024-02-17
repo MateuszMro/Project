@@ -49,6 +49,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
     {
 
         $user = $token->getUser();
+
         if ($user instanceof Clients && $user->getConfirmAccount() === 'Aktywne') {
             if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
                 return new RedirectResponse($targetPath);
