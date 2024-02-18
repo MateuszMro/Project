@@ -912,3 +912,6 @@ ae9a2c,::1,GET,https://localhost:8000/login,1708131967,,200
 710dc8,::1,GET,https://localhost:8000/,1708132036,,200
 d12bfc,::1,GET,https://localhost:8000/logout,1708132047,,302
 f9a857,::1,GET,https://localhost:8000/,1708132047,,200
+48cadb,::1,GET,https://localhost:8000/,1708276240,,200
+008bdb,::1,GET,https://localhost:8000/favicon.ico,1708276245,4889bf,404
+4889bf,::1,GET,https://localhost:8000/favicon.ico,1708276245,,404
