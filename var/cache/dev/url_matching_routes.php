@@ -14,31 +14,31 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/admin_database' => [[['_route' => 'app_admin_database', '_controller' => 'App\\Controller\\Admin\\AdminDashboardController::index'], null, null, null, false, false, null]],
-        '/complaints' => [[['_route' => 'app_complaints', '_controller' => 'App\\Controller\\HomeController\\ComplaintsPageController::index'], null, null, null, false, false, null]],
+        '/' => [
+            [['_route' => 'app_delete_account', '_controller' => 'App\\Controller\\DeleteController\\DeleteAccountController::index'], null, ['POST' => 0], null, false, false, null],
+            [['_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController\\HomePageController::index'], null, null, null, false, false, null],
+            [['_route' => 'homePage', '_controller' => 'App\\Controller\\HomeController\\HomePageController::index'], null, null, null, false, false, null],
+        ],
         '/contact' => [
             [['_route' => 'app_contact', '_controller' => 'App\\Controller\\HomeController\\ContactPageController::index'], null, null, null, false, false, null],
             [['_route' => 'contactPage', '_controller' => 'App\\Controller\\HomeController\\ContactPageController::index'], null, null, null, false, false, null],
         ],
+        '/defects' => [[['_route' => 'app_defects', '_controller' => 'App\\Controller\\HomeController\\DefectsController::index'], null, null, null, false, false, null]],
         '/gallery' => [
             [['_route' => 'app_gallery', '_controller' => 'App\\Controller\\HomeController\\GalleryPageController::index'], null, null, null, false, false, null],
             [['_route' => 'galleryPage', '_controller' => 'App\\Controller\\HomeController\\GalleryPageController::index'], null, null, null, false, false, null],
-        ],
-        '/' => [
-            [['_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController\\HomePageController::index'], null, null, null, false, false, null],
-            [['_route' => 'homePage', '_controller' => 'App\\Controller\\HomeController\\HomePageController::index'], null, null, null, false, false, null],
         ],
         '/offer' => [
             [['_route' => 'app_offer', '_controller' => 'App\\Controller\\HomeController\\OfferPageController::index'], null, null, null, false, false, null],
             [['_route' => 'offerPage', '_controller' => 'App\\Controller\\HomeController\\OfferPageController::index'], null, null, null, false, false, null],
         ],
-        '/orders' => [[['_route' => 'app_orders', '_controller' => 'App\\Controller\\HomeController\\OrdersPageController::index'], null, null, null, false, false, null]],
-        '/pricing' => [[['_route' => 'app_pricing', '_controller' => 'App\\Controller\\HomeController\\PricingPageController::index'], null, null, null, false, false, null]],
+        '/profile' => [[['_route' => 'app_profile_info', '_controller' => 'App\\Controller\\HomeController\\ProfileInfoController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController\\LoginSecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\LoginController\\LoginSecurityController::logout'], null, null, null, false, false, null]],
         '/change_password' => [[['_route' => 'app_change_password', '_controller' => 'App\\Controller\\PasswordController\\ChangePasswordController::register'], null, null, null, false, false, null]],
         '/reset_password' => [[['_route' => 'app_reset_password', '_controller' => 'App\\Controller\\PasswordController\\ResetPasswordController::register'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegisterController\\RegistrationController::register'], null, null, null, false, false, null]],
+        '/panel_super_admin' => [[['_route' => 'app_panel_super_admin', '_controller' => 'App\\Controller\\SuperAdmin\\SuperAdminDashboardController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

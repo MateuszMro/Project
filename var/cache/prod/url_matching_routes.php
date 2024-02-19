@@ -23,7 +23,7 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\LoginSecurityController::logout'], null, null, null, false, false, null]],
         '/offer_page' => [[['_route' => 'offer_page', '_controller' => 'App\\Controller\\OfferPageController::index'], null, null, null, false, false, null]],
         '/orders_page' => [[['_route' => 'orders_page', '_controller' => 'App\\Controller\\OrdersPageController::index'], null, null, null, false, false, null]],
-        '/pricing_page' => [[['_route' => 'pricing_page', '_controller' => 'App\\Controller\\PricingPageController::index'], null, null, null, false, false, null]],
+        '/pricing_page' => [[['_route' => 'pricing_page', '_controller' => 'App\\Controller\\DefectsController::index'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/reset_password' => [[['_route' => 'app_reset_password', '_controller' => 'App\\Controller\\ResetPasswordController::register'], null, null, null, false, false, null]],
         '/gallery' => [[['_route' => 'galleryPage', '_controller' => 'App\\Controller\\GalleryPageController::index'], null, null, null, false, false, null]],

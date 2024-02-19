@@ -12,15 +12,15 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getPricingPageControllerService extends App_KernelProdContainer
 {
     /*
-     * Gets the public 'App\Controller\PricingPageController' shared autowired service.
+     * Gets the public 'App\Controller\DefectsController' shared autowired service.
      *
-     * @return \App\Controller\PricingPageController
+     * @return \App\Controller\DefectsController
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\PricingPageController'] = $instance = new \App\Controller\PricingPageController();
+        $container->services['App\\Controller\\DefectsController'] = $instance = new \App\Controller\PricingPageController();
 
-        $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\PricingPageController', $container));
+        $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\DefectsController', $container));
 
         return $instance;
     }

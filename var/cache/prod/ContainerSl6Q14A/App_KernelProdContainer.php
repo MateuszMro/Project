@@ -48,7 +48,7 @@ class App_KernelProdContainer extends Container
             'App\\Controller\\LoginController\\LoginSecurityController' => 'getLoginSecurityControllerService',
             'App\\Controller\\OfferPageController' => 'getOfferPageControllerService',
             'App\\Controller\\HomeControllers\\OrdersPageController' => 'getOrdersPageControllerService',
-            'App\\Controller\\PricingPageController' => 'getPricingPageControllerService',
+            'App\\Controller\\DefectsController' => 'getPricingPageControllerService',
             'App\\Controller\\RegisterController\\RegistrationController' => 'getRegistrationControllerService',
             'App\\Controller\\PasswordController\\ResetPasswordController' => 'getResetPasswordControllerService',
             'EasyCorp\\Bundle\\EasyAdminBundle\\Command\\MakeAdminDashboardCommand' => 'getMakeAdminDashboardCommandService',

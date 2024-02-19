@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* pages/complaints.html.twig */
+/* pages/defects.html.twig */
 class __TwigTemplate_c1a78ae8a8c81964b48ea83a1cf0f757 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_c1a78ae8a8c81964b48ea83a1cf0f757 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "pages/complaints.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "pages/defects.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "pages/complaints.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "pages/defects.html.twig"));
 
-        $this->parent = $this->loadTemplate("pages/home.html.twig", "pages/complaints.html.twig", 1);
+        $this->parent = $this->loadTemplate("pages/home.html.twig", "pages/defects.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -102,7 +102,7 @@ class __TwigTemplate_c1a78ae8a8c81964b48ea83a1cf0f757 extends Template
      */
     public function getTemplateName()
     {
-        return "pages/complaints.html.twig";
+        return "pages/defects.html.twig";
     }
 
     /**
@@ -134,6 +134,6 @@ class __TwigTemplate_c1a78ae8a8c81964b48ea83a1cf0f757 extends Template
     <div id=\"complaints\">
         Reklamacje
     </div>
-{% endblock %}", "pages/complaints.html.twig", "C:\\Users\\1\\PhpstormPojects\\Project\\templates\\pages\\complaints.html.twig");
+{% endblock %}", "pages/defects.html.twig", "C:\\Users\\1\\PhpstormPojects\\Project\\templates\\pages\\defects.html.twig");
     }
 }

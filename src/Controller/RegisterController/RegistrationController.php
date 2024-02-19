@@ -49,10 +49,12 @@ class RegistrationController extends AbstractController
                 return $this->redirectToRoute('app_register');
             }
             else {
+                $registerIP = $request->getClientIp();
                 $user->setEmail($email);
                 $user->setLogin($login);
                 $user->setConfirmCode(bin2hex(random_bytes(16)));
                 $user->setConfirmAccount('Nieaktywne');
+                $user->setIP($registerIP);
                 // Encode the plain password
                 $user->setPassword(
                     $userPasswordHasher->hashPassword(

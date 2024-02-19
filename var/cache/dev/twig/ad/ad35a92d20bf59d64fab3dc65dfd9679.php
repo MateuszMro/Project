@@ -121,13 +121,13 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
         ";
         // line 11
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 184
+        // line 193
         echo "
-    <div id=\"content\" class=\"flex-1 container my-24 mx-auto md:px-6 sticky\">
+    <div id=\"content\" class=\"flex-1 container mx-auto md:px-6 sticky\">
         ";
-        // line 186
+        // line 195
         $this->displayBlock('content', $context, $blocks);
-        // line 390
+        // line 399
         echo "    </div>
 </body>
 ";
@@ -189,34 +189,12 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                                                 <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z\">
                                                 </path>
                                             </svg>
-                                            <a href=\"\" class=\"ease-in-out hover:scale-110\">
-                                                Dashboard
+                                            <a href=\"/profile\" class=\"ease-in-out hover:scale-110\">
+                                                Profil
                                             </a>
                                         </li>
                                         <hr>
 
-                                        ";
-            // line 51
-            if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 51, $this->source); })()), "user", [], "any", false, false, false, 51)) {
-                // line 52
-                echo "                                            ";
-                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-                    // line 53
-                    echo "                                                <li class=\"flex gap-2\">
-                                                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\">
-                                                        <path d=\"M12.967 21.893c-.703.07-1.377.107-1.959.107-3.412 0-8.008-1.002-8.008-2.614v-2.04c2.117 1.342 5.17 1.78 8.008 1.78.339 0 .681-.007 1.022-.021-.06-.644-.036-1.28.129-2.019-.408.026-.797.04-1.151.04-3.412 0-8.008-1.001-8.008-2.613v-2.364c2.116 1.341 5.17 1.78 8.008 1.78 1.021 0 2.068-.06 3.089-.196 1.91-1.766 4.603-2.193 6.903-1.231v-8.14c0-3.362-5.965-4.362-9.992-4.362-4.225 0-10.008 1.001-10.008 4.361v15.277c0 3.362 6.209 4.362 10.008 4.362 1.081 0 2.359-.086 3.635-.281-.669-.495-1.239-1.115-1.676-1.826zm-1.959-19.893c3.638 0 7.992.909 7.992 2.361 0 1.581-5.104 2.361-7.992 2.361-3.412.001-8.008-.905-8.008-2.361 0-1.584 4.812-2.361 8.008-2.361zm-8.008 4.943c2.117 1.342 5.17 1.78 8.008 1.78 2.829 0 5.876-.438 7.992-1.78v2.372c0 1.753-5.131 2.614-7.992 2.614-3.426-.001-8.008-1.007-8.008-2.615v-2.371zm15.5 7.057c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z\"/></svg>
-                                                    <a href=\"/admin_database\" class=\"ease-in-out hover:scale-110\">
-                                                        Baza danych
-                                                    </a>
-                                                </li>
-                                                <hr>
-                                            ";
-                }
-                // line 62
-                echo "                                        ";
-            }
-            // line 63
-            echo "
                                         <li class=\"flex gap-2\">
                                             <svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"24\" height=\"24\" viewBox=\"0 0 50 50\" stroke-width=\"1.5\"
                                                  stroke=\"currentColor\" class=\"w-6 h-6\">
@@ -253,13 +231,13 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                             </div>
                         ";
         } else {
-            // line 99
+            // line 86
             echo "                            <div>
 ";
-            // line 103
+            // line 90
             echo "
 ";
-            // line 116
+            // line 103
             echo "                                <a href=\"/login\" class=\"flex hover:text-blue-300
                                 cursor-pointer transition-colors duration-300
                                 font-semibold text-white\">
@@ -279,7 +257,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                             </div>
                         ";
         }
-        // line 134
+        // line 121
         echo "                    </div>
                 </div>
                 <div class=\"lg:hidden flex justify-start w-auto block md:ml-10 mt-0 md:mt-4\">
@@ -326,7 +304,42 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                                 Kontakt
                             </span>
                         </a>
-                    </div>
+                        ";
+        // line 167
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 167, $this->source); })()), "user", [], "any", false, false, false, 167)) {
+            // line 168
+            echo "                            <a href=\"/defects\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                            <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
+                                Zgłoszenia
+                            </span>
+                            </a>
+                        ";
+        }
+        // line 177
+        echo "                        ";
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 177, $this->source); })()), "user", [], "any", false, false, false, 177)) {
+            // line 178
+            echo "                            ";
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+                // line 179
+                echo "                                <a href=\"/panel_super_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                                <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                             before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                             before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                             after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
+                                    Panel-super_admin
+                                </span>
+                                </a>
+                            ";
+            }
+            // line 188
+            echo "                        ";
+        }
+        // line 189
+        echo "                    </div>
                 </div>
             </nav>
         ";
@@ -338,7 +351,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
 
     }
 
-    // line 186
+    // line 195
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -348,7 +361,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 187
+        // line 196
         echo "            <!-- Container - slider -->
             <div class=\"container my-24 mx-auto md:px-6 w-full\">
                 <div id=\"default-carousel\" class=\"relative overflow-hidden\" data-carousel=\"static\">
@@ -560,7 +573,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
 
     }
 
-    // line 393
+    // line 402
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -570,7 +583,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 394
+        // line 403
         echo "    <!-- Footer container -->
     <footer class=\"bg-gray-800 text-center text-neutral-600 lg:text-left py-4 bottom-0 w-full\">
         <!-- Main container div: holds the entire content of the footer, including four sections (TW elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
@@ -621,7 +634,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                             </svg>
                         </a>
 ";
-        // line 461
+        // line 470
         echo "                    </div>
                 </div>
                 <div class=\"\">
@@ -662,34 +675,34 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
 
                     <p class=\"mb-4\">
                         <a href=\"/";
-        // line 500
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 500, $this->source); })()), "user", [], "any", false, false, false, 500)) ? ("") : ("login"));
+        // line 509
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 509, $this->source); })()), "user", [], "any", false, false, false, 509)) ? ("") : ("login"));
         echo "\" class=\"text-neutral-600 dark:text-neutral-200\"
                         >";
-        // line 501
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 501, $this->source); })()), "user", [], "any", false, false, false, 501)) ? ("") : ("Zaloguj"));
-        echo "</a
-                        >
-                    </p>
-                    <p class=\"mb-4\">
-                        <a href=\"/";
-        // line 505
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 505, $this->source); })()), "user", [], "any", false, false, false, 505)) ? ("") : ("register"));
-        echo "\" class=\"text-neutral-600 dark:text-neutral-200\"
-                        >";
-        // line 506
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 506, $this->source); })()), "user", [], "any", false, false, false, 506)) ? ("") : ("Rejestracja"));
-        echo "</a
-                        >
-                    </p>
-                    <p class=\"mb-4\">
-                        <a href=\"/";
         // line 510
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 510, $this->source); })()), "user", [], "any", false, false, false, 510)) ? ("") : ("reset_password"));
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 510, $this->source); })()), "user", [], "any", false, false, false, 510)) ? ("") : ("Zaloguj"));
+        echo "</a
+                        >
+                    </p>
+                    <p class=\"mb-4\">
+                        <a href=\"/";
+        // line 514
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 514, $this->source); })()), "user", [], "any", false, false, false, 514)) ? ("") : ("register"));
         echo "\" class=\"text-neutral-600 dark:text-neutral-200\"
                         >";
-        // line 511
-        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 511, $this->source); })()), "user", [], "any", false, false, false, 511)) ? ("") : ("Resetuj hasło"));
+        // line 515
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 515, $this->source); })()), "user", [], "any", false, false, false, 515)) ? ("") : ("Rejestracja"));
+        echo "</a
+                        >
+                    </p>
+                    <p class=\"mb-4\">
+                        <a href=\"/";
+        // line 519
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 519, $this->source); })()), "user", [], "any", false, false, false, 519)) ? ("") : ("reset_password"));
+        echo "\" class=\"text-neutral-600 dark:text-neutral-200\"
+                        >";
+        // line 520
+        echo ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 520, $this->source); })()), "user", [], "any", false, false, false, 520)) ? ("") : ("Resetuj hasło"));
         echo "</a
                         >
                     </p>
@@ -778,7 +791,7 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
      */
     public function getDebugInfo()
     {
-        return array (  692 => 511,  688 => 510,  681 => 506,  677 => 505,  670 => 501,  666 => 500,  625 => 461,  574 => 394,  564 => 393,  352 => 187,  342 => 186,  283 => 134,  263 => 116,  260 => 103,  257 => 99,  219 => 63,  216 => 62,  205 => 53,  202 => 52,  200 => 51,  174 => 28,  165 => 21,  163 => 20,  153 => 12,  143 => 11,  131 => 390,  129 => 186,  125 => 184,  123 => 11,  119 => 9,  109 => 8,  97 => 6,  92 => 5,  82 => 4,  63 => 3,  40 => 1,);
+        return array (  705 => 520,  701 => 519,  694 => 515,  690 => 514,  683 => 510,  679 => 509,  638 => 470,  587 => 403,  577 => 402,  365 => 196,  355 => 195,  342 => 189,  339 => 188,  328 => 179,  325 => 178,  322 => 177,  311 => 168,  309 => 167,  261 => 121,  241 => 103,  238 => 90,  235 => 86,  174 => 28,  165 => 21,  163 => 20,  153 => 12,  143 => 11,  131 => 399,  129 => 195,  125 => 193,  123 => 11,  119 => 9,  109 => 8,  97 => 6,  92 => 5,  82 => 4,  63 => 3,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -827,24 +840,11 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                                                 <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z\">
                                                 </path>
                                             </svg>
-                                            <a href=\"\" class=\"ease-in-out hover:scale-110\">
-                                                Dashboard
+                                            <a href=\"/profile\" class=\"ease-in-out hover:scale-110\">
+                                                Profil
                                             </a>
                                         </li>
                                         <hr>
-
-                                        {% if app.user %}
-                                            {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                                <li class=\"flex gap-2\">
-                                                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\">
-                                                        <path d=\"M12.967 21.893c-.703.07-1.377.107-1.959.107-3.412 0-8.008-1.002-8.008-2.614v-2.04c2.117 1.342 5.17 1.78 8.008 1.78.339 0 .681-.007 1.022-.021-.06-.644-.036-1.28.129-2.019-.408.026-.797.04-1.151.04-3.412 0-8.008-1.001-8.008-2.613v-2.364c2.116 1.341 5.17 1.78 8.008 1.78 1.021 0 2.068-.06 3.089-.196 1.91-1.766 4.603-2.193 6.903-1.231v-8.14c0-3.362-5.965-4.362-9.992-4.362-4.225 0-10.008 1.001-10.008 4.361v15.277c0 3.362 6.209 4.362 10.008 4.362 1.081 0 2.359-.086 3.635-.281-.669-.495-1.239-1.115-1.676-1.826zm-1.959-19.893c3.638 0 7.992.909 7.992 2.361 0 1.581-5.104 2.361-7.992 2.361-3.412.001-8.008-.905-8.008-2.361 0-1.584 4.812-2.361 8.008-2.361zm-8.008 4.943c2.117 1.342 5.17 1.78 8.008 1.78 2.829 0 5.876-.438 7.992-1.78v2.372c0 1.753-5.131 2.614-7.992 2.614-3.426-.001-8.008-1.007-8.008-2.615v-2.371zm15.5 7.057c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z\"/></svg>
-                                                    <a href=\"/admin_database\" class=\"ease-in-out hover:scale-110\">
-                                                        Baza danych
-                                                    </a>
-                                                </li>
-                                                <hr>
-                                            {% endif %}
-                                        {% endif %}
 
                                         <li class=\"flex gap-2\">
                                             <svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"24\" height=\"24\" viewBox=\"0 0 50 50\" stroke-width=\"1.5\"
@@ -962,12 +962,34 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                                 Kontakt
                             </span>
                         </a>
+                        {% if app.user %}
+                            <a href=\"/defects\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                            <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                         before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                         before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                         after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
+                                Zgłoszenia
+                            </span>
+                            </a>
+                        {% endif %}
+                        {% if app.user %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <a href=\"/panel_super_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                                <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
+                                             before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
+                                             before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
+                                             after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
+                                    Panel-super_admin
+                                </span>
+                                </a>
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </nav>
         {% endblock %}
 
-    <div id=\"content\" class=\"flex-1 container my-24 mx-auto md:px-6 sticky\">
+    <div id=\"content\" class=\"flex-1 container mx-auto md:px-6 sticky\">
         {% block content %}
             <!-- Container - slider -->
             <div class=\"container my-24 mx-auto md:px-6 w-full\">

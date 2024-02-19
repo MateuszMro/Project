@@ -43,6 +43,9 @@ class Clients implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column( nullable: true)]
     private ?string $createdDate = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $IP = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -174,5 +177,17 @@ class Clients implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAtValue(): void
     {
         $this->createdDate = (new DateTime())->format('d-m-Y H:i:s');
+    }
+
+    public function getIP(): ?string
+    {
+        return $this->IP;
+    }
+
+    public function setIP(?string $IP): static
+    {
+        $this->IP = $IP;
+
+        return $this;
     }
 }

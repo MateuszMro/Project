@@ -1,0 +1,97 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Profil
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdziesz wszystkie informacje o profilu.
+                </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                <dl class="sm:divide-y sm:divide-gray-200">
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adres e-mail
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ app.user.email }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Login
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ app.user.login }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Hasło
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <div>**********</div>
+                            <a href="/change_password" class="text-blue-500 text-xs">Zmień hasło</a>
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status konta
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ app.user.confirmAccount }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Rola
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if app.user  %}
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                    Super_Admin
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    Administrator
+                                {% endif %}
+                                {% if is_granted('ROLE_USER') %}
+                                    Użytkownik
+                                {% endif %}
+                            {% endif %}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Data utworzenia konta
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ app.user.createdDate }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adres IP
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ app.user.IP }}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        <form method="post" action="{{ path('app_delete_account') }}" onsubmit="return confirm('Czy na pewno chcesz usunąć konto?');">
+            <button type="submit" class="inline-flex justify-center float-right mt-5 rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium
+            text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                Usuń konto
+            </button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,3 +1,3 @@
 <?php return array (
-  'app_admin_database' => 'App\\Controller\\Admin\\AdminDashboardController::index',
+  'app_panel_super_admin' => 'App\\Controller\\SuperAdmin\\SuperAdminDashboardController::index',
 );
