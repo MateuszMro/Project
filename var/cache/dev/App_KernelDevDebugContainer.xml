@@ -398,6 +398,13 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\HomePageController"/>
       </call>
     </service>
+    <service id="App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\ListDefectsController"/>
+      </call>
+    </service>
     <service id="App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -526,7 +533,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.FyM.UYj"/>
+      <argument type="service" id=".service_locator.4rAE5ag"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3204,7 +3211,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.FyM.UYj"/>
+      <argument type="service" id=".service_locator.4rAE5ag"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <argument type="service" id="request_stack"/>
@@ -7311,6 +7318,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7900,10 +7910,11 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.t7nLwyX.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.FyM.UYj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.4rAE5ag" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController\DefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\HomeController\ListDefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\HomeController\ProfileInfoController::index" type="service_closure" id=".service_locator.hFTvdiv"/>
         <argument key="App\Controller\LoginController\LoginSecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
         <argument key="App\Controller\PasswordController\ChangePasswordController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
@@ -7957,6 +7968,7 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\HomeController\DefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\HomeController\ListDefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\HomeController\ProfileInfoController:index" type="service_closure" id=".service_locator.hFTvdiv"/>
         <argument key="App\Controller\LoginController\LoginSecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
         <argument key="App\Controller\PasswordController\ChangePasswordController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
@@ -8712,6 +8724,12 @@
     <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\HomePageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController\HomePageController"/>
       <argument>App\Controller\HomeController\HomePageController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\ListDefectsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\HomeController\ListDefectsController"/>
+      <argument>App\Controller\HomeController\ListDefectsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -10319,7 +10337,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Contracts\Orm\EntityPaginatorInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityPaginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.FyM.UYj"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.4rAE5ag"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10347,7 +10365,7 @@
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
-    <service id=".service_locator.lBTIpjl" alias=".service_locator.FyM.UYj"/>
+    <service id=".service_locator.pPxIhK4" alias=".service_locator.4rAE5ag"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.Rf_O6Y5" alias=".service_locator.MLUPR19"/>
     <service id=".service_locator.jij13qc" alias=".service_locator.PBToVFE"/>

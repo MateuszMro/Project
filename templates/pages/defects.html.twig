@@ -6,7 +6,7 @@
 
 
 {% block content %}
-    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+    <div id="" class="container my-24 mx-auto md:px-6 w-[600px] text-white rounded-lg">
         <div class="bg-white overflow-hidden shadow rounded-lg border">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -15,12 +15,15 @@
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     Poniżej znajduje się formularz dotyczący zgłoszeń, jeżeli ujawniłeś jakąś usterkę bądź napotkałeś jakiś inny problem, wypełnij formularz.
                 </p>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Jeśli chcesz zobaczyć swoje zgłoszenia <a href="/list_defects" class="text-blue-500 font-bold underline">kliknij tutaj</a>
+                </p>
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                 {{ form_start(defectsForm, {'attr': {'class': 'sm:divide-y sm:divide-gray-200 text-black flex justify-center'}}) }}
                 <div class="mt-3">
                     {{ form_row(defectsForm.numberPhone, {'attr': {
-                        'placeholder': '555 454 478',
+                        'placeholder': 'Numer telefonu',
                         'autofocus': true,
                         'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none#}
                                 focus:shadow-outline border-black'}}) }}

@@ -21,6 +21,7 @@ return [
     'app_defects' => [[], ['_controller' => 'App\\Controller\\HomeController\\DefectsController::index'], [], [['text', '/defects']], [], [], []],
     'app_gallery' => [[], ['_controller' => 'App\\Controller\\HomeController\\GalleryPageController::index'], [], [['text', '/gallery']], [], [], []],
     'homepage' => [[], ['_controller' => 'App\\Controller\\HomeController\\HomePageController::index'], [], [['text', '/']], [], [], []],
+    'app_list_defects' => [[], ['_controller' => 'App\\Controller\\HomeController\\ListDefectsController::index'], [], [['text', '/list_defects']], [], [], []],
     'app_offer' => [[], ['_controller' => 'App\\Controller\\HomeController\\OfferPageController::index'], [], [['text', '/offer']], [], [], []],
     'app_profile_info' => [[], ['_controller' => 'App\\Controller\\HomeController\\ProfileInfoController::index'], [], [['text', '/profile']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController\\LoginSecurityController::login'], [], [['text', '/login']], [], [], []],

@@ -28,6 +28,7 @@ return [
             [['_route' => 'app_gallery', '_controller' => 'App\\Controller\\HomeController\\GalleryPageController::index'], null, null, null, false, false, null],
             [['_route' => 'galleryPage', '_controller' => 'App\\Controller\\HomeController\\GalleryPageController::index'], null, null, null, false, false, null],
         ],
+        '/list_defects' => [[['_route' => 'app_list_defects', '_controller' => 'App\\Controller\\HomeController\\ListDefectsController::index'], null, null, null, false, false, null]],
         '/offer' => [
             [['_route' => 'app_offer', '_controller' => 'App\\Controller\\HomeController\\OfferPageController::index'], null, null, null, false, false, null],
             [['_route' => 'offerPage', '_controller' => 'App\\Controller\\HomeController\\OfferPageController::index'], null, null, null, false, false, null],

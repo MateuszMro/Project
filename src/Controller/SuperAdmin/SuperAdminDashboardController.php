@@ -34,7 +34,7 @@ class SuperAdminDashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToUrl('Strona główna', 'fa fa-home', '/');
         yield MenuItem::linkToCrud('Użytkownicy', 'fas fa-list', Clients::class);
-        yield MenuItem::linkToCrud('Zgłoszenia userek', 'fas fa-list', Defects::class);
+        yield MenuItem::linkToCrud('Zgłoszenia', 'fas fa-list', Defects::class);
 
     }
 }
