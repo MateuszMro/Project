@@ -14,7 +14,7 @@ class getChangePasswordControllerService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\PasswordController\\ChangePasswordController'] = $instance = new \App\Controller\PasswordController\ChangePasswordController();
+        $container->services['App\\Controller\\PasswordController\\ChangePasswordController'] = $instance = new \App\Controller\Password\ChangePasswordController();
 
         $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\PasswordController\\ChangePasswordController', $container));
 

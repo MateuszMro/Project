@@ -14,7 +14,7 @@ class getOrdersPageControllerService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\HomeControllers\\OrdersPageController'] = $instance = new \App\Controller\HomeController\OrdersPageController();
+        $container->services['App\\Controller\\HomeControllers\\OrdersPageController'] = $instance = new \App\Controller\Home\OrdersPageController();
 
         $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\HomeControllers\\OrdersPageController', $container));
 

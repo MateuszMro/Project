@@ -14,7 +14,7 @@ class getContactPageControllerService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\HomeControllers\\ContactPageController'] = $instance = new \App\Controller\HomeController\ContactPageController();
+        $container->services['App\\Controller\\HomeControllers\\ContactPageController'] = $instance = new \App\Controller\Home\ContactPageController();
 
         $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\HomeControllers\\ContactPageController', $container));
 

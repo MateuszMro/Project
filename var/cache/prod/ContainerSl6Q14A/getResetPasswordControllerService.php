@@ -14,7 +14,7 @@ class getResetPasswordControllerService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\PasswordController\\ResetPasswordController'] = $instance = new \App\Controller\PasswordController\ResetPasswordController();
+        $container->services['App\\Controller\\PasswordController\\ResetPasswordController'] = $instance = new \App\Controller\Password\ResetPasswordController();
 
         $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\PasswordController\\ResetPasswordController', $container));
 

@@ -113,7 +113,9 @@ class __TwigTemplate_001a596da015430ac9341b1748f89e29 extends Template
                     </div>
                     <div class=\"mt-5 sm:mt-4 sm:flex sm:flex-row-reverse\">
                 <span class=\"flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto\">
-                    <button type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5\">
+                    <button type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base
+                    leading-6 font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150
+                    sm:text-sm sm:leading-5\">
                         <a href=\"/\">OK</a>
                     </button>
                 </span>
@@ -193,7 +195,9 @@ class __TwigTemplate_001a596da015430ac9341b1748f89e29 extends Template
                     </div>
                     <div class=\"mt-5 sm:mt-4 sm:flex sm:flex-row-reverse\">
                 <span class=\"flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto\">
-                    <button type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5\">
+                    <button type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base
+                    leading-6 font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150
+                    sm:text-sm sm:leading-5\">
                         <a href=\"/\">OK</a>
                     </button>
                 </span>

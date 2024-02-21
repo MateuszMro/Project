@@ -361,99 +361,113 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
-    <service id="App\Controller\DeleteController\DeleteAccountController" class="App\Controller\DeleteController\DeleteAccountController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Admin\AdminPanel" class="App\Controller\Admin\AdminPanel" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Admin\AdminPanel"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\ListClientsController" class="App\Controller\Admin\ListClientsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Admin\ListClientsController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Defects\DefectsController" class="App\Controller\Defects\DefectsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Defects\DefectsController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Defects\ListDefectsController" class="App\Controller\Defects\ListDefectsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Defects\ListDefectsController"/>
+      </call>
+    </service>
+    <service id="App\Controller\DeleteAccount\DeleteAccountController" class="App\Controller\DeleteAccount\DeleteAccountController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.token_storage"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\DeleteController\DeleteAccountController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\DeleteAccount\DeleteAccountController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\ContactPageController" class="App\Controller\HomeController\ContactPageController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Home\ContactPageController" class="App\Controller\Home\ContactPageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\ContactPageController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Home\ContactPageController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\DefectsController" class="App\Controller\HomeController\DefectsController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Home\GalleryPageController" class="App\Controller\Home\GalleryPageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\DefectsController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Home\GalleryPageController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\GalleryPageController" class="App\Controller\HomeController\GalleryPageController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Home\HomePageController" class="App\Controller\Home\HomePageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\GalleryPageController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Home\HomePageController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Home\OfferPageController" class="App\Controller\Home\OfferPageController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\HomePageController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Home\OfferPageController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Home\ProfileInfoController" class="App\Controller\Home\ProfileInfoController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\ListDefectsController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Home\ProfileInfoController"/>
       </call>
     </service>
-    <service id="App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\OfferPageController"/>
-      </call>
-    </service>
-    <service id="App\Controller\HomeController\ProfileInfoController" class="App\Controller\HomeController\ProfileInfoController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\HomeController\ProfileInfoController"/>
-      </call>
-    </service>
-    <service id="App\Controller\LoginController\LoginSecurityController" class="App\Controller\LoginController\LoginSecurityController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Login\LoginSecurityController" class="App\Controller\Login\LoginSecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\LoginController\LoginSecurityController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Login\LoginSecurityController"/>
       </call>
     </service>
-    <service id="App\Controller\PasswordController\ChangePasswordController" class="App\Controller\PasswordController\ChangePasswordController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Password\ChangePasswordController" class="App\Controller\Password\ChangePasswordController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\PasswordController\ChangePasswordController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Password\ChangePasswordController"/>
       </call>
     </service>
-    <service id="App\Controller\PasswordController\ResetPasswordController" class="App\Controller\PasswordController\ResetPasswordController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Password\ResetPasswordController" class="App\Controller\Password\ResetPasswordController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\PasswordController\ResetPasswordController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Password\ResetPasswordController"/>
       </call>
     </service>
-    <service id="App\Controller\RegisterController\ConfirmController" class="App\Controller\RegisterController\ConfirmController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Register\ConfirmController" class="App\Controller\Register\ConfirmController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\RegisterController\ConfirmController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Register\ConfirmController"/>
       </call>
     </service>
-    <service id="App\Controller\RegisterController\RegistrationController" class="App\Controller\RegisterController\RegistrationController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Register\RegistrationController" class="App\Controller\Register\RegistrationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\RegisterController\RegistrationController"/>
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\Register\RegistrationController"/>
       </call>
     </service>
     <service id="App\Controller\SuperAdmin\ClientsCrudController" class="App\Controller\SuperAdmin\ClientsCrudController" public="true" autowire="true" autoconfigure="true">
@@ -533,7 +547,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.4rAE5ag"/>
+      <argument type="service" id=".service_locator..aruF.P"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3211,7 +3225,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.4rAE5ag"/>
+      <argument type="service" id=".service_locator..aruF.P"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <argument type="service" id="request_stack"/>
@@ -7303,45 +7317,51 @@
       <tag name="assets.package" package="easyadmin.assets.package"/>
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DeleteController\DeleteAccountController" class="App\Controller\DeleteController\DeleteAccountController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DeleteController\DeleteAccountController" class="App\Controller\DeleteController\DeleteAccountController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\DeleteController\DeleteAccountController" class="App\Controller\DeleteController\DeleteAccountController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\ContactPageController" class="App\Controller\HomeController\ContactPageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\ContactPageController" class="App\Controller\HomeController\ContactPageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\ContactPageController" class="App\Controller\HomeController\ContactPageController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\DefectsController" class="App\Controller\HomeController\DefectsController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\DefectsController" class="App\Controller\HomeController\DefectsController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\DefectsController" class="App\Controller\HomeController\DefectsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\GalleryPageController" class="App\Controller\HomeController\GalleryPageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\GalleryPageController" class="App\Controller\HomeController\GalleryPageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\GalleryPageController" class="App\Controller\HomeController\GalleryPageController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\HomePageController" class="App\Controller\HomeController\HomePageController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\ListDefectsController" class="App\Controller\HomeController\ListDefectsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\OfferPageController" class="App\Controller\HomeController\OfferPageController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController\ProfileInfoController" class="App\Controller\HomeController\ProfileInfoController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController\ProfileInfoController" class="App\Controller\HomeController\ProfileInfoController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HomeController\ProfileInfoController" class="App\Controller\HomeController\ProfileInfoController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginController\LoginSecurityController" class="App\Controller\LoginController\LoginSecurityController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginController\LoginSecurityController" class="App\Controller\LoginController\LoginSecurityController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\LoginController\LoginSecurityController" class="App\Controller\LoginController\LoginSecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PasswordController\ChangePasswordController" class="App\Controller\PasswordController\ChangePasswordController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PasswordController\ChangePasswordController" class="App\Controller\PasswordController\ChangePasswordController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\PasswordController\ChangePasswordController" class="App\Controller\PasswordController\ChangePasswordController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PasswordController\ResetPasswordController" class="App\Controller\PasswordController\ResetPasswordController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PasswordController\ResetPasswordController" class="App\Controller\PasswordController\ResetPasswordController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\PasswordController\ResetPasswordController" class="App\Controller\PasswordController\ResetPasswordController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegisterController\ConfirmController" class="App\Controller\RegisterController\ConfirmController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegisterController\ConfirmController" class="App\Controller\RegisterController\ConfirmController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\RegisterController\ConfirmController" class="App\Controller\RegisterController\ConfirmController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegisterController\RegistrationController" class="App\Controller\RegisterController\RegistrationController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegisterController\RegistrationController" class="App\Controller\RegisterController\RegistrationController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\RegisterController\RegistrationController" class="App\Controller\RegisterController\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminPanel" class="App\Controller\Admin\AdminPanel" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminPanel" class="App\Controller\Admin\AdminPanel" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminPanel" class="App\Controller\Admin\AdminPanel" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\ListClientsController" class="App\Controller\Admin\ListClientsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\ListClientsController" class="App\Controller\Admin\ListClientsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\ListClientsController" class="App\Controller\Admin\ListClientsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Defects\DefectsController" class="App\Controller\Defects\DefectsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Defects\DefectsController" class="App\Controller\Defects\DefectsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Defects\DefectsController" class="App\Controller\Defects\DefectsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Defects\ListDefectsController" class="App\Controller\Defects\ListDefectsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Defects\ListDefectsController" class="App\Controller\Defects\ListDefectsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Defects\ListDefectsController" class="App\Controller\Defects\ListDefectsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DeleteAccount\DeleteAccountController" class="App\Controller\DeleteAccount\DeleteAccountController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DeleteAccount\DeleteAccountController" class="App\Controller\DeleteAccount\DeleteAccountController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DeleteAccount\DeleteAccountController" class="App\Controller\DeleteAccount\DeleteAccountController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Home\ContactPageController" class="App\Controller\Home\ContactPageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Home\ContactPageController" class="App\Controller\Home\ContactPageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Home\ContactPageController" class="App\Controller\Home\ContactPageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Home\GalleryPageController" class="App\Controller\Home\GalleryPageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Home\GalleryPageController" class="App\Controller\Home\GalleryPageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Home\GalleryPageController" class="App\Controller\Home\GalleryPageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Home\HomePageController" class="App\Controller\Home\HomePageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Home\HomePageController" class="App\Controller\Home\HomePageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Home\HomePageController" class="App\Controller\Home\HomePageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Home\OfferPageController" class="App\Controller\Home\OfferPageController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Home\OfferPageController" class="App\Controller\Home\OfferPageController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Home\OfferPageController" class="App\Controller\Home\OfferPageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Home\ProfileInfoController" class="App\Controller\Home\ProfileInfoController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Home\ProfileInfoController" class="App\Controller\Home\ProfileInfoController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Home\ProfileInfoController" class="App\Controller\Home\ProfileInfoController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Login\LoginSecurityController" class="App\Controller\Login\LoginSecurityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Login\LoginSecurityController" class="App\Controller\Login\LoginSecurityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Login\LoginSecurityController" class="App\Controller\Login\LoginSecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Password\ChangePasswordController" class="App\Controller\Password\ChangePasswordController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Password\ChangePasswordController" class="App\Controller\Password\ChangePasswordController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Password\ChangePasswordController" class="App\Controller\Password\ChangePasswordController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Password\ResetPasswordController" class="App\Controller\Password\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Password\ResetPasswordController" class="App\Controller\Password\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Password\ResetPasswordController" class="App\Controller\Password\ResetPasswordController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Register\ConfirmController" class="App\Controller\Register\ConfirmController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Register\ConfirmController" class="App\Controller\Register\ConfirmController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Register\ConfirmController" class="App\Controller\Register\ConfirmController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Register\RegistrationController" class="App\Controller\Register\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Register\RegistrationController" class="App\Controller\Register\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Register\RegistrationController" class="App\Controller\Register\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SuperAdmin\ClientsCrudController" class="App\Controller\SuperAdmin\ClientsCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SuperAdmin\ClientsCrudController" class="App\Controller\SuperAdmin\ClientsCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\SuperAdmin\ClientsCrudController" class="App\Controller\SuperAdmin\ClientsCrudController" autowire="true" abstract="true"/>
@@ -7824,11 +7844,18 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.hFTvdiv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AaIQwyj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="clients" type="service_closure" id=".errored..service_locator.AaIQwyj.App\Entity\Clients"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-        <argument key="token" type="service_closure" id=".errored..service_locator.hFTvdiv.Symfony\Component\Security\Core\Authentication\Token\TokenInterface"/>
+      </argument>
+    </service>
+    <service id=".service_locator.83uBr5L" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="defects" type="service_closure" id=".errored..service_locator.83uBr5L.App\Entity\Defects"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
     <service id=".service_locator.rSTd.nA" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7910,16 +7937,21 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.t7nLwyX.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.4rAE5ag" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator..aruF.P" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\HomeController\DefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\HomeController\ListDefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\HomeController\ProfileInfoController::index" type="service_closure" id=".service_locator.hFTvdiv"/>
-        <argument key="App\Controller\LoginController\LoginSecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
-        <argument key="App\Controller\PasswordController\ChangePasswordController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
-        <argument key="App\Controller\PasswordController\ResetPasswordController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
-        <argument key="App\Controller\RegisterController\RegistrationController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Admin\ListClientsController::activeAccount" type="service_closure" id=".service_locator.AaIQwyj"/>
+        <argument key="App\Controller\Admin\ListClientsController::banAccount" type="service_closure" id=".service_locator.AaIQwyj"/>
+        <argument key="App\Controller\Admin\ListClientsController::index1" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\DefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController::closeDefects" type="service_closure" id=".service_locator.83uBr5L"/>
+        <argument key="App\Controller\Defects\ListDefectsController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController::index1" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController::openDefects" type="service_closure" id=".service_locator.83uBr5L"/>
+        <argument key="App\Controller\Login\LoginSecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
+        <argument key="App\Controller\Password\ChangePasswordController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Password\ResetPasswordController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Register\RegistrationController::register" type="service_closure" id=".service_locator.e_4zbH4"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController::batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController::configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -7967,13 +7999,18 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
-        <argument key="App\Controller\HomeController\DefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\HomeController\ListDefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\HomeController\ProfileInfoController:index" type="service_closure" id=".service_locator.hFTvdiv"/>
-        <argument key="App\Controller\LoginController\LoginSecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
-        <argument key="App\Controller\PasswordController\ChangePasswordController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
-        <argument key="App\Controller\PasswordController\ResetPasswordController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
-        <argument key="App\Controller\RegisterController\RegistrationController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Admin\ListClientsController:activeAccount" type="service_closure" id=".service_locator.AaIQwyj"/>
+        <argument key="App\Controller\Admin\ListClientsController:banAccount" type="service_closure" id=".service_locator.AaIQwyj"/>
+        <argument key="App\Controller\Admin\ListClientsController:index1" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\DefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController:closeDefects" type="service_closure" id=".service_locator.83uBr5L"/>
+        <argument key="App\Controller\Defects\ListDefectsController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController:index1" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Defects\ListDefectsController:openDefects" type="service_closure" id=".service_locator.83uBr5L"/>
+        <argument key="App\Controller\Login\LoginSecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
+        <argument key="App\Controller\Password\ChangePasswordController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Password\ResetPasswordController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
+        <argument key="App\Controller\Register\RegistrationController:register" type="service_closure" id=".service_locator.e_4zbH4"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController:autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController:batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\SuperAdmin\ClientsCrudController:configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -8697,81 +8734,93 @@
         <argument key="web_link.http_header_serializer" type="service_closure" id="web_link.http_header_serializer" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\DeleteController\DeleteAccountController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\DeleteController\DeleteAccountController"/>
-      <argument>App\Controller\DeleteController\DeleteAccountController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Admin\AdminPanel" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminPanel"/>
+      <argument>App\Controller\Admin\AdminPanel</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\ContactPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\ContactPageController"/>
-      <argument>App\Controller\HomeController\ContactPageController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Admin\ListClientsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\ListClientsController"/>
+      <argument>App\Controller\Admin\ListClientsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\DefectsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\DefectsController"/>
-      <argument>App\Controller\HomeController\DefectsController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Defects\DefectsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Defects\DefectsController"/>
+      <argument>App\Controller\Defects\DefectsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\GalleryPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\GalleryPageController"/>
-      <argument>App\Controller\HomeController\GalleryPageController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Defects\ListDefectsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Defects\ListDefectsController"/>
+      <argument>App\Controller\Defects\ListDefectsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\HomePageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\HomePageController"/>
-      <argument>App\Controller\HomeController\HomePageController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\DeleteAccount\DeleteAccountController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DeleteAccount\DeleteAccountController"/>
+      <argument>App\Controller\DeleteAccount\DeleteAccountController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\ListDefectsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\ListDefectsController"/>
-      <argument>App\Controller\HomeController\ListDefectsController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Home\ContactPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Home\ContactPageController"/>
+      <argument>App\Controller\Home\ContactPageController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\OfferPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\OfferPageController"/>
-      <argument>App\Controller\HomeController\OfferPageController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Home\GalleryPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Home\GalleryPageController"/>
+      <argument>App\Controller\Home\GalleryPageController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\HomeController\ProfileInfoController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\HomeController\ProfileInfoController"/>
-      <argument>App\Controller\HomeController\ProfileInfoController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Home\HomePageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Home\HomePageController"/>
+      <argument>App\Controller\Home\HomePageController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\LoginController\LoginSecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\LoginController\LoginSecurityController"/>
-      <argument>App\Controller\LoginController\LoginSecurityController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Home\OfferPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Home\OfferPageController"/>
+      <argument>App\Controller\Home\OfferPageController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\PasswordController\ChangePasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\PasswordController\ChangePasswordController"/>
-      <argument>App\Controller\PasswordController\ChangePasswordController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Home\ProfileInfoController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Home\ProfileInfoController"/>
+      <argument>App\Controller\Home\ProfileInfoController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\PasswordController\ResetPasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\PasswordController\ResetPasswordController"/>
-      <argument>App\Controller\PasswordController\ResetPasswordController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Login\LoginSecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Login\LoginSecurityController"/>
+      <argument>App\Controller\Login\LoginSecurityController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\RegisterController\ConfirmController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\RegisterController\ConfirmController"/>
-      <argument>App\Controller\RegisterController\ConfirmController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Password\ChangePasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Password\ChangePasswordController"/>
+      <argument>App\Controller\Password\ChangePasswordController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
-    <service id=".service_locator.O2p6Lk7.App\Controller\RegisterController\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\RegisterController\RegistrationController"/>
-      <argument>App\Controller\RegisterController\RegistrationController</argument>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Password\ResetPasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Password\ResetPasswordController"/>
+      <argument>App\Controller\Password\ResetPasswordController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Register\ConfirmController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Register\ConfirmController"/>
+      <argument>App\Controller\Register\ConfirmController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\Register\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Register\RegistrationController"/>
+      <argument>App\Controller\Register\RegistrationController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
@@ -9187,8 +9236,11 @@
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.y4_Zrx.&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
     </service>
-    <service id=".errored..service_locator.hFTvdiv.Symfony\Component\Security\Core\Authentication\Token\TokenInterface" class="Symfony\Component\Security\Core\Authentication\Token\TokenInterface">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.hFTvdiv&quot;: it references interface &quot;Symfony\Component\Security\Core\Authentication\Token\TokenInterface&quot; but no such service exists. Did you create a class that implements this interface?"/>
+    <service id=".errored..service_locator.AaIQwyj.App\Entity\Clients" class="App\Entity\Clients">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.AaIQwyj&quot;: it needs an instance of &quot;App\Entity\Clients&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.83uBr5L.App\Entity\Defects" class="App\Entity\Defects">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.83uBr5L&quot;: it needs an instance of &quot;App\Entity\Defects&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.Nb584vp.EasyCorp\Bundle\EasyAdminBundle\Config\Crud" class="EasyCorp\Bundle\EasyAdminBundle\Config\Crud">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.Nb584vp&quot;: it references class &quot;EasyCorp\Bundle\EasyAdminBundle\Config\Crud&quot; but no such service exists."/>
@@ -10337,7 +10389,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Contracts\Orm\EntityPaginatorInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityPaginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.4rAE5ag"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator..aruF.P"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10360,12 +10412,13 @@
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~fcYOjNs"/>
     <service id=".service_locator.Mo0FXEU" alias="service_locator_EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     <service id=".service_locator.o.uf2zi" alias=".service_locator.7nzbL4K"/>
-    <service id=".service_locator.2_QCwwA" alias=".service_locator.hFTvdiv"/>
+    <service id=".service_locator.xUr3OTx" alias=".service_locator.AaIQwyj"/>
+    <service id=".service_locator.xoaMEDg" alias=".service_locator.83uBr5L"/>
     <service id=".service_locator.V6D1oJY" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
-    <service id=".service_locator.pPxIhK4" alias=".service_locator.4rAE5ag"/>
+    <service id=".service_locator.aN1p_1U" alias=".service_locator..aruF.P"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.Rf_O6Y5" alias=".service_locator.MLUPR19"/>
     <service id=".service_locator.jij13qc" alias=".service_locator.PBToVFE"/>
@@ -10391,7 +10444,8 @@
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
-    <service id=".service_locator.zHkq68r" alias=".service_locator.hFTvdiv"/>
+    <service id=".service_locator.0p7KODt" alias=".service_locator.AaIQwyj"/>
+    <service id=".service_locator.eKzP7EX" alias=".service_locator.83uBr5L"/>
     <service id=".service_locator.7NIAq8D" alias=".service_locator.rSTd.nA"/>
     <service id=".service_locator.qnm_CJ1" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.b4Agcrj" alias=".service_locator.Nb584vp"/>

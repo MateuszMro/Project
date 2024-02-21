@@ -1,0 +1,75 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Lista zgłoszeń{% endblock %}
+
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h1 class="text-lg leading-6 font-medium text-gray-900">
+                    Lista wszystkich zgłoszeń
+                </h1>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdują się wszystkie zgłoszenia.
+                </p>
+                {% for defect in defects %}
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0 text-gray-900">
+                        <div class="mt-3">
+                            <p><strong>ID: </strong>{{ defect.id }}</p>
+                            <p><strong>Numer zgłoszenia: </strong>{{ defect.defectNumber }}</p>
+                            <p><strong>Adres e-mail: </strong>{{ defect.email }}</p>
+                            <p><strong>Numer telefonu: </strong>{{ defect.numberPhone }}</p>
+                            <p><strong>Data utworzenia zgłoszenia: </strong>{{ defect.createdDate }}</p>
+                            <p><strong>Treść zgłoszenia: </strong>
+                                <span class="short-description" data-full-description="{{ defect.description }}">{{ defect.description | slice(0, 50) }}...</span>
+                                <span class="full-description" style="display:none;">{{ defect.description }}</span>
+                            </p>
+                            <button class="show-more-btn text-sm text-blue-500">Pokaż cały opis</button>
+                            <p><strong>Status zgłoszenia: </strong>
+                                {% if defect.status == 'OPEN' %}
+                                    <strong class="font-bold text-green-600"> {{ defect.status }}</strong>
+                                {% else %}
+                                    <strong class="font-bold text-red-600"> {{ defect.status }}</strong>
+                                {% endif %}
+                            </p>
+                            <p>
+                                {% if defect.status == 'OPEN' %}
+                                    <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
+                                        <strong>Zmień status zgłoszenia: </strong>
+                                        <button type="submit" class="text-red-600 font-bold">CLOSE</button>
+                                    </form>
+                                {% else %}
+                                    <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
+                                        <strong>Zmień status zgłoszenia: </strong>
+                                        <button type="submit" class="text-green-600 font-bold">OPEN</button>
+                                    </form>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.show-more-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const parent = button.parentElement;
+                const shortDescription = parent.querySelector('.short-description');
+                const fullDescription = parent.querySelector('.full-description');
+
+                if (fullDescription.style.display === 'none') {
+                    shortDescription.style.display = 'none';
+                    fullDescription.style.display = 'inline';
+                    button.textContent = 'Ukryj opis';
+                } else {
+                    shortDescription.style.display = 'inline';
+                    fullDescription.style.display = 'none';
+                    button.textContent = 'Pokaż cały opis';
+                }
+            });
+        });
+    </script>
+{% endblock %}

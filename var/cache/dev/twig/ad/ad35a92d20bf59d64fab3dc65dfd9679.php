@@ -323,14 +323,14 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 177, $this->source); })()), "user", [], "any", false, false, false, 177)) {
             // line 178
             echo "                            ";
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
                 // line 179
-                echo "                                <a href=\"/panel_super_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                echo "                                <a href=\"/panel_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
                                 <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                              before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                              before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
                                              after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
-                                    Panel_administratora
+                                    Panel zarządzania
                                 </span>
                                 </a>
                             ";
@@ -973,13 +973,13 @@ class __TwigTemplate_431133476b7312916c8c0e286a80279a extends Template
                             </a>
                         {% endif %}
                         {% if app.user %}
-                            {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                <a href=\"/panel_super_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href=\"/panel_admin\" class=\"flex cursor-pointer transition-colors duration-300 font-semibold ease-in-out hover:scale-110\">
                                 <span class=\"relative text-white hover:text-blue-300 cursor-pointer transition-all ease-in-out before:transition-[width]
                                              before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%]
                                              before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center
                                              after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]\">
-                                    Panel_administratora
+                                    Panel zarządzania
                                 </span>
                                 </a>
                             {% endif %}

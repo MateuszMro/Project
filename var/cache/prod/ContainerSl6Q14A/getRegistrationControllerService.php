@@ -14,7 +14,7 @@ class getRegistrationControllerService extends App_KernelProdContainer
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->services['App\\Controller\\RegisterController\\RegistrationController'] = $instance = new \App\Controller\RegisterController\RegistrationController();
+        $container->services['App\\Controller\\RegisterController\\RegistrationController'] = $instance = new \App\Controller\Register\RegistrationController();
 
         $instance->setContainer(($container->privates['.service_locator.O2p6Lk7'] ?? $container->load('get_ServiceLocator_O2p6Lk7Service'))->withContext('App\\Controller\\RegisterController\\RegistrationController', $container));
 
