@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Defects;
+namespace App\Controller\Admin;
 
 use App\Entity\Defects;
 use Doctrine\ORM\EntityManagerInterface;

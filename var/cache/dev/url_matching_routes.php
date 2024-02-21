@@ -16,9 +16,9 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/panel_admin' => [[['_route' => 'app_panel_admin', '_controller' => 'App\\Controller\\Admin\\AdminPanel::index'], null, null, null, false, false, null]],
         '/list_all_clients' => [[['_route' => 'app_list_all_clients', '_controller' => 'App\\Controller\\Admin\\ListClientsController::index1'], null, null, null, false, false, null]],
+        '/list_defects' => [[['_route' => 'app_list_defects', '_controller' => 'App\\Controller\\Admin\\ListDefectsController::index'], null, null, null, false, false, null]],
+        '/list_all_defects' => [[['_route' => 'app_list_all_defects', '_controller' => 'App\\Controller\\Admin\\ListDefectsController::index1'], null, null, null, false, false, null]],
         '/defects' => [[['_route' => 'app_defects', '_controller' => 'App\\Controller\\Defects\\DefectsController::index'], null, null, null, false, false, null]],
-        '/list_defects' => [[['_route' => 'app_list_defects', '_controller' => 'App\\Controller\\Defects\\ListDefectsController::index'], null, null, null, false, false, null]],
-        '/list_all_defects' => [[['_route' => 'app_list_all_defects', '_controller' => 'App\\Controller\\Defects\\ListDefectsController::index1'], null, null, null, false, false, null]],
         '/' => [
             [['_route' => 'app_delete_account', '_controller' => 'App\\Controller\\DeleteAccount\\DeleteAccountController::index'], null, ['POST' => 0], null, false, false, null],
             [['_route' => 'homepage', '_controller' => 'App\\Controller\\Home\\HomePageController::index'], null, null, null, false, false, null],
@@ -82,8 +82,8 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         202 => [[['_route' => 'app_list_all_clients_ban', '_controller' => 'App\\Controller\\Admin\\ListClientsController::banAccount'], ['id'], null, null, false, false, null]],
         236 => [[['_route' => 'app_list_all_clients_active', '_controller' => 'App\\Controller\\Admin\\ListClientsController::activeAccount'], ['id'], null, null, false, false, null]],
-        249 => [[['_route' => 'app_list_all_defects_close', '_controller' => 'App\\Controller\\Defects\\ListDefectsController::closeDefects'], ['id'], null, null, false, false, null]],
-        261 => [[['_route' => 'app_list_all_defects_open', '_controller' => 'App\\Controller\\Defects\\ListDefectsController::openDefects'], ['id'], null, null, false, false, null]],
+        249 => [[['_route' => 'app_list_all_defects_close', '_controller' => 'App\\Controller\\Admin\\ListDefectsController::closeDefects'], ['id'], null, null, false, false, null]],
+        261 => [[['_route' => 'app_list_all_defects_open', '_controller' => 'App\\Controller\\Admin\\ListDefectsController::openDefects'], ['id'], null, null, false, false, null]],
         288 => [
             [['_route' => 'confirm_register', '_controller' => 'App\\Controller\\RegisterController\\ConfirmController::index'], ['code'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],

@@ -102,7 +102,7 @@ class RegistrationController extends AbstractController
                                          </head>
                                          <body>
                                              <h2 class='font-bold text-5xl'>Kliknij w poniższy link aby aktywować konto</h2>
-                                             <h3 class='font-bold text-3xl'><a href='http://18.159.37.78{$confirmLink}'>Potwierdź konto</a></h3>
+                                             <h3 class='font-bold text-3xl'><a href='http://52.58.230.169{$confirmLink}'>Potwierdź konto</a></h3>
                                          </body>
                                          </html>
                                            ";
