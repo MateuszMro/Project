@@ -6,13 +6,14 @@ use App\Entity\Defects;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ListDefectsController extends AbstractController
 {
     #[Route('/list_defects', name: 'app_list_defects')]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, Request $request): Response
     {
         $user = $this->getUser();
 
@@ -31,7 +32,7 @@ class ListDefectsController extends AbstractController
 
     #[Route('/list_all_defects', name: 'app_list_all_defects')]
     #[IsGranted('ROLE_ADMIN')]
-    public function index1(EntityManagerInterface $entityManager): Response
+    public function index1(EntityManagerInterface $entityManager, Request $request): Response
     {
         $user = $this->getUser();
 
@@ -39,12 +40,21 @@ class ListDefectsController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        //Pobranie wszystkich i wyświetlenie
         $defects = $entityManager->getRepository(Defects::class)->findAll();
+
+
+        //Pobranie wybranego zgłoszenia po numerze zgłoszenia i wyświetlenie
+        $numberStringDefects = $request->query->get('number-defects');
+        $numberIntDefects = intval($numberStringDefects);
+        $defect = $entityManager->getRepository(Defects::class)->findOneBy(['defectNumber'=>$numberIntDefects]);
 
         return $this->render('pages/list_all_defects.html.twig', [
             'defects' => $defects,
+            'defect' => $defect,
         ]);
     }
+
 
     #[Route('/list_all_defects/{id}/close', name: 'app_list_all_defects_close')]
     #[IsGranted('ROLE_ADMIN')]
