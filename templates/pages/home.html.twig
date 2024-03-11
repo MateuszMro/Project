@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Strona główna{% endblock %}
+{% block title %}Kuchnie{% endblock %}
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
     <script type="module" src="{{ asset('js/home_page.js') }}"></script>
@@ -484,13 +484,11 @@
                     </h6>
                     <p class="mb-4">
                         <a href="/gallery" class="text-neutral-200"
-                        >Galeria</a
-                        >
+                        >Galeria</a>
                     </p>
                     <p class="mb-4">
                         <a href="/offer" class="text-neutral-200"
-                        >Oferty</a
-                        >
+                        >Oferty</a>
                     </p>
 
                 </div>
@@ -501,24 +499,20 @@
                     </h6>
                     <p class="mb-4">
                         <a href="/contact" class="text-neutral-200"
-                        >Kontakt</a
-                        >
+                        >Kontakt</a>
                     </p>
 
                     <p class="mb-4">
                         <a href="/{{ app.user ? '' : 'login' }}" class="text-neutral-200"
-                        >{{ app.user ? '' : 'Zaloguj'  }}</a
-                        >
+                        >{{ app.user ? '' : 'Logowanie'  }}</a>
                     </p>
                     <p class="mb-4">
                         <a href="/{{ app.user ? '' : 'register' }}" class="text-neutral-200"
-                        >{{ app.user ? '' : 'Rejestracja' }}</a
-                        >
+                        >{{ app.user ? '' : 'Rejestracja' }}</a>
                     </p>
                     <p class="mb-4">
                         <a href="/{{ app.user ? '' : 'reset_password' }}" class="text-neutral-200"
-                        >{{ app.user ? '' : 'Resetuj hasło'}}</a
-                        >
+                        >{{ app.user ? '' : 'Resetuj hasło'}}</a>
                     </p>
                 </div>
                 <!-- Contact section -->
