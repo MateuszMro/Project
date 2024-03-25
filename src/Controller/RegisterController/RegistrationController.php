@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Register;
+namespace App\Controller\RegisterController;
 
 use App\Entity\Clients;
 use App\Form\RegistrationFormType;
