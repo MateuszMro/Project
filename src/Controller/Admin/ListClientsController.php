@@ -14,7 +14,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class ListClientsController extends AbstractController
 {
 
-    #[Route('/list_all_clients', name: 'app_list_all_clients')]
+    #[Route('/admin/list-all-clients', name: 'app_list_all_clients')]
     #[IsGranted('ROLE_ADMIN')]
     public function index1(EntityManagerInterface $entityManager, Request $request): Response
     {
@@ -32,13 +32,13 @@ class ListClientsController extends AbstractController
         $emailClient = $request->query->get('email-client');
         $client = $entityManager->getRepository(Clients::class)->findOneBy(['email'=>$emailClient]);
 
-        return $this->render('pages/list_all_clients.html.twig', [
+        return $this->render('admin-panel/list-all-clients.html.twig', [
             'clients' => $clients,
             'client' => $client,
         ]);
     }
 
-    #[Route('/list_all_clients/{id}/ban', name: 'app_list_all_clients_ban')]
+    #[Route('/list-all-clients/{id}/ban', name: 'app_list_all_clients_ban')]
     #[IsGranted('ROLE_ADMIN')]
     public function banAccount(EntityManagerInterface $entityManager, Clients $clients): Response
     {
@@ -48,7 +48,7 @@ class ListClientsController extends AbstractController
 
         return $this->redirectToRoute('app_list_all_clients');
     }
-    #[Route('/list_all_defects/{id}/active', name: 'app_list_all_clients_active')]
+    #[Route('/list-all-clients/{id}/active', name: 'app_list_all_clients_active')]
     #[IsGranted('ROLE_ADMIN')]
     public function activeAccount(EntityManagerInterface $entityManager, Clients $clients): Response
     {

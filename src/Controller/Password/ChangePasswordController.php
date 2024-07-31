@@ -15,7 +15,7 @@ class ChangePasswordController extends AbstractController
 {
 
 
-    #[Route('/change_password', name: 'app_change_password')]
+    #[Route('/change-password', name: 'app_change_password')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
 
@@ -65,14 +65,14 @@ class ChangePasswordController extends AbstractController
                 //Zapisywanie zmian w bazie danych
                 $entityManager->flush();
 
-                return $this->render('info-pages/change_password_success.html.twig', [
+                return $this->render('info-pages/change-password-success.html.twig', [
 
                 ]);
             }
 
         }
 
-        return $this->render('reset-password/change_password.html.twig', [
+        return $this->render('reset-password/change-password.html.twig', [
             'changePasswordForm' => $form->createView(),
         ]);
     }

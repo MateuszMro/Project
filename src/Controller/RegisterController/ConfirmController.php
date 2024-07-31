@@ -15,7 +15,7 @@ class ConfirmController extends AbstractController
     public function __construct(EntityManagerInterface $entityManagers){
         $this->entityManager=$entityManagers;
     }
-    #[Route('/confirm/{code}', name: 'confirm_register')]
+    #[Route('/confirm/{code}', name: 'app_confirm_register')]
     public function index($code): Response
     {
         $userRepository = $this->entityManager->getRepository(Clients::class);
@@ -28,13 +28,13 @@ class ConfirmController extends AbstractController
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 
-            return $this->render('info-pages/confirm_success.html.twig',[
+            return $this->render('info-pages/confirm-success.html.twig',[
 
             ]);
         }
 
 
-        return $this->render('info-pages/confirm_error.html.twig', [
+        return $this->render('info-pages/confirm-error.html.twig', [
 
         ]);
     }

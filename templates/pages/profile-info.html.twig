@@ -87,11 +87,13 @@
                 </dl>
             </div>
         </div>
-        <form method="post" action="{{ path('app_delete_account') }}" onsubmit="return confirm('Czy na pewno chcesz usunąć konto?');">
-            <button type="submit" class="inline-flex justify-center float-right mt-5 rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium
-            text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                Usuń konto
-            </button>
-        </form>
+        {% if not is_granted('ROLE_SUPER_ADMIN') %}
+            <form method="post" action="{{ path('app_delete_account') }}" onsubmit="return confirm('Czy na pewno chcesz usunąć konto?');">
+                <button type="submit" class="inline-flex justify-center float-right mt-5 rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium
+                text-white shadow-sm hover:bg-red-600 focus:outline-none focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                    Usuń konto
+                </button>
+            </form>
+        {% endif %}
     </div>
 {% endblock %}

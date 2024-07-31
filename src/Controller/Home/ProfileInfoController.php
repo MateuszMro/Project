@@ -23,7 +23,7 @@ class ProfileInfoController extends AbstractController
         }
 
 
-        return $this->render('pages/profile_info.html.twig', [
+        return $this->render('pages/profile-info.html.twig', [
 
         ]);
     }

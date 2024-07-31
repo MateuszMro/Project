@@ -97,7 +97,7 @@ class RegistrationController extends AbstractController
                     $mail->addAddress($user->getEmail());
 
                     //Treść wiadomości
-                    $confirmLink = $this->generateUrl('confirm_register', [
+                    $confirmLink = $this->generateUrl('app_confirm_register', [
                         'code' => $user->getConfirmCode()
                     ], true);
                     $mail->isHTML(true);
@@ -115,12 +115,12 @@ class RegistrationController extends AbstractController
                     //Wysłanie e-maila
                     $mail->send();
 
-                    return $this->render('info-pages/confirm_sent.html.twig', [
+                    return $this->render('info-pages/confirm-sent.html.twig', [
                         'email' => $user->getEmail(),
                     ]);
 
                 } catch (Exception $exception) {
-                    return $this->render('info-pages/confirm_error.html.twig', [
+                    return $this->render('info-pages/confirm-error.html.twig', [
                         'error' => $exception->getMessage(),
                     ]);
                 }

@@ -127,7 +127,7 @@ class DefectsController extends AbstractController
                 //Wysłanie e-maila
                 $mail->send();
 
-                return $this->render('info-pages/defect_sent.html.twig', [
+                return $this->render('info-pages/defect-sent.html.twig', [
                     'email' => $userEmail,
                 ]);
 

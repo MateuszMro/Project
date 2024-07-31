@@ -9,13 +9,13 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class AdminPanel extends AbstractController
 {
-    #[Route('/panel_admin', name: 'app_panel_admin')]
+    #[Route('/admin-panel', name: 'app_admin_panel')]
     #[IsGranted('ROLE_ADMIN')]
     public function index(): Response
     {
 
 
-        return $this->render('admin-panel/panel-admin.html.twig', [
+        return $this->render('admin-panel/admin-panel.html.twig', [
 
         ]);
     }

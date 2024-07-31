@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ResetPasswordController extends AbstractController
 {
 
-    #[Route('/reset_password', name: 'app_reset_password')]
+    #[Route('/reset-password', name: 'app_reset_password')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
 
@@ -87,7 +87,7 @@ class ResetPasswordController extends AbstractController
                 //Wysłanie e-maila
                 $mail->send();
 
-                return $this->render('info-pages/reset_password_sent.html.twig', [
+                return $this->render('info-pages/reset-password-sent.html.twig', [
                     'email' => $email,
                 ]);
 
@@ -100,7 +100,7 @@ class ResetPasswordController extends AbstractController
 
         }
 
-        return $this->render('reset-password/reset_password.html.twig', [
+        return $this->render('reset-password/reset-password.html.twig', [
             'resetPasswordForm' => $form->createView(),
         ]);
     }
