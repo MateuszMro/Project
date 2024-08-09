@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Meble{% endblock %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-    <script type="module" src="{{ asset('js/home_page.js') }}"></script>
+
+{% block javascript %}
+    <script type="module" src={{ asset('js/home.js') }}></script>
 {% endblock %}
+
 {% block body %}
 <body class="flex flex-col min-h-screen z-5">
 
