@@ -17,20 +17,20 @@
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                 <dl class="sm:divide-y sm:divide-gray-200">
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    {% if is_granted('ROLE_OWNER') %}
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
-                                Zarządzanie całą bazą danych z poziomu Super Admina
+                                Zarządzanie całą bazą danych z poziomu Właściciela
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <a href="/super-admin-panel" class="font-bold underline text-red-500">Wejdź do panelu Super Admina</a>
+                                <a href="/owner" class="font-bold underline text-red-500">Wejdź do panelu Właściciela</a>
                             </dd>
                         </div>
                     {% endif %}
                     {% if is_granted("ROLE_ADMIN") %}
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
-                                Podgląd i zarządzanie zgłoszeniami z poziomu Admina
+                                Podgląd i zarządzanie zgłoszeniami z poziomu Administratora
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <a href="/admin/list-all-defects" class="font-bold underline text-green-500">Wejdź do panelu zgłoszeń</a>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
-                                Podgląd i zarządzanie użytkownikami z poziomu Admina
+                                Podgląd i zarządzanie użytkownikami z poziomu Administratora
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <a href="/admin/list-all-clients" class="font-bold underline text-green-500">Wejdź do panelu z użytkownikami</a>

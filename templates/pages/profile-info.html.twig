@@ -56,14 +56,17 @@
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {% if app.user  %}
+                                {% if is_granted('ROLE_OWNER') %}
+                                    OWNER
+                                {% endif %}
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                    Super_Admin
+                                    SUPER_ADMIN
                                 {% endif %}
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    Administrator
+                                    ADMIN
                                 {% endif %}
                                 {% if is_granted('ROLE_USER') %}
-                                    Użytkownik
+                                    USER
                                 {% endif %}
                             {% endif %}
                         </dd>

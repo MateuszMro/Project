@@ -12,10 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-class SuperAdminDashboardController extends AbstractDashboardController
+class OwnerDashboardController extends AbstractDashboardController
 {
-    #[Route('/super-admin-panel', name: 'app_super_admin_panel')]
-    #[IsGranted('ROLE_SUPER_ADMIN')]
+    #[Route('/owner', name: 'app_owner')]
+    #[IsGranted('ROLE_OWNER')]
     public function index(): Response
     {
 
@@ -27,7 +27,7 @@ class SuperAdminDashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Super_Admin');
+            ->setTitle('Owner');
     }
 
     public function configureMenuItems(): iterable

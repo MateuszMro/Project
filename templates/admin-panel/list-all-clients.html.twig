@@ -59,21 +59,23 @@
                             <p><strong>Data utworzenia konta: </strong>{{ client.createdDate }}</p>
                             <p><strong>Adres IP: </strong>{{ client.IP }}</p>
                             <p>
-                                {% if 'ROLE_SUPER_ADMIN' not in client.roles %}
-                                {% if 'ROLE_ADMIN' not in client.roles %}
-                                {% if client.confirmAccount == 'Aktywne' %}
-                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                <strong>Zmień status konta: </strong>
-                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                            </form>
-                        {% else %}
-                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                <strong>Zmień status konta: </strong>
-                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                            </form>
-                            {% endif %}
-                            {% endif %}
-                            {% endif %}
+                                {% if 'ROLE_OWNER' not in client.roles %}
+                                    {% if 'ROLE_SUPER_ADMIN' not in client.roles %}
+                                        {% if 'ROLE_ADMIN' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <strong>Zmień status konta: </strong>
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <strong>Zmień status konta: </strong>
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
                             </p>
                         </div>
                     </div>
@@ -86,6 +88,9 @@
                             <p><strong>Login: </strong>{{ client.login }}</p>
                             <p><strong>Status konta: </strong>{{ client.confirmAccount }}</p>
                             <p><strong>Rola: </strong>
+                                {% if 'ROLE_OWNER' in client.roles %}
+                                    <p>ROLE_OWNER</p>
+                                {% endif %}
                                 {% if 'ROLE_SUPER_ADMIN' in client.roles %}
                                     <p>ROLE_SUPER_ADMIN</p>
                                 {% endif %}
@@ -99,18 +104,20 @@
                             <p><strong>Data utworzenia konta: </strong>{{ client.createdDate }}</p>
                             <p><strong>Adres IP: </strong>{{ client.IP }}</p>
                             <p>
-                                {% if 'ROLE_SUPER_ADMIN' not in client.roles %}
-                                    {% if 'ROLE_ADMIN' not in client.roles %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <strong>Zmień status konta: </strong>
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <strong>Zmień status konta: </strong>
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
+                                {% if 'ROLE_OWNER' not in client.roles %}
+                                    {% if 'ROLE_SUPER_ADMIN' not in client.roles %}
+                                        {% if 'ROLE_ADMIN' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <strong>Zmień status konta: </strong>
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <strong>Zmień status konta: </strong>
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
