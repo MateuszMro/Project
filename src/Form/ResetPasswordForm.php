@@ -26,6 +26,7 @@ class ResetPasswordForm extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
+                'label' => 'E-mail',
                 'error_bubbling' => true,
                 'constraints' => [
                     new Assert\NotBlank([
