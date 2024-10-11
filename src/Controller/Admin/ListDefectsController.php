@@ -60,7 +60,7 @@ class ListDefectsController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function closeDefects(EntityManagerInterface $entityManager, Defects $defects): Response
     {
-        $defects->setStatus('CLOSED');
+        $defects->setStatus('ZAMKNIĘTE');
 
         $entityManager->flush();
 
@@ -70,8 +70,29 @@ class ListDefectsController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function openDefects(EntityManagerInterface $entityManager, Defects $defects): Response
     {
-        $defects->setStatus('OPEN');
+        $defects->setStatus('OTWARTE');
 
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_list_all_defects');
+    }
+    #[Route('/admin/list-all-defects/{id}/in-progress', name: 'app_list_all_defects_in_process')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function inProgressDefects(EntityManagerInterface $entityManager, Defects $defects): Response
+    {
+        $defects->setStatus('W TRAKCIE');
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_list_all_defects');
+    }
+    #[Route('/admin/list-all-defects/{id}/delete', name: 'app_list_all_defects_delete', methods: 'POST')]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
+    public function deleteDefects(int $id, EntityManagerInterface $entityManager, Defects $defect): Response
+    {
+
+        $defect = $entityManager->getRepository(Defects::class)->find($id);
+        $entityManager->remove($defect);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_list_all_defects');

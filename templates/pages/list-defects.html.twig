@@ -14,26 +14,48 @@
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     Poniżej znajdują się Twoje zgłoszenia.
                 </p>
-                {% for defect in defects %}
-                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0 text-gray-900">
-                        <div class="mt-3">
-                            <p><strong>Numer zgłoszenia: </strong>{{ defect.defectNumber }}</p>
-                            <p><strong>Data utworzenia zgłoszenia: </strong>{{ defect.createdDate }}</p>
-                            <p><strong>Treść zgłoszenia: </strong>
-                                <span class="short-description" data-full-description="{{ defect.description }}">{{ defect.description | slice(0, 50) }}...</span>
-                                <span class="full-description" style="display:none;">{{ defect.description }}</span>
-                            </p>
-                            <button class="show-more-btn text-sm text-blue-500">Pokaż cały opis</button>
-                            <p><strong>Status zgłoszenia: </strong>
-                                {% if defect.status == 'OPEN' %}
-                                    <strong class="font-bold text-green-600"> {{ defect.status }}</strong>
-                                {% else %}
-                                    <strong class="font-bold text-red-600"> {{ defect.status }}</strong>
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                {% endfor %}
+                <table class="min-w-full divide-y divide-gray-200 mt-2">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zgłoszenia</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer telefonu</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Data utworzenia</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                    {% for defect in defects %}
+                        {% if defect is not null %}
+                            <tr>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.id }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.defectNumber }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.email }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.numberPhone }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.createdDate }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">
+                                    {% if defect.status == 'OTWARTE' %}
+                                        <strong class="font-bold text-green-600">{{ defect.status }}</strong>
+                                    {% elseif defect.status == 'W TRAKCIE' %}
+                                        <strong class="font-bold text-yellow-500">{{ defect.status }}</strong>
+                                    {% else %}
+                                        <strong class="font-bold text-red-600">{{ defect.status }}</strong>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="px-6 py-4">
+                                    <strong><p class="text-black">TREŚĆ ZGŁOSZENIA:</p></strong>
+                                    <article>
+                                        <p class="mt-2 whitespace-normal">{{ defect.description }}</p>
+                                    </article>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

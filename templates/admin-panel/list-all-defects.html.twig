@@ -56,31 +56,51 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ defect.id }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ defect.defectNumber }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ defect.email }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ defect.numberPhone }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ defect.createdDate }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            {% if defect.status == 'OPEN' %}
-                                                <strong class="font-bold text-green-600">{{ defect.status }}</strong>
-                                            {% else %}
-                                                <strong class="font-bold text-red-600">{{ defect.status }}</strong>
-                                            {% endif %}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            {% if defect.status == 'OPEN' %}
-                                                <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-red-600 font-bold">CLOSE</button>
-                                                </form>
-                                            {% else %}
-                                                <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-green-600 font-bold">OPEN</button>
-                                                </form>
-                                            {% endif %}
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.id }}</td>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.defectNumber }}</td>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.email }}</td>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.numberPhone }}</td>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.createdDate }}</td>
+                                    <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">
+                                        {% if defect.status == 'OTWARTE' %}
+                                            <strong class="font-bold text-green-600">{{ defect.status }}</strong>
+                                        {% elseif defect.status == 'W TRAKCIE' %}
+                                            <strong class="font-bold text-yellow-500">{{ defect.status }}</strong>
+                                        {% else %}
+                                            <strong class="font-bold text-red-600">{{ defect.status }}</strong>
+                                        {% endif %}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {% if defect.status == 'OTWARTE' %}
+                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
+                                            </form>
+                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
+                                            </form>
+                                        {% elseif defect.status == 'ZAMKNIĘTE' %}
+                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
+                                            </form>
+                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
+                                            </form>
+                                        {% else %}
+                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
+                                            </form>
+                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
+                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
+                                            </form>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                            <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">
+                                                <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>
+                                            </form>
+                                        {% endif %}
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                             <div class="mt-4">
@@ -113,26 +133,46 @@
                     {% for defect in defects %}
                         {% if defect is not null %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.id }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.defectNumber }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.email }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.numberPhone }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.createdDate }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {% if defect.status == 'OPEN' %}
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.id }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.defectNumber }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.email }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.numberPhone }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.createdDate }}</td>
+                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">
+                                    {% if defect.status == 'OTWARTE' %}
                                         <strong class="font-bold text-green-600">{{ defect.status }}</strong>
+                                    {% elseif defect.status == 'W TRAKCIE' %}
+                                        <strong class="font-bold text-yellow-500">{{ defect.status }}</strong>
                                     {% else %}
                                         <strong class="font-bold text-red-600">{{ defect.status }}</strong>
                                     {% endif %}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {% if defect.status == 'OPEN' %}
+                                    {% if defect.status == 'OTWARTE' %}
                                         <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                            <button type="submit" class="text-red-600 font-bold">Zamknij</button>
+                                            <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
+                                        </form>
+                                        <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
+                                            <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
+                                        </form>
+                                    {% elseif defect.status == 'ZAMKNIĘTE' %}
+                                        <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
+                                            <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
+                                        </form>
+                                        <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
+                                            <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
                                         </form>
                                     {% else %}
+                                        <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
+                                            <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
+                                        </form>
                                         <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                            <button type="submit" class="text-green-600 font-bold">Otwórz</button>
+                                            <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
+                                        </form>
+                                    {% endif %}
+                                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                        <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">
+                                            <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>
                                         </form>
                                     {% endif %}
                                 </td>
@@ -140,7 +180,9 @@
                             <tr>
                                 <td colspan="7" class="px-6 py-4">
                                     <strong><p class="text-black">TREŚĆ ZGŁOSZENIA:</p></strong>
-                                    <p class="mt-2 whitespace-normal">{{ defect.description }}</p>
+                                        <article>
+                                            <p class="mt-2 whitespace-normal">{{ defect.description }}</p>
+                                        </article>
                                 </td>
                             </tr>
                         {% endif %}

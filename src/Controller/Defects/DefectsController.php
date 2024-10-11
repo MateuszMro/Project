@@ -31,7 +31,7 @@ class DefectsController extends AbstractController
                 $userEmail = $user->getEmail();
                 $userPhone = $form->get('numberPhone')->getData();
                 $userDescription = $form->get('description')->getData();
-                $statusDefect = 'OPEN';
+                $statusDefect = 'OTWARTE';
 
                 $currentDateTime = new \DateTime();
                 $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');
