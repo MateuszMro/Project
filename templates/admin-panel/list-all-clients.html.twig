@@ -39,7 +39,95 @@
                 </div>
 
                 <!-- Wyświetlanie jednego użytkownika -->
-                {% if client %}
+
+                <div class="relative overflow-x-auto">
+                    {% if client %}
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Login</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status konta</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Rola</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Data utworzenia konta</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres IP</th>
+                                <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.login }}</td>
+                                {% if client.confirmAccount == 'Aktywne' %}
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 font-bold">{{ client.confirmAccount }}</td>
+                                {% else %}
+                                    <td class="px-6 py-4 whitespace-nowrap text-red-600 font-bold">{{ client.confirmAccount }}</td>
+                                {% endif %}
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if 'ROLE_OWNER' in client.roles %}
+                                        <p class="text-red-600 font-bold">ROLE_OWNER</p>
+                                    {% endif %}
+                                    {% if 'ROLE_SUPER_ADMIN' in client.roles %}
+                                        <p class="text-yellow-600 font-bold">ROLE_SUPER_ADMIN</p>
+                                    {% endif %}
+                                    {% if 'ROLE_ADMIN' in client.roles %}
+                                        <p class="text-green-600 font-bold">ROLE_ADMIN</p>
+                                    {% endif %}
+                                    {% if 'ROLE_USER' in client.roles %}
+                                        <p>ROLE_USER</p>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.createdDate }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.IP }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if is_granted('ROLE_OWNER') %}
+                                        {% if client.id != app.user.id %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% elseif is_granted('ROLE_SUPER_ADMIN') %}
+                                        {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% elseif is_granted('ROLE_ADMIN') %}
+                                        {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles and 'ROLE_SUPER_ADMIN' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+
+                <!-- Wyświetlanie wszystkich użytkowników -->
+                <div class="relative overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                         <tr>
@@ -54,160 +142,76 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.id }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.email }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.login }}</td>
-                            {% if client.confirmAccount == 'Aktywne' %}
-                                <td class="px-6 py-4 whitespace-nowrap text-green-600 font-bold">{{ client.confirmAccount }}</td>
-                            {% else %}
-                                <td class="px-6 py-4 whitespace-nowrap text-red-600 font-bold">{{ client.confirmAccount }}</td>
-                            {% endif %}
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {% if 'ROLE_OWNER' in client.roles %}
-                                    <p class="text-red-600 font-bold">ROLE_OWNER</p>
+                        {% for client in clients %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.login }}</td>
+                                {% if client.confirmAccount == 'Aktywne' %}
+                                        <td class="px-6 py-4 whitespace-nowrap text-green-600 font-bold">{{ client.confirmAccount }}</td>
+                                    {% else %}
+                                        <td class="px-6 py-4 whitespace-nowrap text-red-600 font-bold">{{ client.confirmAccount }}</td>
                                 {% endif %}
-                                {% if 'ROLE_SUPER_ADMIN' in client.roles %}
-                                    <p class="text-yellow-600 font-bold">ROLE_SUPER_ADMIN</p>
-                                {% endif %}
-                                {% if 'ROLE_ADMIN' in client.roles %}
-                                    <p class="text-green-600 font-bold">ROLE_ADMIN</p>
-                                {% endif %}
-                                {% if 'ROLE_USER' in client.roles %}
-                                    <p>ROLE_USER</p>
-                                {% endif %}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.createdDate }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.IP }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {% if is_granted('ROLE_OWNER') %}
-                                    {% if client.id != app.user.id %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if 'ROLE_OWNER' in client.roles %}
+                                        <p class="text-red-600 font-bold">ROLE_OWNER</p>
+                                    {% endif %}
+                                    {% if 'ROLE_SUPER_ADMIN' in client.roles %}
+                                        <p class="text-yellow-600 font-bold">ROLE_SUPER_ADMIN</p>
+                                    {% endif %}
+                                    {% if 'ROLE_ADMIN' in client.roles %}
+                                        <p class="text-green-600 font-bold">ROLE_ADMIN</p>
+                                    {% endif %}
+                                    {% if 'ROLE_USER' in client.roles %}
+                                        <p>ROLE_USER</p>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.createdDate }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ client.IP }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if is_granted('ROLE_OWNER') %}
+                                        {% if client.id != app.user.id %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% elseif is_granted('ROLE_SUPER_ADMIN') %}
+                                        {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% elseif is_granted('ROLE_ADMIN') %}
+                                        {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles and 'ROLE_SUPER_ADMIN' not in client.roles %}
+                                            {% if client.confirmAccount == 'Aktywne' %}
+                                                <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
+                                                </form>
+                                            {% else %}
+                                                <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
+                                                    <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
+                                                </form>
+                                            {% endif %}
                                         {% endif %}
                                     {% endif %}
-                                {% elseif is_granted('ROLE_SUPER_ADMIN') %}
-                                    {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                {% elseif is_granted('ROLE_ADMIN') %}
-                                    {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles and 'ROLE_SUPER_ADMIN' not in client.roles %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                {% endif %}
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
-                {% endif %}
-
-                <!-- Wyświetlanie wszystkich użytkowników -->
-
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Login</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status konta</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Rola</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Data utworzenia konta</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres IP</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>
-                    </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
-                    {% for client in clients %}
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.id }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.email }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.login }}</td>
-                            {% if client.confirmAccount == 'Aktywne' %}
-                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 font-bold">{{ client.confirmAccount }}</td>
-                                {% else %}
-                                    <td class="px-6 py-4 whitespace-nowrap text-red-600 font-bold">{{ client.confirmAccount }}</td>
-                            {% endif %}
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {% if 'ROLE_OWNER' in client.roles %}
-                                    <p class="text-red-600 font-bold">ROLE_OWNER</p>
-                                {% endif %}
-                                {% if 'ROLE_SUPER_ADMIN' in client.roles %}
-                                    <p class="text-yellow-600 font-bold">ROLE_SUPER_ADMIN</p>
-                                {% endif %}
-                                {% if 'ROLE_ADMIN' in client.roles %}
-                                    <p class="text-green-600 font-bold">ROLE_ADMIN</p>
-                                {% endif %}
-                                {% if 'ROLE_USER' in client.roles %}
-                                    <p>ROLE_USER</p>
-                                {% endif %}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.createdDate }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ client.IP }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {% if is_granted('ROLE_OWNER') %}
-                                    {% if client.id != app.user.id %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                {% elseif is_granted('ROLE_SUPER_ADMIN') %}
-                                    {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                {% elseif is_granted('ROLE_ADMIN') %}
-                                    {% if client.id != app.user.id and 'ROLE_OWNER' not in client.roles and 'ROLE_SUPER_ADMIN' not in client.roles %}
-                                        {% if client.confirmAccount == 'Aktywne' %}
-                                            <form method="post" action="{{ path('app_list_all_clients_ban', {'id': client.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">Zablokuj</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_clients_active', {'id': client.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">Aktywuj</button>
-                                            </form>
-                                        {% endif %}
-                                    {% endif %}
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                </div>
             </div>
         </div>
     </div>
