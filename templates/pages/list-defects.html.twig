@@ -17,11 +17,8 @@
                 <table class="min-w-full divide-y divide-gray-200 mt-2">
                     <thead class="bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zgłoszenia</th>
                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer telefonu</th>
-                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Data utworzenia</th>
                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status</th>
                     </tr>
                     </thead>
@@ -29,12 +26,13 @@
                     {% for defect in defects %}
                         {% if defect is not null %}
                             <tr>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.id }}</td>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.defectNumber }}</td>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.email }}</td>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.numberPhone }}</td>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">{{ defect.createdDate }}</td>
-                                <td class="px-6 py-3 text-left text-base font-bold text-black tracking-wider whitespace-nowrap">
+                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.defectNumber }}
+                                    <p class="text-blue-500 text-xs">
+                                        <a href="{{ path('app_list_defects_show', { id: defect.id }) }}">Zobacz szczegóły</a>
+                                    </p>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ defect.email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
                                     {% if defect.status == 'OTWARTE' %}
                                         <strong class="font-bold text-green-600">{{ defect.status }}</strong>
                                     {% elseif defect.status == 'W TRAKCIE' %}
@@ -42,14 +40,6 @@
                                     {% else %}
                                         <strong class="font-bold text-red-600">{{ defect.status }}</strong>
                                     {% endif %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="px-6 py-4">
-                                    <strong><p class="text-black">TREŚĆ ZGŁOSZENIA:</p></strong>
-                                    <article>
-                                        <p class="mt-2 whitespace-normal">{{ defect.description }}</p>
-                                    </article>
                                 </td>
                             </tr>
                         {% endif %}

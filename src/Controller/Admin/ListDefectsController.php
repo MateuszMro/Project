@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Clients;
 use App\Entity\Defects;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,6 +28,23 @@ class ListDefectsController extends AbstractController
 
         return $this->render('pages/list-defects.html.twig', [
             'defects' => $defects,
+        ]);
+    }
+    #[Route('/list-defects/{id}', name: 'app_list_defects_show')]
+    public function listDefectsShow(int $id, EntityManagerInterface $entityManager, Defects $defect): Response
+    {
+
+        $defect = $entityManager->getRepository(Defects::class)->find($id);
+        $currentUser = $this->getUser();
+        $currentUserEmail = $currentUser->getEmail();
+
+        if ($defect->getEmail() !== $currentUserEmail){
+            return $this->redirectToRoute('app_list_defects');
+
+        }
+
+        return $this->render('pages/list-defects-show.html.twig', [
+            'defect' => $defect,
         ]);
     }
 
@@ -97,4 +115,17 @@ class ListDefectsController extends AbstractController
 
         return $this->redirectToRoute('app_list_all_defects');
     }
+
+    #[Route('/admin/defects/{id}', name: 'app_defects_show')]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
+    public function defectsShow(int $id, EntityManagerInterface $entityManager, Defects $defect): Response
+    {
+
+        $defect = $entityManager->getRepository(Defects::class)->find($id);
+
+        return $this->render('admin-panel/defects-show.html.twig', [
+            'defect' => $defect,
+        ]);
+    }
+
 }
