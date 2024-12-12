@@ -1,0 +1,89 @@
+{% extends 'pages/home.html.twig' %}
+
+
+
+{% block title %}Zamówienia {% endblock %}
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-[600px] text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Tworzenie zamówienia
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Po złożeniu zamówienia oczekuj na kontakt naszego pracownika celem poinformowania o cenie zamówienia. Cena dostępna będzie również
+                    w historii zamówień, która znajduje się w panelu klienta. Zamówienie jest realizowane po opłaceniu zamówienia.
+                </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                {{ form_start(orderProductForm, {'attr': {'class': 'sm:divide-y sm:divide-gray-200 text-black flex justify-center'}}) }}
+                <div class="mt-3">
+                    {{ form_row(orderProductForm.name, {'attr': {
+                        'placeholder': 'Imię',
+                        'autofocus': true,
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.surname, {'attr': {
+                        'placeholder': 'Nazwisko',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.email, {'attr': {
+                        'placeholder': 'example@gmail.com',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.numberPhone, {'attr': {
+                        'placeholder': 'Numer telefonu',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.address, {'attr': {
+                        'placeholder': 'Adres dostawy',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.productID, {'attr': {
+                        'placeholder': '5 cyfrowy numer produktu',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.quantity, {'attr': {
+                        'placeholder': 'Ilość produktów',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.width, {'attr': {
+                        'placeholder': 'Szerokość w milimetrach',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.height, {'attr': {
+                        'placeholder': 'Wysokość w milimetrach',
+                        'class': 'mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    {{ form_row(orderProductForm.commentsOrder, {'attr': {
+                        'placeholder': 'Dodatkowe informacje',
+                        'class': 'mb-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+                                focus:shadow-outline border-black'}}) }}
+                    <div class="flex items-center">
+                        {{ form_label(orderProductForm.acceptTerms) }}
+                        {{ form_widget(orderProductForm.acceptTerms, {'attr': {
+                            'class': 'ml-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded
+                                 dark:ring-offset-gray-800 focus:ring-1 dark:bg-gray-700 dark:border-gray-600'}}) }}
+                    </div>
+                    <button type="submit" class="mt-2 mb-2 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium
+                                    rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        Złóż zamówienie
+                    </button>
+                    {% if orderProductForm.vars.errors|length > 0 %}
+                        <div class="mb-2 alert alert-danger mt-3 text-red-600 font-bold">
+                            <ul>
+                                {% for error in orderProductForm.vars.errors %}
+                                    <li>{{ error.message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+                {{ form_end(orderProductForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

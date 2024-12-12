@@ -1,0 +1,167 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Zamówienie {{ order.orderNumber }}{% endblock %}
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Zamówienie {{ order.orderNumber }}
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdziesz szczegóły wybranego zamówienia.
+                </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                <dl class="sm:divide-y sm:divide-gray-200">
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer zamówienia
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.orderNumber }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer zamówionego produktu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.productID }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Ilość sztuk
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.quantity }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Szerokość produktu (wyrażana w milimetrach)
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.width }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Wysokość produktu (wyrażana w milimetrach)
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.height }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adres e-mail
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.email }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Imię
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.name }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Nazwisko
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.surname }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer telefonu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.numberPhone }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adres dostawy
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.address }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Uwagi do zamówienia
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.commentsOrder }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Cena
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.price }} zł
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status płatności
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if order.paymentStatus == 'ZAPŁACONO' %}
+                                <strong class="font-bold text-green-600">{{ order.paymentStatus }}</strong>
+                            {% else %}
+                                <strong class="font-bold text-red-600">{{ order.paymentStatus }}</strong>
+                            {% endif %}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status zamówienia
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if order.status == 'ZAMÓWIENIE DOSTARCZONE' %}
+                                <strong class="font-bold text-green-600">{{ order.status }}</strong>
+                            {% elseif order.status == 'W TRAKCIE REALIZACJI' %}
+                                <strong class="font-bold text-yellow-500">{{ order.status }}</strong>
+                            {% elseif order.status == 'W TRAKCIE DOSTAWY' %}
+                                <strong class="font-bold text-green-300">{{ order.status }}</strong>
+                            {% else %}
+                                <strong class="font-bold text-red-600">{{ order.status }}</strong>
+                            {% endif %}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Data złożenia zamówienia
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.orderDate }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Akcje
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if order.paymentStatus == 'DO ZAPŁATY' %}
+                                <form method="post" action="{{ path('app_list_my_order_cancel', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz anulować te zamówienie?');">
+                                    <button type="submit" class="text-red-600 font-bold mt-2">ANULUJ ZAMÓWIENIE</button>
+                                </form>
+                            {% endif %}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+{% endblock %}

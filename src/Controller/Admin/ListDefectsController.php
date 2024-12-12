@@ -117,7 +117,7 @@ class ListDefectsController extends AbstractController
     }
 
     #[Route('/admin/defects/{id}', name: 'app_defects_show')]
-    #[IsGranted('ROLE_SUPER_ADMIN')]
+    #[IsGranted('ROLE_ADMIN')]
     public function defectsShow(int $id, EntityManagerInterface $entityManager, Defects $defect): Response
     {
 

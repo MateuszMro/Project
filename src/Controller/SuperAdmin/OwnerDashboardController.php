@@ -4,6 +4,7 @@ namespace App\Controller\SuperAdmin;
 
 use App\Entity\Clients;
 use App\Entity\Defects;
+use App\Entity\OrderProduct;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,6 +36,7 @@ class OwnerDashboardController extends AbstractDashboardController
         yield MenuItem::linkToUrl('Strona główna', 'fa fa-home', '/');
         yield MenuItem::linkToCrud('Użytkownicy', 'fas fa-list', Clients::class);
         yield MenuItem::linkToCrud('Zgłoszenia', 'fas fa-list', Defects::class);
+        yield MenuItem::linkToCrud('Zamówienia', 'fas fa-list', OrderProduct::class);
 
     }
 }
