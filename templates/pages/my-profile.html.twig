@@ -1,0 +1,61 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Mój profil{% endblock %}
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-[1050px] text-white rounded-lg">
+        <div class="px-4 py-5 sm:px-6 bg-white overflow-hidden shadow rounded-lg border">
+            <div class="text-xl leading-6 font-bold text-gray-600">Panel klienta</div>
+            <div class="mt-1 max-w-2xl text-gray-500 font-medium">Witaj, {{ app.user.login }}</div>
+        </div>
+        <div class="px-4 py-5 sm:px-6 bg-white overflow-hidden shadow rounded-lg border flex">
+            <div class="">
+                <div class="text-lg leading-6 text-gray-600 font-bold">Mój profil</div>
+                <div class="mt-2 max-w-2xl text-gray-700 text-sm flex justify-center items-center gap-6 grid gap-x-28 gap-y-4 grid-cols-3">
+                    <a href="/profile" class="ease-in-out hover:scale-110">
+                        Informacje o profilu
+                    </a>
+                    <a href="/change-password" class="ease-in-out hover:scale-110">
+                        Zmiana hasła
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 py-5 sm:px-6 bg-white overflow-hidden shadow rounded-lg border flex">
+            <div class="">
+                <div class="text-lg leading-6 text-gray-600 font-bold">Zamówienia i zwroty</div>
+                <div class="mt-2 max-w-2xl text-gray-700 text-sm flex justify-center items-center gap-6 grid gap-x-28 gap-y-4 grid-cols-3">
+                    <a href="/order/my-order" class="ease-in-out hover:scale-110">
+                        Historia zamówień
+                    </a>
+                    <a href="/" class="ease-in-out hover:scale-110">
+                        Zamów wizytę specjalisty
+                    </a>
+                    <a href="/" class="ease-in-out hover:scale-110">
+                        Historia wizyt specjalisty
+                    </a>
+                    <a href="/" class="ease-in-out hover:scale-110">
+                        Utwórz zwrot zamówienia
+                    </a>
+                    <a href="/" class="ease-in-out hover:scale-110">
+                        Historia zwrotów
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 py-5 sm:px-6 bg-white overflow-hidden shadow rounded-lg border flex">
+            <div class="">
+                <div class="text-lg leading-6 text-gray-600 font-bold">Zgłoszenia</div>
+                <div class="mt-2 max-w-2xl text-gray-700 text-sm flex justify-center items-center gap-6 grid gap-x-28 gap-y-4 grid-cols-3">
+                    <a href="/defects" class="ease-in-out hover:scale-110">
+                        Utwórz zgłoszenie
+                    </a>
+                    <a href="/list-defects" class="ease-in-out hover:scale-110">
+                        Historia zgłoszeń
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

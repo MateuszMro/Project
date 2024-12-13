@@ -27,4 +27,19 @@ class ProfileInfoController extends AbstractController
 
         ]);
     }
+    #[Route('/my-profile', name: 'app_my_profile')]
+    public function myProfile(): Response
+    {
+
+        $user = $this->getUser();
+
+        if (!$user){
+            return $this->redirectToRoute('app_login');
+        }
+
+
+        return $this->render('pages/my-profile.html.twig', [
+
+        ]);
+    }
 }
