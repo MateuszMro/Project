@@ -1,9 +1,7 @@
 {
-  "build/app.css": "/build/app.css",
-  "build/app.js": "/build/app.js",
-  "build/runtime.js": "/build/runtime.js",
-  "build/vendors-node_modules_tw-elements_dist_js_chart_es_js.js": "/build/vendors-node_modules_tw-elements_dist_js_chart_es_js.js",
-  "build/vendors-node_modules_tw-elements_dist_js_chartjs-plugin-datalabels_es_js.js": "/build/vendors-node_modules_tw-elements_dist_js_chartjs-plugin-datalabels_es_js.js",
-  "build/vendors-node_modules_tailwindcss_base_css-node_modules_tailwindcss_components_css-node_module-5a2d3e.css": "/build/vendors-node_modules_tailwindcss_base_css-node_modules_tailwindcss_components_css-node_module-5a2d3e.css",
-  "build/vendors-node_modules_tailwindcss_base_css-node_modules_tailwindcss_components_css-node_module-5a2d3e.js": "/build/vendors-node_modules_tailwindcss_base_css-node_modules_tailwindcss_components_css-node_module-5a2d3e.js"
+  "build/app.css": "/build/app.2c7cb993.css",
+  "build/app.js": "/build/app.83ead77c.js",
+  "build/runtime.js": "/build/runtime.18bf6e55.js",
+  "build/697.2db06c17.js": "/build/697.2db06c17.js",
+  "build/309.fe04a17b.js": "/build/309.fe04a17b.js"
 }
