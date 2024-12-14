@@ -2,8 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/templates/easycorp/easyadmin-bundle" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/vendor/phpmailer/phpmailer" vcs="Git" />
   </component>
 </project>
