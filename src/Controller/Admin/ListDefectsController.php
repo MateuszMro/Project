@@ -82,7 +82,9 @@ class ListDefectsController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_defects');
+        return $this->redirectToRoute('app_defects_show',[
+            'id' => $defects->getId(),
+        ]);
     }
     #[Route('/admin/list-all-defects/{id}/open', name: 'app_list_all_defects_open')]
     #[IsGranted('ROLE_ADMIN')]
@@ -92,7 +94,9 @@ class ListDefectsController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_defects');
+        return $this->redirectToRoute('app_defects_show',[
+            'id' => $defects->getId(),
+        ]);
     }
     #[Route('/admin/list-all-defects/{id}/in-progress', name: 'app_list_all_defects_in_process')]
     #[IsGranted('ROLE_ADMIN')]
@@ -102,7 +106,9 @@ class ListDefectsController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_defects');
+        return $this->redirectToRoute('app_defects_show',[
+            'id' => $defects->getId(),
+        ]);
     }
     #[Route('/admin/list-all-defects/{id}/delete', name: 'app_list_all_defects_delete', methods: 'POST')]
     #[IsGranted('ROLE_SUPER_ADMIN')]

@@ -1,0 +1,160 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Zwrot {{ returnProduct.numberReturn }}{% endblock %}
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Zwrot {{ returnProduct.numberReturn }}
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdziesz szczegóły wybranego zwrotu.
+                </p>
+                <a href="/admin/list-all-return-product" class="underline text-blue-300 text-sm">Wróć do listy zwrotów</a>
+
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                <dl class="sm:divide-y sm:divide-gray-200">
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer zwrotu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.numberReturn }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adres e-mail
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.email }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer zamówienia, które zostało zwrócone
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.orderNumber }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Imię
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.name }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Nazwisko
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.surname }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer telefonu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.numberPhone }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Numer rachunku bankowego na który ma być wypłacony zwrot
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.numberBankAccount }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Przyczyna zwrotu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.reasonReturn }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status zwrotu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if returnProduct.returnStatus == 'ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE' %}
+                                <strong class="font-bold text-green-600">{{ returnProduct.returnStatus }}</strong>
+                            {% elseif returnProduct.returnStatus == 'PRZYJĘTO DO WERYFIKACJI' %}
+                                <strong class="font-bold text-yellow-500">{{ returnProduct.returnStatus }}</strong>
+                            {% else %}
+                                <strong class="font-bold text-red-600">{{ returnProduct.returnStatus }}</strong>
+                            {% endif %}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adnotacje pracownika obsługi
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-bold">
+                            {{ returnProduct.adminComment }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Data utworzenia zwrotu
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ returnProduct.createReturn }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Akcje
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if returnProduct.returnStatus == 'ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE' %}
+                                <form method="post" action="{{ path('app_list_all_return_product_no', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">NIE ZAAKCEPTOWANO ZWROTU</button>
+                                </form>
+                                <form method="post" action="{{ path('app_list_all_return_product_verify', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-yellow-500 font-bold">PRZYJĘTO DO WERYFIKACJI</button>
+                                </form>
+                            {% elseif returnProduct.returnStatus == 'PRZYJĘTO DO WERYFIKACJI' %}
+                                <form method="post" action="{{ path('app_list_all_return_product_no', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">NIE ZAAKCEPTOWANO ZWROTU</button>
+                                </form>
+                                <form method="post" action="{{ path('app_list_all_return_product_yes', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-green-600 font-bold">ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE</button>
+                                </form>
+                            {% else %}
+                                <form method="post" action="{{ path('app_list_all_return_product_verify', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-yellow-500 font-bold">PRZYJĘTO DO WERYFIKACJI</button>
+                                </form>
+                                <form method="post" action="{{ path('app_list_all_return_product_yes', {'id': returnProduct.id}) }}">
+                                    <button type="submit" class="text-green-600 font-bold">ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE</button>
+                                </form>
+                            {% endif %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <form method="post" action="{{ path('app_list_all_return_product_delete', {'id': returnProduct.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć ten zwrot?');">
+                                    <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZWROT</button>
+                                </form>
+                                <form class="mt-2" method="post" action="{{ path('app_list_all_return_product_comment', {'id': returnProduct.id}) }}" onsubmit="return confirm('Czy na pewno chcesz dodać adnotację?');">
+                                    <div class="form-group">
+                                        <label for="newPrice" class="text-blue-600 font-bold mt-2">NOWA CENA:</label>
+                                        <input type="text" class="placeholder-gray-500 border" placeholder="Dodaj adnotację" id="addComment" name="addComment">
+                                    </div>
+                                    <button type="submit" class="text-blue-600 font-bold mt-2">DODAJ ADNOTACJĘ</button>
+                                </form>
+                            {% endif %}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+{% endblock %}

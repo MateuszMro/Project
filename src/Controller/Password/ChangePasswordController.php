@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
 class ChangePasswordController extends AbstractController
@@ -16,6 +17,7 @@ class ChangePasswordController extends AbstractController
 
 
     #[Route('/change-password', name: 'app_change_password')]
+    #[IsGranted('ROLE_USER')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
 

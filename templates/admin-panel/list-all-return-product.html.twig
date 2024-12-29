@@ -1,0 +1,125 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Lista zwrotów{% endblock %}
+
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h1 class="text-lg leading-6 font-medium text-gray-900">
+                    Lista wszystkich zwrotów
+                </h1>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdują się wszystkie zwroty zamówień.
+                </p>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Jeśli chcesz znależć konkretny zwrot, wpisz poniżej jego numer.
+                </p>
+                <div class="mb-3 mt-3">
+                    <form action="{{ path('app_list_all_return_product') }}" method="get" class="w-[450px] flex">
+                        <input
+                                id="return-number"
+                                name="return-number"
+                                type="text"
+                                class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                placeholder="Szukaj zwrotu"
+                                aria-label="Search"
+                                aria-describedby="button-addon3" />
+
+                        <button
+                                class="relative z-[2] rounded-r border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                                type="submit"
+                                id="button-addon3"
+                                data-te-ripple-init>
+                            Szukaj
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Wyświetlanie jednego złoszenia -->
+                <div class="relative overflow-x-auto">
+
+                    {% if returnProduct %}
+                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0 text-gray-900">
+                            <div class="mt-3 mb-3">
+                                <p><strong class="text-green-600">SZUKANY ZWROT</strong></p>
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zwrotu</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status zwrotu</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.id }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.numberReturn }}
+                                            <p class="text-blue-500 text-xs">
+                                                <a href="{{ path('app_return_product_show', { id: returnProduct.id }) }}">Zobacz szczegóły zwrotu</a>
+                                            </p>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.email }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {% if returnProduct.returnStatus == 'ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE' %}
+                                                <strong class="font-bold text-green-600">{{ returnProduct.returnStatus }}</strong>
+                                            {% elseif returnProduct.returnStatus == 'PRZYJĘTO DO WERYFIKACJI' %}
+                                                <strong class="font-bold text-yellow-500">{{ returnProduct.returnStatus }}</strong>
+                                            {% else %}
+                                                <strong class="font-bold text-red-600">{{ returnProduct.returnStatus }}</strong>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <!-- Wyświetlanie wszystkich zgłoszeń -->
+
+                <div class="relative overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zwrotu</th>
+                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status zwrotu</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                        {% for returnProduct in returnProducts %}
+                            {% if returnProduct is not null %}
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.id }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.numberReturn }}
+                                        <p class="text-blue-500 text-xs">
+                                            <a href="{{ path('app_return_product_show', { id: returnProduct.id }) }}">Zobacz szczegóły zwrotu</a>
+                                        </p>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ returnProduct.email }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {% if returnProduct.returnStatus == 'ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE' %}
+                                            <strong class="font-bold text-green-600">{{ returnProduct.returnStatus }}</strong>
+                                        {% elseif returnProduct.returnStatus == 'PRZYJĘTO DO WERYFIKACJI' %}
+                                            <strong class="font-bold text-yellow-500">{{ returnProduct.returnStatus }}</strong>
+                                        {% else %}
+                                            <strong class="font-bold text-red-600">{{ returnProduct.returnStatus }}</strong>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

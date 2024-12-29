@@ -52,7 +52,7 @@
                                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zgłoszenia</th>
                                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
                                         <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>
+{#                                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>#}
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
@@ -73,35 +73,35 @@
                                                 <strong class="font-bold text-red-600">{{ defect.status }}</strong>
                                             {% endif %}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            {% if defect.status == 'OTWARTE' %}
-                                                <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
-                                                </form>
-                                                <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
-                                                </form>
-                                            {% elseif defect.status == 'ZAMKNIĘTE' %}
-                                                <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
-                                                </form>
-                                                <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
-                                                </form>
-                                            {% else %}
-                                                <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
-                                                </form>
-                                                <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                                    <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
-                                                </form>
-                                            {% endif %}
-                                            {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                                <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">
-                                                    <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>
-                                                </form>
-                                            {% endif %}
-                                        </td>
+{#                                        <td class="px-6 py-4 whitespace-nowrap">#}
+{#                                            {% if defect.status == 'OTWARTE' %}#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>#}
+{#                                                </form>#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>#}
+{#                                                </form>#}
+{#                                            {% elseif defect.status == 'ZAMKNIĘTE' %}#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>#}
+{#                                                </form>#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>#}
+{#                                                </form>#}
+{#                                            {% else %}#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>#}
+{#                                                </form>#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">#}
+{#                                                    <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>#}
+{#                                                </form>#}
+{#                                            {% endif %}#}
+{#                                            {% if is_granted('ROLE_SUPER_ADMIN') %}#}
+{#                                                <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">#}
+{#                                                    <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>#}
+{#                                                </form>#}
+{#                                            {% endif %}#}
+{#                                        </td>#}
                                     </tr>
                                     </tbody>
                                 </table>
@@ -121,7 +121,7 @@
                             <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zgłoszenia</th>
                             <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
                             <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status</th>
-                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>
+{#                            <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Akcje</th>#}
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
@@ -144,35 +144,35 @@
                                             <strong class="font-bold text-red-600">{{ defect.status }}</strong>
                                         {% endif %}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        {% if defect.status == 'OTWARTE' %}
-                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
-                                            </form>
-                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
-                                            </form>
-                                        {% elseif defect.status == 'ZAMKNIĘTE' %}
-                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
-                                            </form>
-                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>
-                                            </form>
-                                        {% else %}
-                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>
-                                            </form>
-                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">
-                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>
-                                            </form>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                            <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">
-                                                <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>
-                                            </form>
-                                        {% endif %}
-                                    </td>
+{#                                    <td class="px-6 py-4 whitespace-nowrap">#}
+{#                                        {% if defect.status == 'OTWARTE' %}#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>#}
+{#                                            </form>#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>#}
+{#                                            </form>#}
+{#                                        {% elseif defect.status == 'ZAMKNIĘTE' %}#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>#}
+{#                                            </form>#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_in_process', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE</button>#}
+{#                                            </form>#}
+{#                                        {% else %}#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_close', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-red-600 font-bold">ZAMKNIJ</button>#}
+{#                                            </form>#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_open', {'id': defect.id}) }}">#}
+{#                                                <button type="submit" class="text-green-600 font-bold">OTWÓRZ</button>#}
+{#                                            </form>#}
+{#                                        {% endif %}#}
+{#                                        {% if is_granted('ROLE_SUPER_ADMIN') %}#}
+{#                                            <form method="post" action="{{ path('app_list_all_defects_delete', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zgłoszenie?');">#}
+{#                                                <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZGŁOSZENIE</button>#}
+{#                                            </form>#}
+{#                                        {% endif %}#}
+{#                                    </td>#}
                                 </tr>
                             {% endif %}
                         {% endfor %}

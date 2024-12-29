@@ -43,9 +43,7 @@ class RegistrationController extends AbstractController
                 'email' => $email,
             ]);
 
-            // Sprawdzenie, czy hasło i powtórzone hasło są takie same i czy użytkownik istnieje
             if ($existingUserLogin || $existingUserEmail) {
-                // Hasło i powtórzone hasło nie pasują, dodaj komunikat do flash messages
                 $this->addFlash('error', 'Konto o podanym e-mailu lub loginie już istnieje.');
                 return $this->redirectToRoute('app_register');
             }

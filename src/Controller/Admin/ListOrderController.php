@@ -103,7 +103,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/in-road', name: 'app_list_all_order_in_road')]
     #[IsGranted('ROLE_ADMIN')]
@@ -113,7 +115,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/delivered', name: 'app_list_all_order_delivered')]
     #[IsGranted('ROLE_ADMIN')]
@@ -123,7 +127,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/waiting', name: 'app_list_all_order_waiting')]
     #[IsGranted('ROLE_ADMIN')]
@@ -133,7 +139,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/price_YES', name: 'app_list_all_order_price_YES')]
     #[IsGranted('ROLE_SUPER_ADMIN')]
@@ -143,7 +151,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/price_NO', name: 'app_list_all_order_price_NO')]
     #[IsGranted('ROLE_SUPER_ADMIN')]
@@ -153,7 +163,9 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
     #[Route('/admin/order/{id}/delete', name: 'app_list_all_order_delete', methods: 'POST')]
     #[IsGranted('ROLE_SUPER_ADMIN')]
@@ -178,6 +190,8 @@ class ListOrderController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_list_all_order');
+        return $this->redirectToRoute('app_order_show',[
+            'id'=>$orderProduct->getId(),
+        ]);
     }
 }

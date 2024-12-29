@@ -1,0 +1,52 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Lista zwrotów{% endblock %}
+
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h1 class="text-lg leading-6 font-medium text-gray-900">
+                    Lista Twoich zwrotów
+                </h1>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdują się Twoje wszystkie zwroty.
+                </p>
+                <table class="min-w-full divide-y divide-gray-200 mt-2">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer zwrotu</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status zwrotu</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                    {% for returns in return %}
+                        {% if returns is not null %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ returns.numberReturn }}
+                                    <p class="text-blue-500 text-xs">
+                                        <a href="{{ path('app_list_my_return_product_show', { id: returns.id }) }}">Zobacz szczegóły zwrotu</a>
+                                    </p>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ returns.email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if returns.returnStatus == 'ZWROT ZAAKCEPTOWANY, WYPŁACONO ŚRODKI PIENIĘŻNE' %}
+                                        <strong class="font-bold text-green-600">{{ returns.returnStatus }}</strong>
+                                    {% elseif returns.returnStatus == 'PRZYJĘTO DO WERYFIKACJI' %}
+                                        <strong class="font-bold text-yellow-500">{{ returns.returnStatus }}</strong>
+                                    {% else %}
+                                        <strong class="font-bold text-red-600">{{ returns.returnStatus }}</strong>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
