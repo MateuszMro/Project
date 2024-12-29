@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b81f199-c448-4259-8872-72dda9fb73af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/return-product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/ListReturnController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Return/ReturnProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SuperAdmin/ReturnProductCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin-panel/list-all-return-product.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin-panel/return-product-show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/info-pages/return-product-success.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/list-my-return-product.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/my-return-product-show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/return-product.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ListDefectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ListDefectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ListOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ListOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Password/ChangePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Password/ChangePasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Password/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Password/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuperAdmin/OwnerDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuperAdmin/OwnerDashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/OrderProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OrderProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/admin-panel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/admin-panel.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/defects-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/defects-show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin-panel/list-all-defects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/list-all-defects.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/order-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/order-show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/defects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/defects.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/my-profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/my-profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/order.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/order.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/var/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/list-defects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/list-defects.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +196,7 @@
       <workItem from="1734176414254" duration="1401000" />
       <workItem from="1735311536849" duration="58000" />
       <workItem from="1735385409594" duration="15105000" />
-      <workItem from="1735456211467" duration="6812000" />
+      <workItem from="1735456211467" duration="7610000" />
     </task>
     <servers />
   </component>
