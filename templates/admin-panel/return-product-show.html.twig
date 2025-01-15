@@ -1,6 +1,6 @@
 {% extends 'pages/home.html.twig' %}
 
-{% block title %}Zwrot {{ returnProduct.numberReturn }}{% endblock %}
+{% block title %}Zwrot #{{ returnProduct.numberReturn }}{% endblock %}
 
 
 {% block content %}
@@ -8,7 +8,7 @@
         <div class="bg-white overflow-hidden shadow rounded-lg border">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Zwrot {{ returnProduct.numberReturn }}
+                    Zwrot #{{ returnProduct.numberReturn }}
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     Poniżej znajdziesz szczegóły wybranego zwrotu.
@@ -98,7 +98,7 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Adnotacje pracownika obsługi
+                            Adnotacja pracownika obsługi
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-bold">
                             {{ returnProduct.adminComment }}
@@ -145,7 +145,7 @@
                                 </form>
                                 <form class="mt-2" method="post" action="{{ path('app_list_all_return_product_comment', {'id': returnProduct.id}) }}" onsubmit="return confirm('Czy na pewno chcesz dodać adnotację?');">
                                     <div class="form-group">
-                                        <label for="newPrice" class="text-blue-600 font-bold mt-2">NOWA CENA:</label>
+                                        <label for="newPrice" class="text-blue-600 font-bold mt-2">ADNOTACJA:</label>
                                         <input type="text" class="placeholder-gray-500 border" placeholder="Dodaj adnotację" id="addComment" name="addComment">
                                     </div>
                                     <button type="submit" class="text-blue-600 font-bold mt-2">DODAJ ADNOTACJĘ</button>

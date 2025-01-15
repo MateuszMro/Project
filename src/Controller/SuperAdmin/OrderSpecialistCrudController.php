@@ -2,19 +2,19 @@
 
 namespace App\Controller\SuperAdmin;
 
-use App\Entity\Defects;
+
+use App\Entity\OrderSpecialist;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 
-class DefectsCrudController extends AbstractCrudController
+class OrderSpecialistCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Defects::class;
+        return OrderSpecialist::class;
     }
 
 
@@ -22,12 +22,19 @@ class DefectsCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
+            TextField::new('visitNumber'),
+            TextField::new('name'),
+            TextField::new('surname'),
             TextField::new('email'),
-            IntegerField::new('defectNumber'),
-            TextField::new('description'),
             TextField::new('numberPhone'),
-            TextField::new('createdDate'),
+            TextField::new('address'),
+            IntegerField::new('productId'),
+            TextField::new('visitDate'),
+            TextField::new('price'),
+            TextField::new('paymentStatus'),
+            TextField::new('commentsOrder'),
             TextField::new('status'),
+            TextField::new('orderDate'),
             TextField::new('adminComment'),
         ];
     }

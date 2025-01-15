@@ -23,14 +23,11 @@ class DeleteAccountController extends AbstractController
     #[Route(name: 'app_delete_account', methods: 'POST')]
     public function index(): Response
     {
-        // Pobierz aktualnego użytkownika
         $user = $this->getUser();
 
         if ($user) {
-            // Pobierz identyfikator użytkownika
             $userId = $user->getId();
 
-            // Usuń użytkownika z bazy danych
             $this->entityManager->remove($user);
             $this->entityManager->flush();
 

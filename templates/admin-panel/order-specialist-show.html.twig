@@ -1,6 +1,6 @@
 {% extends 'pages/home.html.twig' %}
 
-{% block title %}Zamówienie #{{ order.orderNumber }}{% endblock %}
+{% block title %}Wizyta #{{ order.visitNumber }}{% endblock %}
 
 
 {% block content %}
@@ -8,53 +8,29 @@
         <div class="bg-white overflow-hidden shadow rounded-lg border">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Zamówienie #{{ order.orderNumber }}
+                    Wizyta #{{ order.visitNumber }}
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Poniżej znajdziesz szczegóły wybranego zamówienia.
+                    Poniżej znajdziesz szczegóły wybranej wizyty.
                 </p>
-                <a href="/admin/list-all-order" class="underline text-blue-300 text-sm">Wróć do listy zamówień</a>
+                <a href="/admin/list-all-order-specialist" class="underline text-blue-300 text-sm">Wróć do listy wizyt</a>
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                 <dl class="sm:divide-y sm:divide-gray-200">
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Numer zamówienia
+                            Numer zamówionej wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.orderNumber }}
+                            {{ order.visitNumber }}
                         </dd>
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Numer zamówionego produktu
+                            Numer zamówionego wzoru kuchni
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.productID }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Ilość sztuk
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.quantity }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Szerokość produktu (wyrażana w milimetrach)
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.width }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Wysokość produktu (wyrażana w milimetrach)
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.height }}
+                            {{ order.productId }}
                         </dd>
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -91,7 +67,7 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Adres dostawy
+                            Adres wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ order.address }}
@@ -107,7 +83,7 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Cena
+                            Cena kuchni (wprowadzona po wizycie i wycenie)
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ order.price }} zł
@@ -127,17 +103,25 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Status zamówienia
+                            Termin wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {% if order.status == 'ZAMÓWIENIE DOSTARCZONE' %}
+                            {{ order.visitDate }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status zamówionej wizyty
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if order.status == 'WIZYTA ZREALIZOWANA' %}
                                 <strong class="font-bold text-green-600">{{ order.status }}</strong>
-                            {% elseif order.status == 'W TRAKCIE REALIZACJI' %}
-                                <strong class="font-bold text-yellow-500">{{ order.status }}</strong>
-                            {% elseif order.status == 'ZAMÓWIENIE W DRODZE' %}
+                            {% elseif order.status == 'TERMIN WIZYTY USTALONY' %}
                                 <strong class="font-bold text-green-300">{{ order.status }}</strong>
-                            {% else %}
+                            {% elseif order.status == 'ANULOWANO PRZEZ KLIENTA' %}
                                 <strong class="font-bold text-red-600">{{ order.status }}</strong>
+                            {% else %}
+                                <strong class="font-bold text-yellow-600">{{ order.status }}</strong>
                             {% endif %}
                         </dd>
                     </div>
@@ -151,69 +135,91 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
+                            Adnotacja pracownika obsługi
+                        </dt>
+                        <dd class="mt-1 font-bold text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.adminComment }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
                             Akcje
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {% if order.status == 'ZAMÓWIENIE DOSTARCZONE' %}
-                                <form method="post" action="{{ path('app_list_all_order_waiting', {'id': order.id}) }}">
-                                    <button type="submit" class="text-red-600 font-bold">OCZEKUJE NA REALIZACJĘ</button>
+                            {% if order.status == 'WIZYTA ZREALIZOWANA' %}
+                                <form method="post" action="{{ path('app_list_all_order_specialist_date_set', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-300 font-bold">TERMIN WIZYTY USTALONY</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_in_process', {'id': order.id}) }}">
-                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE REALIZACJI</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_setting_date', {'id': order.id}) }}">
+                                    <button type="submit" class="text-yellow-600 font-bold">USTALANIE TERMINU</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_in_road', {'id': order.id}) }}">
-                                    <button type="submit" class="text-green-300 font-bold">ZAMÓWIENIE W DRODZE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_cancel', {'id': order.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">ANULOWANO PRZEZ KLIENTA</button>
                                 </form>
-                            {% elseif order.status == 'ZAMÓWIENIE W DRODZE' %}
-                                <form method="post" action="{{ path('app_list_all_order_waiting', {'id': order.id}) }}">
-                                    <button type="submit" class="text-red-600 font-bold">OCZEKUJE NA REALIZACJĘ</button>
+                            {% elseif order.status == 'TERMIN WIZYTY USTALONY' %}
+                                <form method="post" action="{{ path('app_list_all_order_specialist_cancel', {'id': order.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">ANULOWANO PRZEZ KLIENTA</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_in_process', {'id': order.id}) }}">
-                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE REALIZACJI</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_setting_date', {'id': order.id}) }}">
+                                    <button type="submit" class="text-yellow-600 font-bold">USTALANIE TERMINU</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_delivered', {'id': order.id}) }}">
-                                    <button type="submit" class="text-green-600 font-bold">ZAMÓWIENIE DOSTARCZONE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_done', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-600 font-bold">WIZYTA ZREALIZOWANA</button>
                                 </form>
-                            {% elseif order.status == 'W TRAKCIE REALIZACJI' %}
-                                <form method="post" action="{{ path('app_list_all_order_waiting', {'id': order.id}) }}">
-                                    <button type="submit" class="text-red-600 font-bold">OCZEKUJE NA REALIZACJĘ</button>
+                            {% elseif order.status == 'USTALANIE TERMINU' %}
+                                <form method="post" action="{{ path('app_list_all_order_specialist_done', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-600 font-bold">WIZYTA ZREALIZOWANA</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_delivered', {'id': order.id}) }}">
-                                    <button type="submit" class="text-yellow-500 font-bold">ZAMÓWIENIE DOSTARCZONE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_cancel', {'id': order.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">ANULOWANO PRZEZ KLIENTA</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_in_road', {'id': order.id}) }}">
-                                    <button type="submit" class="text-green-300 font-bold">ZAMÓWIENIE W DRODZE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_date_set', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-300 font-bold">TERMIN WIZYTY USTALONY</button>
                                 </form>
                             {% else %}
-                                <form method="post" action="{{ path('app_list_all_order_in_road', {'id': order.id}) }}">
-                                    <button type="submit" class="text-green-300 font-bold">ZAMÓWIENIE W DRODZE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_date_set', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-300 font-bold">TERMIN WIZYTY USTALONY</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_in_process', {'id': order.id}) }}">
-                                    <button type="submit" class="text-yellow-500 font-bold">W TRAKCIE REALIZACJI</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_setting_date', {'id': order.id}) }}">
+                                    <button type="submit" class="text-yellow-600 font-bold">USTALANIE TERMINU</button>
                                 </form>
-                                <form method="post" action="{{ path('app_list_all_order_delivered', {'id': order.id}) }}">
-                                    <button type="submit" class="text-green-600 font-bold">ZAMÓWIENIE DOSTARCZONE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_done', {'id': order.id}) }}">
+                                    <button type="submit" class="text-green-600 font-bold">WIZYTA ZREALIZOWANA</button>
                                 </form>
                             {% endif %}
                             {% if order.paymentStatus == 'DO ZAPŁATY' %}
-                                <form method="post" action="{{ path('app_list_all_order_price_YES', {'id': order.id}) }}">
+                                <form method="post" action="{{ path('app_list_all_order_specialist_price_YES', {'id': order.id}) }}">
                                     <button type="submit" class="text-green-600 font-bold">ZAPŁACONO</button>
                                 </form>
                             {% else %}
-                                <form method="post" action="{{ path('app_list_all_order_price_NO', {'id': order.id}) }}">
+                                <form method="post" action="{{ path('app_list_all_order_specialist_price_NO', {'id': order.id}) }}">
                                     <button type="submit" class="text-red-600 font-bold">DO ZAPŁATY</button>
                                 </form>
                             {% endif %}
                             {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                <form method="post" action="{{ path('app_list_all_order_delete', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć te zamówienie?');">
-                                    <button type="submit" class="text-red-600 font-bold mt-2">USUŃ ZAMÓWIENIE</button>
+                                <form method="post" action="{{ path('app_list_all_order_specialist_delete', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz usunąć wizytę?');">
+                                    <button type="submit" class="text-red-600 font-bold mt-2">USUŃ WIZYTĘ</button>
                                 </form>
-                                <form class="mt-2" method="post" action="{{ path('app_list_all_order_update_price', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz zmienić cenę zamówienia?');">
+                                <form class="mt-2" method="post" action="{{ path('app_list_all_order_specialist_update_price', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz zmienić cenę zamówienia?');">
                                     <div class="form-group">
                                         <label for="newPrice" class="text-blue-600 font-bold mt-2">NOWA CENA:</label>
                                         <input type="number" class="placeholder-gray-500 border" placeholder="Podaj nową cenę" id="newPrice" name="newPrice" required min="0" step="0.01">
                                     </div>
                                     <button type="submit" class="text-blue-600 font-bold mt-2">ZMIEŃ CENĘ ZAMÓWIENIA</button>
+                                </form>
+                                <form class="mt-2" method="post" action="{{ path('app_list_all_order_specialist_comment', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz dodać adnotację?');">
+                                    <div class="form-group">
+                                        <label for="adnotation" class="text-yellow-600 font-bold mt-2">ADNOTACJA:</label>
+                                        <input type="text" class="placeholder-gray-500 border" placeholder="Adnotacja" id="adnotation" name="adnotation">
+                                    </div>
+                                    <button type="submit" class="text-yellow-600 font-bold mt-2">DODAJ ADNOTACJĘ</button>
+                                </form>
+                                <form class="mt-2" method="post" action="{{ path('app_list_all_order_specialist_add_date_visit', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz ustawić termin wizyty?');">
+                                    <div class="form-group">
+                                        <label for="newPrice" class="text-black font-bold mt-2">DODAJ TERMIN WIZYTY:</label>
+                                        <input type="text" class="placeholder-gray-500 border" placeholder="Termin wizyty" id="date-visit" name="date-visit">
+                                    </div>
+                                    <button type="submit" class="text-black font-bold mt-2">DODAJ TERMIN WIZYTY</button>
                                 </form>
                             {% endif %}
                         </dd>

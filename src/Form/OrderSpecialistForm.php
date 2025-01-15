@@ -2,21 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\OrderProduct;
+use App\Entity\OrderSpecialist;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class OrderProductForm extends AbstractType
+class OrderSpecialistForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -32,7 +30,6 @@ class OrderProductForm extends AbstractType
                     new Assert\Length([
                         'min' => 1,
                         'minMessage' => 'Twoje imię musi mieć minimum {{ limit }} znak.',
-                        // max length allowed by Symfony for security reasons
                         'max' => 20,
                         'maxMessage' => 'Twoje imię nie może mieć więcej niż {{ limit }} znaków.'
                     ]),
@@ -49,7 +46,6 @@ class OrderProductForm extends AbstractType
                     new Assert\Length([
                         'min' => 1,
                         'minMessage' => 'Twoje nazwisko musi mieć minimum {{ limit }} znak.',
-                        // max length allowed by Symfony for security reasons
                         'max' => 20,
                         'maxMessage' => 'Twoje nazwisko nie może mieć więcej niż {{ limit }} znaków.'
                     ]),
@@ -69,90 +65,6 @@ class OrderProductForm extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 25,
                         'maxMessage' => 'Twój adres e-mail nie może mieć więcej niż {{ limit }} znaków.'
-                    ]),
-                ],
-            ])
-            ->add('address', TextType::class, [
-                'label' => 'Adres dostawy',
-                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
-                'error_bubbling' => true,
-                'constraints' => [
-                    new Assert\NotBlank([
-                        'message' => 'Podaj swój adres zamieszkania',
-                    ]),
-                    new Assert\Length([
-                        'min' => 1,
-                        'minMessage' => 'Twój adres zamieszkania musi mieć minimum {{ limit }} znak.',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 100,
-                        'maxMessage' => 'Twój adres zamieszkania nie może mieć więcej niż {{ limit }} znaków.'
-                    ]),
-                ],
-            ])
-            ->add('productID', IntegerType::class, [
-                'label' => 'Numer produktu',
-                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
-                'error_bubbling' => true,
-                'attr' => [
-                    'readonly' => true,
-                ],
-                'constraints' => [
-                    new Assert\NotBlank([
-                        'message' => 'Podaj numer produktu',
-                    ]),
-                ],
-            ])
-            ->add('quantity', IntegerType::class, [
-                'label' => 'Ilość sztuk w zamówieniu',
-                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
-                'error_bubbling' => true,
-                'constraints' => [
-                    new Assert\NotBlank([
-                        'message' => 'Podaj ilość sztuk produktu do jednego zamówienia',
-                    ]),
-                    new Assert\Positive([
-                        'message' => 'Ilość produktów musi być liczbą dodatnią.',
-                    ]),
-                    new Assert\Range([
-                        'min' => 1,
-                        'max' => 10,
-                        'notInRangeMessage' => 'Minimalna ilość zamówienia wynosi {{ min }} sztukę, a maksymalna {{ max }} sztuk.',
-                    ]),
-                ],
-            ])
-            ->add('width', IntegerType::class, [
-                'label' => 'Szerokość wyrażana w milimetrach(mm)',
-                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
-                'error_bubbling' => true,
-                'constraints' => [
-                    new Assert\NotBlank([
-                        'message' => 'Podaj szerokość',
-                    ]),
-                    new Assert\Positive([
-                        'message' => 'Szerokość musi być liczbą dodatnią.',
-                    ]),
-                    new Assert\Range([
-                        'min' => 1,
-                        'max' => 10000,
-                        'notInRangeMessage' => 'Szerokość musi być między {{ min }} a {{ max }} milimetrów.',
-                    ]),
-                ],
-            ])
-            ->add('height', IntegerType::class, [
-                'label' => 'Wysokość wyrażana w milimetrach(mm)',
-                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
-                'error_bubbling' => true,
-                'constraints' => [
-                    new Assert\NotBlank([
-                        'message' => 'Podaj wysokość',
-                    ]),
-                    new Assert\Positive([
-                        'message' => 'Wysokość musi być liczbą dodatnią.',
-                    ]),
-                    new Assert\Range([
-                        'min' => 1,
-                        'max' => 10000,
-                        'notInRangeMessage' => 'Wysokość musi być między {{ min }} a {{ max }} milimetrów.',
                     ]),
                 ],
             ])
@@ -176,6 +88,35 @@ class OrderProductForm extends AbstractType
                     ]),
                 ],
             ])
+            ->add('address', TextType::class, [
+                'label' => 'Adres wizyty',
+                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
+                'error_bubbling' => true,
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Podaj adres wizyty',
+                    ]),
+                    new Assert\Length([
+                        'min' => 1,
+                        'minMessage' => 'Twój adres wizyty musi mieć minimum {{ limit }} znak.',
+                        'max' => 100,
+                        'maxMessage' => 'Twój adres wizyty nie może mieć więcej niż {{ limit }} znaków.'
+                    ]),
+                ],
+            ])
+            ->add('productId', IntegerType::class, [
+                'label' => 'Numer produktu',
+                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
+                'error_bubbling' => true,
+                'attr' => [
+                    'readonly' => true,
+                ],
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Podaj numer produktu',
+                    ]),
+                ],
+            ])
             ->add('commentsOrder', TextareaType::class, [
                 'label' => 'Dodatkowe informacje',
                 'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
@@ -183,7 +124,6 @@ class OrderProductForm extends AbstractType
                 'error_bubbling' => true,
                 'constraints' => [
                     new Assert\Length([
-                        // max length allowed by Symfony for security reasons
                         'max' => 1000,
                         'maxMessage' => 'Twój komentarz nie może mieć więcej niż {{ limit }} znaków.'
                     ]),
@@ -200,7 +140,7 @@ class OrderProductForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'orderProductForm' => OrderProduct::class,
+            'orderSpecialistForm' => OrderSpecialist::class,
         ]);
     }
 }

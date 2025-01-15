@@ -133,5 +133,21 @@ class ListDefectsController extends AbstractController
             'defect' => $defect,
         ]);
     }
+    #[Route('/admin/defects/{id}/add-comment', name: 'app_list_all_defects_comment', methods: 'POST')]
+    #[IsGranted('ROLE_SUPER_ADMIN')]
+    public function addComment(int $id, EntityManagerInterface $entityManager, Defects $defects, Request $request): Response
+    {
+
+        $defects = $entityManager->getRepository(Defects::class)->find($id);
+        $addComment = $request->request->get('adnotation');
+
+        $defects->setAdminComment($addComment);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_defects_show',[
+            'id'=>$defects->getId(),
+        ]);
+    }
 
 }

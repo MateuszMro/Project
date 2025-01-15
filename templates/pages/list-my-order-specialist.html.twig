@@ -1,0 +1,54 @@
+{% extends 'pages/home.html.twig' %}
+
+{% block title %}Lista zamówień{% endblock %}
+
+
+
+{% block content %}
+    <div id="" class="container my-24 mx-auto md:px-6 w-full text-white rounded-lg">
+        <div class="bg-white overflow-hidden shadow rounded-lg border">
+            <div class="px-4 py-5 sm:px-6">
+                <h1 class="text-lg leading-6 font-medium text-gray-900">
+                    Lista Twoich zamówionych wizyt
+                </h1>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Poniżej znajdują się Twoje wszystkie zamówione wizyty.
+                </p>
+                <table class="min-w-full divide-y divide-gray-200 mt-2">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Numer wizyty</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Adres e-mail</th>
+                        <th scope="col" class="px-6 py-3 text-left text-base font-bold text-black uppercase tracking-wider">Status wizyty</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-black">
+                    {% for orders in order %}
+                        {% if orders is not null %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ orders.visitNumber }}
+                                    <p class="text-blue-500 text-xs">
+                                        <a href="{{ path('app_list_my_order_specialist_show', { id: orders.id }) }}">Zobacz szczegóły wizyty</a>
+                                    </p>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ orders.email }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {% if orders.status == 'WIZYTA ZREALIZOWANA' %}
+                                        <strong class="font-bold text-green-600">{{ orders.status }}</strong>
+                                    {% elseif orders.status == 'TERMIN WIZYTY USTALONY' %}
+                                        <strong class="font-bold text-green-300">{{ orders.status }}</strong>
+                                    {% elseif orders.status == 'ANULOWANO PRZEZ KLIENTA' %}
+                                        <strong class="font-bold text-red-600">{{ orders.status }}</strong>
+                                    {% else %}
+                                        <strong class="font-bold text-yellow-600">{{ orders.status }}</strong>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

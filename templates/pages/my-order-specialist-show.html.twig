@@ -1,6 +1,6 @@
 {% extends 'pages/home.html.twig' %}
 
-{% block title %}Zamówienie #{{ order.orderNumber }}{% endblock %}
+{% block title %}Wizyta #{{ order.visitNumber }}{% endblock %}
 
 
 {% block content %}
@@ -8,52 +8,28 @@
         <div class="bg-white overflow-hidden shadow rounded-lg border">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Zamówienie #{{ order.orderNumber }}
+                    Wizyta #{{ order.visitNumber }}
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Poniżej znajdziesz szczegóły wybranego zamówienia.
+                    Poniżej znajdziesz szczegóły wybranej wizyty.
                 </p>
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                 <dl class="sm:divide-y sm:divide-gray-200">
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Numer zamówienia
+                            Numer zamówionej wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.orderNumber }}
+                            {{ order.visitNumber }}
                         </dd>
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Numer zamówionego produktu
+                            Numer zamówionego wzoru kuchni
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.productID }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Ilość sztuk
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.quantity }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Szerokość produktu (wyrażana w milimetrach)
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.width }}
-                        </dd>
-                    </div>
-                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">
-                            Wysokość produktu (wyrażana w milimetrach)
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ order.height }}
+                            {{ order.productId }}
                         </dd>
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -90,7 +66,7 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Adres dostawy
+                            Adres wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ order.address }}
@@ -106,7 +82,7 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Cena
+                            Cena kuchni
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ order.price }} zł
@@ -126,17 +102,25 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Status zamówienia
+                            Termin wizyty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {% if order.status == 'ZAMÓWIENIE DOSTARCZONE' %}
+                            {{ order.visitDate }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Status zamówionej wizyty
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if order.status == 'WIZYTA ZREALIZOWANA' %}
                                 <strong class="font-bold text-green-600">{{ order.status }}</strong>
-                            {% elseif order.status == 'W TRAKCIE REALIZACJI' %}
-                                <strong class="font-bold text-yellow-500">{{ order.status }}</strong>
-                            {% elseif order.status == 'W TRAKCIE DOSTAWY' %}
+                            {% elseif order.status == 'TERMIN WIZYTY USTALONY' %}
                                 <strong class="font-bold text-green-300">{{ order.status }}</strong>
-                            {% else %}
+                            {% elseif order.status == 'ANULOWANO PRZEZ KLIENTA' %}
                                 <strong class="font-bold text-red-600">{{ order.status }}</strong>
+                            {% else %}
+                                <strong class="font-bold text-yellow-600">{{ order.status }}</strong>
                             {% endif %}
                         </dd>
                     </div>
@@ -150,12 +134,24 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
+                            Adnotacja pracownika obsługi
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ order.adminComment }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
                             Akcje
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {% if order.paymentStatus == 'DO ZAPŁATY' %}
-                                <form method="post" action="{{ path('app_list_my_order_cancel', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz anulować te zamówienie?');">
-                                    <button type="submit" class="text-red-600 font-bold mt-2">ANULUJ ZAMÓWIENIE</button>
+                            {% if order.status == 'USTALANIE TERMINU' %}
+                                <form method="post" action="{{ path('app_list_my_order_specialist_cancel', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz anulować wizytę?');">
+                                    <button type="submit" class="text-red-600 font-bold mt-2">ANULUJ WIZYTĘ</button>
+                                </form>
+                            {% elseif order.status == 'TERMIN WIZYTY USTALONY' %}
+                                <form method="post" action="{{ path('app_list_my_order_specialist_cancel', {'id': order.id}) }}" onsubmit="return confirm('Czy na pewno chcesz anulować wizytę?');">
+                                    <button type="submit" class="text-red-600 font-bold mt-2">ANULUJ WIZYTĘ</button>
                                 </form>
                             {% endif %}
                         </dd>

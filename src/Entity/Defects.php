@@ -32,6 +32,9 @@ class Defects
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $adminComment = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +114,18 @@ class Defects
     public function setStatus(string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getAdminComment(): ?string
+    {
+        return $this->adminComment;
+    }
+
+    public function setAdminComment(?string $adminComment): static
+    {
+        $this->adminComment = $adminComment;
 
         return $this;
     }
