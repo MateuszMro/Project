@@ -82,7 +82,7 @@ class OrderSpecialistController extends AbstractController
                                              <h2 class='font-bold text-5xl'>Twoje zamówienie zostało przyjęte. Oczekuj na kontakt naszego pracownika 
                                              celem ustalenia dogodnego terminu wizyty. Szczegóły oraz termin wizyty będzie dostępny
                                              również po zalogowaniu w panelu klienta</h2>
-                                             <h2>Numer wizyty: $orderNumber</h2>                                          
+                                             <h2>Numer wizyty: $visitNumber</h2>                                          
                                              <h2>Po więcej informacji zapraszamy na naszą stronę http://52.58.230.169/</h2>
                                          </body>
                                          </html>

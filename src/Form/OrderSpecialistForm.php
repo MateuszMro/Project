@@ -105,7 +105,7 @@ class OrderSpecialistForm extends AbstractType
                 ],
             ])
             ->add('productId', IntegerType::class, [
-                'label' => 'Numer produktu',
+                'label' => 'Numer projektu',
                 'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
                 'error_bubbling' => true,
                 'attr' => [
@@ -113,7 +113,7 @@ class OrderSpecialistForm extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank([
-                        'message' => 'Podaj numer produktu',
+                        'message' => 'Podaj numer projektu',
                     ]),
                 ],
             ])

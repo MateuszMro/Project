@@ -5,33 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b81f199-c448-4259-8872-72dda9fb73af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/ListOrderSpecialistController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSpecialistController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SuperAdmin/OrderSpecialistCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/OrderSpecialistForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin-panel/list-all-order-specialist.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin-panel/order-specialist-show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/info-pages/order-specialist-success.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/list-my-order-specialist.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/my-order-specialist-show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/order-specialist.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ListDefectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ListDefectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DeleteAccount/DeleteAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeleteAccount/DeleteAccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Order/OrderProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Order/OrderProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuperAdmin/DefectsCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuperAdmin/DefectsCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuperAdmin/OwnerDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuperAdmin/OwnerDashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Defects.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Defects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/OrderProductForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OrderProductForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/admin-panel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/admin-panel.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/defects-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/defects-show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/order-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/order-show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin-panel/return-product-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin-panel/return-product-show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Home/HomePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Home/HomePageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Order/OrderSpecialistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSpecialistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Password/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Password/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OrderSpecialistForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OrderSpecialistForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pages/gallery.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/gallery.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/list-defects-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/list-defects-show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/my-order-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/my-order-show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/my-profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/my-profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/my-return-product-show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/my-return-product-show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/offer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/offer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/var/data.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,19 +172,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/1/PhpstormPojects/Project/public/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\1\PhpstormPojects\Project\public\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\1\PhpstormPojects\Project\public\upload\project" />
+      <recent name="C:\Users\1\PhpstormPojects\Project\public\upload" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
@@ -225,6 +216,8 @@
       <workItem from="1735465108211" duration="248000" />
       <workItem from="1735465468119" duration="34000" />
       <workItem from="1736928456930" duration="14804000" />
+      <workItem from="1736946412944" duration="51000" />
+      <workItem from="1737024178868" duration="29616000" />
     </task>
     <servers />
   </component>

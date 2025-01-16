@@ -2,6 +2,8 @@
 
 namespace App\Controller\Home;
 
+use App\Form\QuestionForm;
+use PHPMailer\PHPMailer\PHPMailer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

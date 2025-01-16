@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Meble{% endblock %}
+{% block title %}Strona główna - meble na wymiar{% endblock %}
 
 {% block javascript %}
     <script type="module" src={{ asset('js/home.js') }}></script>
@@ -216,30 +216,46 @@
     <div id="content" class="flex-1 container mx-auto md:px-6 sticky">
         {% block content %}
             <!-- Container - slider -->
-            <div class="container my-24 mx-auto md:px-6 w-full">
-                <div id="default-carousel" class="relative overflow-hidden" data-carousel="static">
+            <div class="container my-24 mx-auto md:px-6 w-full ">
+                <div id="default-carousel" class="relative overflow-hidden" data-carousel="slide">
                     <!-- Carousel wrapper -->
-                    <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+                    <div class="overflow-hidden relative h-96 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
                         <!-- Item 1 -->
-                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/024.webp"
+                        <div class="ease-in-out transition-opacity duration-10000 absolute inset-0 transform translate-x-0 z-20" data-carousel-item>
+                            <img src="/upload/slider/slide1.jpg"
                                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-1"/>
+                            <div class="mt-4 absolute top-2/3 ml-6 sm:ml-24">
+                                <a href="/gallery" class="text-xs sm:text-base mt-6 ml-6 bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-4 px-6 border border-black hover:border-transparent rounded-full">
+                                    ZOBACZ NASZĄ GALERIĘ I WYBIERZ COŚ DLA SIEBIE
+                                </a>
+                            </div>
                         </div>
+
                         <!-- Item 2 -->
-                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp"
+                        <div class="ease-in-out transition-opacity duration-10000 absolute inset-0 transform translate-x-full z-10" data-carousel-item>
+                            <img src="/upload/slider/slide2.jpg"
                                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-2">
+                            <div class="mt-4 absolute top-2/3 ml-6 sm:ml-24">
+                                <a href="/offer" class="text-xs sm:text-base mt-6 ml-6 bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-4 px-6 border border-black hover:border-transparent rounded-full">
+                                    ZOBACZ CO MAMY W OFERCIE
+                                </a>
+                            </div>
                         </div>
                         <!-- Item 3 -->
-                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/081.webp"
+                        <div class="ease-in-out transition-opacity duration-10000 absolute inset-0 transform -translate-x-full z-10" data-carousel-item>
+                            <img src="/upload/slider/slide3.jpg"
                                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-3">
+                            <div class="mt-4 absolute top-2/3 ml-6 sm:ml-24">
+                                <a href="/login" class="text-xs sm:text-base mt-6 ml-6 bg-white hover:bg-blue-500 text-black font-semibold hover:text-white py-4 px-6 border border-black hover:border-transparent rounded-full">
+                                    KORZYSTAJ W PEŁNI PO ZALOGOWANIU
+                                </a>
+                            </div>
                         </div>
-                        <!-- Item 4 -->
-                        <div class="hidden ease-in-out transition-opacity duration-1000" data-carousel-item>
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp"
-                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-4">
-                        </div>
+{#                        <!-- Item 4 -->#}
+{#                        <div class="ease-in-out transition-opacity duration-7000" data-carousel-item>#}
+{#                            <img src="/upload/slider/slide4.jpg"#}
+{#                                 class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="Image-4">#}
+{#                        </div>#}
                     </div>
                     <!-- Slider indicators -->
                     <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
@@ -285,9 +301,27 @@
                     </button>
                 </div>
             </div>
+            <!-- Container about us -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-start p-6">
+                <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
+                    <img src="/upload/gallery/10030.jpg" alt="Obrazek" class="w-full h-auto rounded-lg shadow-lg"/>
+                </div>
+             <div class="w-full sm:w-1/2 sm:ml-6 text-center sm:text-left">
+                    <h2 class="text-2xl font-bold mb-4">O NAS</h2>
+                    <p class="text-sm sm:text-base text-gray-700">
+                        Jesteśmy firmą z 7-letnim doświadczeniem w projektowaniu i produkcji mebli na wymiar. Nasza oferta obejmuje kompleksową obsługę – od indywidualnych projektów, przez precyzyjne wykonanie, aż po montaż.
+                        Dzięki pasji do tworzenia i dbałości o detale, każde zlecenie traktujemy wyjątkowo, zapewniając meble, które doskonale pasują do przestrzeni i stylu życia naszych klientów.
+                        Zaufaj naszym projektantom i fachowcom – razem stworzymy przestrzeń, która będzie funkcjonalna, estetyczna i idealnie dopasowana do Twoich potrzeb
+                    </p>
+                     <div class="flex text-center mt-6">
+                         <a href="/gallery" class="inline-block px-8 py-3 bg-blue-500 text-white font-semibold text-xs rounded-full shadow-lg hover:bg-blue-600 transition duration-300">
+                             ZOBACZ KUCHNIE KLIENTÓW, KTÓRZY NAM ZAUFALI
+                         </a>
+                     </div>
+                </div>
+            </div>
             <!-- Container for last projects -->
             <div class="container my-24 mx-auto md:px-6">
-                <!-- Section: Design Block -->
                 <section class="mb-32 text-center">
                     <h2 id="lastProjects" class="mb-12 pb-4 text-center text-3xl font-bold">
                         Ostatnie projekty
@@ -295,33 +329,27 @@
 
                     <div class="grid gap-6 lg:grid-cols-3 xl:gap-x-12">
                         <div class="mb-6 lg:mb-0">
-                            <div class="relative block rounded-lg bg-neutral-200 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+                            <div class="relative block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                                 <div class="flex ">
                                     <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
                                             data-te-ripple-init data-te-ripple-color="light">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/024.webp" class="w-full" />
-                                        <a href="#!">
+                                        <img src="/upload/project/projekt1.jpg" class="w-full"/>
+                                        <a href="/upload/project/projekt1.jpg">
                                             <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <h5 class="mb-3 text-lg font-bold">Projekt #1</h5>
                                     <p class="mb-4 text-neutral-500">
-                                        <small>Projekt by Imię Nazwisko</small>
+                                        <small>Projekt by Milena</small>
                                     </p>
                                     <p id="description1" class="mb-4 pb-2 h-20 overflow-hidden">
-                                        Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-                                        placerat vulputate. Ut vulputate est non quam dignissim
-                                        elementum. Donec a ullamcorper diam.Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-                                        placerat vulputate. Ut vulputate est non quam dignissim
-                                        elementum. Donec a ullamcorper diam.
-                                        Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-                                        placerat vulputate. Ut vulputate est non quam dignissim
-                                        elementum. Donec a ullamcorper diam.Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-                                        placerat vulputate. Ut vulputate est non quam dignissim
-                                        elementum. Donec a ullamcorper diam.
+                                        Klasyczna kuchnia składająca się z białych frontów laminowanych w połączeniu z eleganckim i trwałym ciemnym blatem dębowym.
+                                        Jeśli jesteś zainteresowany/a podobnym projektem <a href="/order-specialist?productId=50001" class="font-bold">
+                                            kliknij tutaj
+                                        </a> aby umówić wizytę naszego specjalisty.
                                     </p>
                                     <button id="showMoreBtn1" onclick="showMore(1)" data-te-ripple-init data-te-ripple-color="light"
                                        class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
@@ -338,28 +366,28 @@
                         </div>
 
                         <div class="mb-6 lg:mb-0">
-                            <div class="relative block rounded-lg bg-neutral-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+                            <div class="relative block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                                 <div class="flex">
                                     <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
                                             data-te-ripple-init data-te-ripple-color="light">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp" class="w-full" />
-                                        <a href="#!">
+                                        <img src="/upload/project/projekt2.jpg" class="w-full" />
+                                        <a href="/upload/project/projekt2.jpg">
                                             <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <h5 class="mb-3 text-lg font-bold">Projekt #2</h5>
                                     <p class="mb-4 text-neutral-500">
-                                        <small>Projekt by Imię Nazwisko</small>
+                                        <small>Projekt by Milena</small>
                                     </p>
                                     <p id="description2" class="mb-4 pb-2 h-20 overflow-hidden">
-                                        Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-                                        diam orci, nec ornare metus semper sed. Integer volutpat
-                                        ornare erat sit amet rutrum.Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-                                        diam orci, nec ornare metus semper sed. Integer volutpat
-                                        ornare erat sit amet rutrum.
+                                        Nowoczesna kuchnia składająca się z dwóch rodzajów frontów, białych klasycznych oraz z dębowych, a to wszystko skomponowane jest z trwałym dębowym
+                                        blatem.
+                                        Jeśli jesteś zainteresowany/a podobnym projektem <a href="/order-specialist?productId=50002" class="font-bold">
+                                            kliknij tutaj
+                                        </a> aby umówić wizytę naszego specjalisty.
                                     </p>
                                     <button id="showMoreBtn2" onclick="showMore(2)" data-te-ripple-init data-te-ripple-color="light"
                                             class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
@@ -376,28 +404,27 @@
                         </div>
 
                         <div class="mb-0">
-                            <div class="relative block rounded-lg bg-neutral-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+                            <div class="relative block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                                 <div class="flex">
                                     <div class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
                                             data-te-ripple-init data-te-ripple-color="light">
-                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/081.webp" class="w-full" />
-                                        <a href="#!">
+                                        <img src="/upload/project/projekt3.jpg" class="w-full" />
+                                        <a href="/upload/project/projekt3.jpg">
                                             <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="p-6">
-                                    <h5 class="mb-3 text-lg font-bold">Nazwa projektu</h5>
+                                    <h5 class="mb-3 text-lg font-bold">Projekt #3</h5>
                                     <p class="mb-4 text-neutral-500">
-                                        <small>Projekt by Imię Nazwisko</small>
+                                        <small>Projekt by Grzegorz</small>
                                     </p>
                                     <p id="description3" class="mb-4 pb-2 h-20 overflow-hidden">
-                                        Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-                                        diam orci, nec ornare metus semper sed. Integer volutpat
-                                        ornare erat sit amet rutrum.Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-                                        diam orci, nec ornare metus semper sed. Integer volutpat
-                                        ornare erat sit amet rutrum.
+                                        Klasyczna kuchnia dla Pani Moniki składająca się z białych frontów laminowanych w połączeniu z eleganckim i trwałym naturalnym blatem dębowym.
+                                        Jeśli jesteś zainteresowany/a podobnym projektem <a href="/order-specialist?productId=50003" class="font-bold">
+                                            kliknij tutaj
+                                        </a> aby umówić wizytę naszego specjalisty.
                                     </p>
                                     <button id="showMoreBtn3" onclick="showMore(3)" data-te-ripple-init data-te-ripple-color="light"
                                             class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white
@@ -414,9 +441,48 @@
                         </div>
                     </div>
                 </section>
-                <!-- Section: Design Block -->
             </div>
+            <!-- Container for how we do it -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
+                <!-- Kolumna 1: Opis -->
+                <div class="col-span-1 md:col-span-1">
+                    <h1 class="text-xl font-bold mb-4 text-black">JAK PRACUJEMY?</h1>
+                    <p class="text-sm sm:text-base text-gray-700">
+                        Oferujemy szeroką gamę usług dostosowanych do Twoich potrzeb.
+                        Nasze meble są projektowane z pasją i precyzją, aby idealnie pasowały do Twojego wnętrza.
+                        Przy pomocy 3 kroków pokażemy Ci jak to wszystko przebiega od zamówienia wizyty, aż po sam montaż.
+                    </p>
+                </div>
 
+                <!-- Kolumna 2: Krok 1 -->
+                <div class="col-span-1 md:col-span-1 bg-white p-4 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-2">Krok 1</h3>
+                    <h4 class="text-2xs font-semibold mb-2">Pomiar pomieszczenia</h4>
+                    <p class="text-sm text-gray-600">Po wybraniu wzoru kuchni i
+                        <a href="/gallery" class="font-bold">umówieniu wizyty naszego specjalisty</a> zostaje ustalony dogodny
+                        dla Państwa termin w którym pracownik przyjedzie i dokona wszystkich niezbędnych pomiarów pomieszczenia, a także
+                        wysłucha Państwa sugestii, które zostaną ujęte w projekcie.
+                    </p>
+                </div>
+
+                <!-- Kolumna 3: Krok 2 -->
+                <div class="col-span-1 md:col-span-1 bg-white p-4 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-2">Krok 2</h3>
+                    <h4 class="text-2xs font-semibold mb-2">Wstępny projekt</h4>
+                    <p class="text-sm text-gray-600">Nasz projektant uwzględniając wszystkie pomiary oraz Państwa sugestie sporządzi
+                        wstępny projekt, który zostanie Państwu udostępniony wraz ze wstępną wyceną. Po naniesienu ewentualnych poprawek
+                        zostanie sporządzony projekt finalny.</p>
+                </div>
+
+                <!-- Kolumna 4: Krok 3 -->
+                <div class="col-span-1 md:col-span-1 bg-white p-4 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-2">Krok 3</h3>
+                    <h4 class="text-2xs font-semibold mb-2">Montaż</h4>
+                    <p class="text-sm text-gray-600">Po pełnej akceptacji projektu finalnego zostanie przedstawiona
+                        ostateczna wycena mebli wraz z montażem. Po wpłacie zaliczki zostanie podany przewidywany termin ukończenia produkcji mebli.
+                        Gdy już wszystko będzie gotowe to zostanie ustalony dogodny dla Państwa termin montażu.</p>
+                </div>
+            </div>
         {% endblock %}
     </div>
 </body>
@@ -424,10 +490,8 @@
 {% block footer %}
     <!-- Footer container -->
     <footer class="bg-gray-800 text-center text-neutral-600 lg:text-left py-4 bottom-0 w-full">
-        <!-- Main container div: holds the entire content of the footer, including four sections (TW elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
         <div class="mx-10 py-10 text-center md:text-left">
             <div class="grid-1 grid gap-4 md:grid-cols-3 lg:grid-cols-5">
-                <!-- TW elements section -->
                 <div class="">
                     <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start text-neutral-200">
                         Zobacz nas
@@ -496,7 +560,8 @@
                         O nas
                     </h6>
                     <p class="text-neutral-200">
-                        Opis...
+                        Jesteśmy firmą specjalizującą się w tworzeniu mebli na wymiar.
+                        Z 7-letnim doświadczeniem dostarczamy rozwiązania, które łączą funkcjonalność z estetyką, idealnie dopasowane do potrzeb naszych klientów.
                     </p>
                 </div>
                 <!-- Products section -->
@@ -587,8 +652,8 @@
 
         <!--Copyright section-->
         <div class="bg-gray-900 p-6 text-center">
-            <span>© 2024 Copyright:</span>
-            <a class="font-semibold text-neutral-400" href="">Mateusz Mroczkowski</a>
+            <span>© 2025 Copyright:</span>
+            <a class="font-semibold text-neutral-400" href="mailto:matemrocz@gmail.com">Mateusz Mroczkowski</a>
         </div>
     </footer>
 {% endblock %}
