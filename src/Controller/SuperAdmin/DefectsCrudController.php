@@ -22,12 +22,16 @@ class DefectsCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            TextField::new('email'),
             IntegerField::new('defectNumber'),
-            TextField::new('description'),
+            TextField::new('name'),
+            TextField::new('surname'),
+            TextField::new('email'),
             TextField::new('numberPhone'),
+            TextField::new('visitNumber'),
+            TextField::new('description'),
             TextField::new('createdDate'),
             TextField::new('status'),
+            TextField::new('userComment'),
             TextField::new('adminComment'),
         ];
     }

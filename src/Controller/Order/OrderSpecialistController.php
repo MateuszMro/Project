@@ -41,7 +41,6 @@ class OrderSpecialistController extends AbstractController
 
             $order->setVisitNumber($visitNumber);
             $order->setPrice('0');
-            $order->setPaymentStatus('DO ZAPŁATY');
             $order->setStatus('USTALANIE TERMINU');
             $currentDateTime = new \DateTime();
             $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');

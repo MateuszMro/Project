@@ -3,6 +3,7 @@
 namespace App\Controller\Defects;
 
 use App\Entity\Defects;
+use App\Entity\OrderSpecialist;
 use App\Form\DefectForm;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -32,104 +33,114 @@ class DefectsController extends AbstractController
                 $userPhone = $form->get('numberPhone')->getData();
                 $userDescription = $form->get('description')->getData();
                 $statusDefect = 'OTWARTE';
+                $visitNumber = $form->get('visitNumber')->getData();
 
-                $currentDateTime = new \DateTime();
-                $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');
+                $existingVisitNumber = $entityManager->getRepository(OrderSpecialist::class)->findOneBy(['visitNumber'=>$visitNumber]);
 
-                    do{
-                        //Numer zgłoszenia
-                        $userDefectNumber = mt_rand(100000000000,999999999999);
+                if(!$existingVisitNumber || $userEmail !== $existingVisitNumber->getEmail()){
+                    $this->addFlash('error','Podany numer wizyty nie istnieje.');
+                }
+                else{
 
-                        //Czy już takiego nie ma
-                        $existingUserDefectNumber = $entityManager->getRepository(Defects::class)->findOneBy(['defectNumber' => $userDefectNumber]);
-                    }while($existingUserDefectNumber);
+                    $currentDateTime = new \DateTime();
+                    $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');
 
-                $defect->setDefectNumber($userDefectNumber);
-                $defect->setEmail($userEmail);
-                $defect->setNumberPhone($userPhone);
-                $defect->setDescription($userDescription);
-                $defect->setStatus($statusDefect);
-                $defect->setCreatedDate($currentFormatDateTime);
+                        do{
+                            //Numer zgłoszenia
+                            $userDefectNumber = mt_rand(100000000000,999999999999);
 
-                $entityManager->persist($defect);
-                $entityManager->flush();
+                            //Czy już takiego nie ma
+                            $existingUserDefectNumber = $entityManager->getRepository(Defects::class)->findOneBy(['defectNumber' => $userDefectNumber]);
+                        }while($existingUserDefectNumber);
 
+                    $defect->setDefectNumber($userDefectNumber);
+                    $defect->setEmail($userEmail);
+                    $defect->setNumberPhone($userPhone);
+                    $defect->setDescription($userDescription);
+                    $defect->setStatus($statusDefect);
+                    $defect->setCreatedDate($currentFormatDateTime);
 
-                //Wysłanie maila z potwierdzeniem do użytkownika
-                $mail = new PHPMailer();
-                //Konfiguracja serwera SMTP
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 465;
-                $mail->CharSet = 'UTF-8';
-                $mail->SMTPSecure = 'ssl';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'melbe.na.zamowienie@gmail.com';
-                $mail->Password = 'wrowloijuocfypel';
-
-                //Ustawienia wiadomości
-                $mail->setFrom('melbe.na.zamowienie@gmail.com', 'Kuchnie');
-                $mail->addReplyTo('melbe.na.zamowienie@gmail.com', 'Support');
-                $mail->addAddress($userEmail);
-
-                //Treść wiadomości
-                $mail->isHTML(true);
-                $mail->Subject = 'Zgłoszenie #'.$userDefectNumber;
-                $mail->Body = "<html>
-                                         <head>
-                                         </head>
-                                         <body>
-                                             <h2 class='font-bold text-5xl'>Twoje zgłoszenie zostało przyjęte. Oczekuj na kontakt telefoniczny naszego pracownika
-                                             lub odpowiedź na podany adres e-mail.</h2>
-                                             <h2>Numer zgłoszenia: $userDefectNumber</h2>
-                                         </body>
-                                         </html>
-                                           ";
-
-                //Wysłanie e-maila
-                $mail->send();
+                    $entityManager->persist($defect);
+                    $entityManager->flush();
 
 
-                // Wysłanie drugiego maila
+                    //Wysłanie maila z potwierdzeniem do użytkownika
+                    $mail = new PHPMailer();
+                    //Konfiguracja serwera SMTP
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Port = 465;
+                    $mail->CharSet = 'UTF-8';
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'melbe.na.zamowienie@gmail.com';
+                    $mail->Password = 'wrowloijuocfypel';
 
-                //Wysłanie maila informującego dział techniczny o nowym zgłoszeniu
-                $mail = new PHPMailer();
-                //Konfiguracja serwera SMTP
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 465;
-                $mail->CharSet = 'UTF-8';
-                $mail->SMTPSecure = 'ssl';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'melbe.na.zamowienie@gmail.com';
-                $mail->Password = 'wrowloijuocfypel';
+                    //Ustawienia wiadomości
+                    $mail->setFrom('melbe.na.zamowienie@gmail.com', 'Kuchnie');
+                    $mail->addReplyTo('melbe.na.zamowienie@gmail.com', 'Support');
+                    $mail->addAddress($userEmail);
 
-                //Ustawienia wiadomości
-                $mail->setFrom('melbe.na.zamowienie@gmail.com', 'Kuchnie');
-                $mail->addReplyTo('melbe.na.zamowienie@gmail.com', 'Support');
-                $mail->addAddress('matemrocz@gmail.com');
+                    //Treść wiadomości
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Zgłoszenie #'.$userDefectNumber;
+                    $mail->Body = "<html>
+                                             <head>
+                                             </head>
+                                             <body>
+                                                 <h2 class='font-bold text-5xl'>Twoje zgłoszenie zostało przyjęte. Oczekuj na kontakt telefoniczny naszego pracownika
+                                                 lub odpowiedź na podany adres e-mail.</h2>
+                                                 <h2>Numer zgłoszenia: $userDefectNumber</h2>
+                                             </body>
+                                             </html>
+                                               ";
 
-                //Treść wiadomości
-                $mail->isHTML(true);
-                $mail->Subject = 'Przyjęto nowe zgłoszenie #'.$userDefectNumber;
-                $mail->Body = "<html>
-                                         <head>
-                                         </head>
-                                         <body>
-                                             <h2 class='font-bold text-5xl'>Przyjęto nowe zgłoszenie od użytkownika o adresie e-mail: <strong>$userEmail</strong>
-                                              i numerze telefonu: <strong>$userPhone</strong></h2>
-                                             <h2>Numer zgłoszenia: $userDefectNumber</h2>
-                                             <h2>Treść zgłoszenia: <br> $userDescription</h2>
-                                         </body>
-                                         </html>
-                                           ";
+                    //Wysłanie e-maila
+                    $mail->send();
 
-                //Wysłanie e-maila
-                $mail->send();
 
-                return $this->render('info-pages/defect-sent.html.twig', [
-                    'email' => $userEmail,
-                ]);
+                    // Wysłanie drugiego maila
+
+                    //Wysłanie maila informującego dział techniczny o nowym zgłoszeniu
+                    $mail = new PHPMailer();
+                    //Konfiguracja serwera SMTP
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Port = 465;
+                    $mail->CharSet = 'UTF-8';
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'melbe.na.zamowienie@gmail.com';
+                    $mail->Password = 'wrowloijuocfypel';
+
+                    //Ustawienia wiadomości
+                    $mail->setFrom('melbe.na.zamowienie@gmail.com', 'Kuchnie');
+                    $mail->addReplyTo('melbe.na.zamowienie@gmail.com', 'Support');
+                    $mail->addAddress('matemrocz@gmail.com');
+
+                    //Treść wiadomości
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Przyjęto nowe zgłoszenie #'.$userDefectNumber;
+                    $mail->Body = "<html>
+                                             <head>
+                                             </head>
+                                             <body>
+                                                 <h2 class='font-bold text-5xl'>Przyjęto nowe zgłoszenie od użytkownika o adresie e-mail: <strong>$userEmail</strong>
+                                                  i numerze telefonu: <strong>$userPhone</strong></h2>
+                                                 <h2>Numer zgłoszenia: $userDefectNumber</h2>
+                                                 <h2>Treść zgłoszenia: <br> $userDescription</h2>
+                                             </body>
+                                             </html>
+                                               ";
+
+                    //Wysłanie e-maila
+                    $mail->send();
+
+                    return $this->render('info-pages/defect-sent.html.twig', [
+                        'email' => $userEmail,
+                    ]);
+                }
+
 
 
             }

@@ -14,6 +14,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class ListDefectsController extends AbstractController
 {
     #[Route('/list-defects', name: 'app_list_defects')]
+    #[IsGranted('ROLE_USER')]
     public function index(EntityManagerInterface $entityManager, Request $request): Response
     {
         $user = $this->getUser();
@@ -31,6 +32,7 @@ class ListDefectsController extends AbstractController
         ]);
     }
     #[Route('/list-defects/{id}', name: 'app_list_defects_show')]
+    #[IsGranted('ROLE_USER')]
     public function listDefectsShow(int $id, EntityManagerInterface $entityManager, Defects $defect): Response
     {
 
@@ -45,6 +47,38 @@ class ListDefectsController extends AbstractController
 
         return $this->render('pages/list-defects-show.html.twig', [
             'defect' => $defect,
+        ]);
+    }
+    #[Route('/list-defect/{id}/cancel', name: 'app_list_defects_cancel')]
+    #[IsGranted('ROLE_USER')]
+    public function cancelMyOrder(int $id, EntityManagerInterface $entityManager, Defects $defects): Response
+    {
+
+        $defects = $entityManager->getRepository(Defects::class)->find($id);
+
+        $defects->setStatus('ANULOWANO PRZEZ KLIENTA');
+
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute('app_list_defects_show',[
+            'id'=>$defects->getId(),
+        ]);
+    }
+    #[Route('/list-defect{id}/add-comment', name: 'app_list_defect_comment', methods: 'POST')]
+    #[IsGranted('ROLE_USER')]
+    public function addUserComment(int $id, EntityManagerInterface $entityManager, Defects $defects, Request $request): Response
+    {
+
+        $defects = $entityManager->getRepository(Defects::class)->find($id);
+        $addComment = $request->request->get('adnotation');
+
+        $defects->setUserComment($addComment);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_list_defects_show',[
+            'id'=>$defects->getId(),
         ]);
     }
 

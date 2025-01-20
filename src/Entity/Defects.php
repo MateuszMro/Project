@@ -35,6 +35,18 @@ class Defects
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $adminComment = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $surname = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $visitNumber = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userComment = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -126,6 +138,54 @@ class Defects
     public function setAdminComment(?string $adminComment): static
     {
         $this->adminComment = $adminComment;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(?string $surname): static
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getVisitNumber(): ?string
+    {
+        return $this->visitNumber;
+    }
+
+    public function setVisitNumber(?string $visitNumber): static
+    {
+        $this->visitNumber = $visitNumber;
+
+        return $this;
+    }
+
+    public function getUserComment(): ?string
+    {
+        return $this->userComment;
+    }
+
+    public function setUserComment(?string $userComment): static
+    {
+        $this->userComment = $userComment;
 
         return $this;
     }

@@ -26,6 +26,22 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
+                            Imię
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ defect.name }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Nazwisko
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ defect.surname }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
                             Adres e-mail
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -42,10 +58,10 @@
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Data utworzenia
+                            Numer wizyty specjalisty
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ defect.createdDate }}
+                            {{ defect.visitNumber }}
                         </dd>
                     </div>
                     <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -68,6 +84,50 @@
                             {% else %}
                                 <strong class="font-bold text-red-600">{{ defect.status }}</strong>
                             {% endif %}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Data utworzenia
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ defect.createdDate }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adnotacja klienta
+                        </dt>
+                        <dd class="mt-1 font-bold text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ defect.userComment }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Adnotacja pracownika obsługi
+                        </dt>
+                        <dd class="mt-1 font-bold text-blue-700 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ defect.adminComment }}
+                        </dd>
+                    </div>
+                    <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Akcje
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {% if defect.status == 'OTWARTE' %}
+                                <form method="post" action="{{ path('app_list_defects_cancel', {'id': defect.id}) }}">
+                                    <button type="submit" class="text-red-600 font-bold">ANULUJ ZGŁOSZENIE</button>
+                                </form>
+
+                            {% endif %}
+                            <form class="mt-2" method="post" action="{{ path('app_list_defect_comment', {'id': defect.id}) }}" onsubmit="return confirm('Czy na pewno chcesz dodać adnotację?');">
+                                <div class="form-group">
+                                    <label for="adnotation" class="text-yellow-600 font-bold mt-2">ADNOTACJA:</label>
+                                    <input type="text" class="placeholder-gray-500 border" placeholder="Adnotacja" id="adnotation" name="adnotation">
+                                </div>
+                                <button type="submit" class="text-yellow-600 font-bold mt-2">DODAJ ADNOTACJĘ</button>
+                            </form>
                         </dd>
                     </div>
                 </dl>

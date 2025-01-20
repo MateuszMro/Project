@@ -53,7 +53,6 @@ class ReturnProductController extends AbstractController
             if(!$existingOrderNumber){
                 $this->addFlash('error', 'Zamówienie o podanym numerze nie istnieje.');
 
-
             }
             elseif ($existingReturn){
                 $this->addFlash('error', 'Zwrot o podanym numerze zamówienia został już zrobiony.');

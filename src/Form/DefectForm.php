@@ -16,6 +16,38 @@ class DefectForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('name', TextType::class, [
+                'label' => 'Imię',
+                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
+                'error_bubbling' => true,
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Podaj swoje imię',
+                    ]),
+                    new Assert\Length([
+                        'min' => 1,
+                        'minMessage' => 'Twoje imię musi mieć minimum {{ limit }} znak.',
+                        'max' => 20,
+                        'maxMessage' => 'Twoje imię nie może mieć więcej niż {{ limit }} znaków.'
+                    ]),
+                ],
+            ])
+            ->add('surname', TextType::class, [
+                'label' => 'Nazwisko',
+                'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
+                'error_bubbling' => true,
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Podaj swoje nazwisko',
+                    ]),
+                    new Assert\Length([
+                        'min' => 1,
+                        'minMessage' => 'Twoje nazwisko musi mieć minimum {{ limit }} znak.',
+                        'max' => 20,
+                        'maxMessage' => 'Twoje nazwisko nie może mieć więcej niż {{ limit }} znaków.'
+                    ]),
+                ],
+            ])
             ->add('numberPhone', TextType::class, [
                 'label' => 'Numer telefonu',
                 'error_bubbling' => true,
@@ -33,10 +65,25 @@ class DefectForm extends AbstractType
                     ]),
                 ],
             ])
+            ->add('visitNumber', IntegerType::class, [
+                'error_bubbling' => true,
+                'required' => false,
+                'label' => false,
+                'constraints' => [
+                    new Assert\Positive([
+                        'message' => 'Numer wizyty musi być liczbą dodatnią.',
+                    ]),
+                    new Assert\Length([
+                        'min' => 12,
+                        'max' => 12,
+                        'exactMessage' => 'Numer wizyty składa się z {{ limit }} cyfr.',
+                    ]),
+                ],
+            ])
 
             ->add('description', TextareaType::class, [
                 'attr' => ['rows' => 10],
-                'label' => 'Opis problemu',
+                'label' => 'Opis usterki',
                 'label_attr' => ['class' => 'block text-gray-700 font-bold mb-1'],
                 'required' => true,
             ]);
