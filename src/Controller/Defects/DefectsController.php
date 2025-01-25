@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function PHPUnit\Framework\isEmpty;
 
 class DefectsController extends AbstractController
 {
@@ -34,22 +35,20 @@ class DefectsController extends AbstractController
                 $userDescription = $form->get('description')->getData();
                 $statusDefect = 'OTWARTE';
                 $visitNumber = $form->get('visitNumber')->getData();
-
                 $existingVisitNumber = $entityManager->getRepository(OrderSpecialist::class)->findOneBy(['visitNumber'=>$visitNumber]);
 
                 if(!$existingVisitNumber || $userEmail !== $existingVisitNumber->getEmail()){
                     $this->addFlash('error','Podany numer wizyty nie istnieje.');
                 }
-                else{
+                else {
 
                     $currentDateTime = new \DateTime();
                     $currentFormatDateTime = $currentDateTime->format('d-m-Y H:i:s');
 
                         do{
-                            //Numer zgłoszenia
+
                             $userDefectNumber = mt_rand(100000000000,999999999999);
 
-                            //Czy już takiego nie ma
                             $existingUserDefectNumber = $entityManager->getRepository(Defects::class)->findOneBy(['defectNumber' => $userDefectNumber]);
                         }while($existingUserDefectNumber);
 

@@ -3,25 +3,23 @@
 {% block title %}Logowanie{% endblock %}
 
 {% block content %}
-    <section class="bg-gray-900 rounded-lg container my-24 mx-auto md:px-6">
+    <section class="bg-gray-900 rounded-lg container my-24" style="background-image: url('/upload/gallery/10010.jpg')">
         <div class="container h-full px-6 py-24">
-            <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+            <div class="flex h-full flex-wrap items-center justify-center lg:justify-between">
                 <!-- Left column container with background-->
-                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
-                    <img src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                         class="w-full"
-                         alt="Phone image" />
+                <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12 w-full">
+
                 </div>
 
                 <!-- Right column container with form -->
-                <div class="md:w-8/12 lg:ml-6 lg:w-5/12 bg-gray-800 px-14 py-14 rounded-lg">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl py-12 flex justify-center">
+                <div class="md:w-8/12 lg:ml-6 lg:w-5/12 bg-white/30 px-14 py-14 rounded-lg" style="backdrop-filter: blur(8px)">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl py-12 flex justify-center">
                         Logowanie
                     </h1>
                     <form method="post">
                         <!-- Email input -->
                         <div class="relative mb-6" data-te-input-wrapper-init>
-                            <label for="email" class="block text-base font-medium text-white">E-mail</label>
+                            <label for="email" class="block text-base font-medium text-black">E-mail</label>
                             <input
                                     type="email"
                                     value="{{ last_username }}"
@@ -39,7 +37,7 @@
 
                         <!-- Password input -->
                         <div class="relative mb-6" data-te-input-wrapper-init>
-                            <label for="password" class="block text-base font-medium text-white">Hasło</label>
+                            <label for="password" class="block text-base font-medium text-black">Hasło</label>
                             <input
                                     type="password"
                                     name="password"
@@ -70,7 +68,7 @@
                                  dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                             Zaloguj
                         </button>
-                        <div class="mt-5 text-blue-300 flex justify-between">
+                        <div class="mt-5 text-black flex justify-between">
                             <div>
                                 <a href="/reset-password" class="ease-in-out hover:scale-110">Nie pamiętasz hasła?</a>
                             </div>

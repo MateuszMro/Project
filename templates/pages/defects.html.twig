@@ -1,19 +1,19 @@
 {% extends 'pages/home.html.twig' %}
 
-{% block title %}Zgłoszenia{% endblock %}
+{% block title %}Zgłoszenie usterki{% endblock %}
 
 
 
 
 {% block content %}
-    <div id="" class="container my-24 mx-auto md:px-6 w-[600px] text-white rounded-lg">
-        <div class="bg-white overflow-hidden shadow rounded-lg border">
+    <div id="" class="container my-24 mx-auto md:px-6 md:py-6 w-full text-white rounded-lg flex justify-center" style="background-image: url('/upload/gallery/10060.jpg')">
+        <div class="bg-white/30 overflow-hidden shadow rounded-lg border w-[600px] my-10" style="backdrop-filter: blur(8px)">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
                     Zgłoszenie usterki
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Poniżej znajduje się formularz dotyczący zgłoszenia ujawnionej usterki..
+                    Poniżej znajduje się formularz dotyczący zgłoszenia ujawnionej usterki w realizowanym bądź zrealizowanym projekcie.
                 </p>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     Jeśli chcesz zobaczyć swoje zgłoszenia <a href="/list-defects" class="text-blue-500 font-bold underline">kliknij tutaj</a>
@@ -43,9 +43,9 @@
                     </div>
                     <div class="mb-2 ">
                         <div class=" font-medium text-gray-500 flex items-center space-x-2">
-                            <label data-tooltip-placement="right" data-tooltip-target="tooltip-no-arrow1" type="button" class="flex items-center hover:bg-blue-800 focus:ring-4
-                                focus:outline-none focus:ring-blue-300 rounded-lg dark:bg-blue-600
-                                dark:hover:bg-blue-700 dark:focus:ring-blue-800 block text-gray-700 font-bold mb-1">
+                            <label data-tooltip-placement="bottom" data-tooltip-target="tooltip-no-arrow1" type="button" class="flex items-center focus:ring-4
+                                focus:outline-none focus:ring-blue-300
+                                dark:focus:ring-blue-800 block text-gray-700 font-bold mb-1">
                                 Numer zamówienia wizyty specjalisty
                                 <div class="flex items-center justify-center w-5 h-5 font-bold text-blue-700 rounded-full ml-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,10 +54,10 @@
                                 </div>
                             </label>
                             <div id="tooltip-no-arrow1" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                Tylko gdy usterka dotyczny realizacji projektu.
+                                Numer wizyty w której ujawniono usterkę w trakcie/po realizacji projektu.
                             </div>
                         </div>
-                        <p data-tooltip-target="tooltip-no-arrow2" type="button" class="flex items-center text-gray-500 hover:bg-blue-800 focus:ring-4
+                        <p data-tooltip-target="tooltip-no-arrow1" type="button" class="flex items-center text-gray-500 hover:bg-blue-800 focus:ring-4
                                 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm dark:bg-blue-600
                                 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             {{ form_row(defectsForm.visitNumber, {'attr': {
@@ -73,18 +73,18 @@
                                     focus:shadow-outline border-black'}}) }}
                     </div>
 
+                    <div class="mt-2">
+                        {% for error in defectsForm.vars.errors %}
+                            <div class="text-red-500 text-xs font-bold">{{ error.message }}</div>
+                        {% endfor %}
+                        {% for flashMessage in app.flashes('error') %}
+                            <div class="text-red-500 text-xs font-bold">{{ flashMessage }}</div>
+                        {% endfor %}
+                    </div>
                     <button type="submit" class="mb-2 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium
                                     rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Wyślij zgłoszenie
                     </button>
-                    <div class="mb-4">
-                        {% for error in defectsForm.vars.errors %}
-                            <div class="alert alert-danger mt-3 text-red-600 font-bold">{{ error.message }}</div>
-                        {% endfor %}
-                        {% for flashMessage in app.flashes('error') %}
-                            <div class="mb-2 alert alert-danger mt-3 text-red-600 font-bold">{{ flashMessage }}</div>
-                        {% endfor %}
-                    </div>
                 </div>
                 {{ form_end(defectsForm) }}
             </div>

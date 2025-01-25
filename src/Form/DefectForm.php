@@ -65,7 +65,7 @@ class DefectForm extends AbstractType
                     ]),
                 ],
             ])
-            ->add('visitNumber', IntegerType::class, [
+            ->add('visitNumber', TextType::class, [
                 'error_bubbling' => true,
                 'required' => false,
                 'label' => false,
