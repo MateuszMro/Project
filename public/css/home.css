@@ -54,41 +54,6 @@
 }
 
 
-
-
-
-#offer{
-
-}
-
-#gallery p{
-    font-family: Oswald, sans-serif;
-    font-size: 17px;
-    color: black;
-    text-transform: uppercase;
-    border: 3px solid black;
-    border-radius: .2em;
-    text-align: center;
-    margin-top: 10px;
-    display: block;
-    margin-right: 55%;
-}
-.kitchen_1{
-    display: flex;
-    justify-content: start;
-}
-
-.offer_content p{
-    display: flex;
-    justify-content: start;
-    margin-right: 50%;
-}
-.footer{
-    background: bisque;
-    font-size: 13px;
-    padding: 100px 50px 100px 70px;
-}
-
 .contact_box{
     padding: 150px 50px 200px 70px;
     background: #888888;
@@ -104,10 +69,4 @@
     color: white;
     text-decoration: none;
     margin-left: 5rem;
-}
-
-.footer p{
-    display: flex;
-    justify-content: start;
-    align-items: end;
 }
